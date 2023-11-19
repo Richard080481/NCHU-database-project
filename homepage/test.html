@@ -1,26 +1,58 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Bar Enter Event</title>
+    <title>Language Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #searchInput {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
-    <input type="text" id="searchBar" placeholder="輸入搜尋內容">
-
+    <label for="searchInput">Enter text:</label>
+    <input type="text" id="searchInput" placeholder="Type here...">
+    
     <script>
-        // Get the search bar element
-        var searchBar = document.getElementById("searchBar");
+        const searchInput = document.getElementById('searchInput');
 
         // Add an event listener for the "keydown" event
-        searchBar.addEventListener("keydown", function(event) {
+        searchInput.addEventListener('keydown', function(event) {
             // Check if the pressed key is "Enter" (key code 13)
             if (event.keyCode === 13) {
-                // Execute your search function or any other action here
-                alert("你按下了Enter鍵，可以在這裡執行搜尋功能。");
+                // Call the function to check if the entered text is English
+                checkLanguage();
             }
         });
+
+        function checkLanguage() {
+            const enteredText = searchInput.value;
+            
+            // Regular expression to match English letters
+            const englishRegex = /^[A-Za-z]+$/;
+
+            // Test if the entered text contains only English letters
+            if (englishRegex.test(enteredText)) {
+                alert('The entered text is in English.');
+            } else {
+                alert('The entered text is not in English.');
+            }
+
+            // Clear the search input
+            searchInput.value = '';
+        }
     </script>
 
 </body>

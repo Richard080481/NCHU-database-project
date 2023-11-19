@@ -43,11 +43,19 @@ $(document).ready(function(){
 		//=============
 
 		$('li.smooth-menu a').bind("click", function(event) {
+			// Prevent the default behavior of the link
 			event.preventDefault();
-			var anchor = $(this);
-			$('html, body').stop().animate({
-				scrollTop: $(anchor.attr('href')).offset().top - 0
-			}, 1200,'easeInOutExpo');
+
+			// Get the href attribute of the clicked link
+			var linkUrl = $(this).attr('href');
+		
+			// Open a new window with the link URL
+			window.open(linkUrl, '_blank');
+			// event.preventDefault();
+			// var anchor = $(this);
+			// $('html, body').stop().animate({
+			// 	scrollTop: $(anchor.attr('href')).offset().top - 0
+			// }, 1200,'easeInOutExpo');
 		});
 		
 		$('body').scrollspy({
