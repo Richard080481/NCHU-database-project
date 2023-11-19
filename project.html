@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search</title>
+</head>
+<body>
+    <label for="searchInput">Enter search keywords:</label>
+    <input type="text" id="searchInput" placeholder="e.g., programming languages">
+    <button onclick="searchGoogle()">Search</button>
+
+    <script>
+        function searchGoogle() {
+            var searchQuery = encodeURIComponent(document.getElementById('searchInput').value);
+            var searchURL = 'https://www.google.com/search?q=' + searchQuery;
+
+            // 開啟新分頁
+            window.open(searchURL, '_blank');
+        }
+    </script>
+</body>
+</html>
