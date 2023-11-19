@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar Enter Event</title>
+</head>
+<body>
+
+    <input type="text" id="searchBar" placeholder="輸入搜尋內容">
+
+    <script>
+        // Get the search bar element
+        var searchBar = document.getElementById("searchBar");
+
+        // Add an event listener for the "keydown" event
+        searchBar.addEventListener("keydown", function(event) {
+            // Check if the pressed key is "Enter" (key code 13)
+            if (event.keyCode === 13) {
+                // Execute your search function or any other action here
+                alert("你按下了Enter鍵，可以在這裡執行搜尋功能。");
+            }
+        });
+    </script>
+
+</body>
+</html>
