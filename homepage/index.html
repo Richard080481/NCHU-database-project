@@ -154,43 +154,49 @@
 					<div class="col-md-12 text-center">
 						<div class="header-text">
 							<!--<h2>Welcome</h2>-->
-							<p for="searchBar">Google Search:</p> <br>
-							<input type="text" id="searchBar" placeholder="輸入搜尋內容(按Enter可進到Google主頁)">
-							<script>
-								const searchInput = document.getElementById('searchBar');
-								searchInput.addEventListener("keydown", function(event) {
-									// Check if the pressed key is "Enter" (key code 13)
-									if (event.keyCode === 13) {
-										// Execute your search function or any other action here
-										searchGoogle();
-									}
-								});
-							</script>
-							<p for="youtubeBar">Youtube Search:</p> <br>
-							<input type="text" id="youtubeBar" placeholder="輸入想搜尋的影片(按Enter可進到YT主頁)">
-							<script>
-								const youtubeInput = document.getElementById('youtubeBar');
-								youtubeInput.addEventListener("keydown", function(event) {
-									// Check if the pressed key is "Enter" (key code 13)
-									if (event.keyCode === 13) {
-										// Execute your search function or any other action here
-										searchYoutube();
-									}
-								});
-							</script>
-                            <p for="translateBar">Translate:</p>
-                            <input type="text" id="translateBar" placeholder="輸入想翻譯的文字(英翻中，其他語言翻英)">
-                            <script>
-                                const translateBar = document.getElementById('translateBar');
-                                // Add an event listener for the "keydown" event
-                                translateBar.addEventListener('keydown', function(event) {
-                                    // Check if the pressed key is "Enter" (key code 13)
-                                    if (event.keyCode === 13) {
-                                        // Call the function to check if the entered text is English
-                                        checkLanguage();
-                                    }
-                                });
-                            </script>                            
+							<div class="search">
+								<p for="searchBar">Google Search:</p> <br>
+								<input class="long-search-bar" type="text" id="searchBar" placeholder="輸入搜尋內容(按Enter可進到Google主頁)">
+								<script>
+									const searchInput = document.getElementById('searchBar');
+									searchInput.addEventListener("keydown", function(event) {
+										// Check if the pressed key is "Enter" (key code 13)
+										if (event.keyCode === 13) {
+											// Execute your search function or any other action here
+											searchGoogle();
+										}
+									});
+								</script>
+							</div>
+							<div class="search">
+								<p for="youtubeBar">Youtube Search:</p> <br>
+								<input class="short-search-bar" type="text" id="youtubeBar" placeholder="輸入想搜尋的影片(按Enter可進到YT主頁)">
+								<script>
+									const youtubeInput = document.getElementById('youtubeBar');
+									youtubeInput.addEventListener("keydown", function(event) {
+										// Check if the pressed key is "Enter" (key code 13)
+										if (event.keyCode === 13) {
+											// Execute your search function or any other action here
+											searchYoutube();
+										}
+									});
+								</script>
+							</div>
+							<div class="search">
+								<p for="translateBar">Translate:</p>
+								<input class="short-search-bar" type="text" id="translateBar" placeholder="輸入想翻譯的文字(英翻中，其他語言翻英)">
+								<script>
+									const translateBar = document.getElementById('translateBar');
+									// Add an event listener for the "keydown" event
+									translateBar.addEventListener('keydown', function(event) {
+										// Check if the pressed key is "Enter" (key code 13)
+										if (event.keyCode === 13) {
+											// Call the function to check if the entered text is English
+											checkLanguage();
+										}
+									});
+								</script>
+							</div>                         
 						</div><!--/.header-text-->
 					</div><!--/.col-->
 				</div><!-- /.row-->
@@ -198,136 +204,6 @@
 
 		</section><!--/.welcome-hero-->
 		<!--welcome-hero end -->
-
-
-
-		<!--profiles start -->
-		<section id="profiles">
-			<div class="profiles-details">
-				<div class="container">
-					<div>
-						<div class="row">
-							<div class="col-sm-3">
-								<div class="single-profile">
-									<div class="profile-txt">
-										<a href=""><img src="./assets/fonts/clouddrive.svg" width="24px" height="24px"></a>
-										<div class="profile-icon-name">Google Drive</div>
-									</div>
-									<div class="single-profile-overlay">
-										<div class="profile-txt">
-											<a href="https://drive.google.com/drive/u/0/my-drive"><img src="./assets/fonts/clouddriveafter.svg" width="24px" height="24px"></a>
-											<div class="profile-icon-name">Google Drive</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="single-profile">
-									<div class="profile-txt">
-											<a href="https://mail.google.com/mail/u"><img src="./assets/fonts/gmail.svg" width="24px" height="24px"></a>
-										<div class="profile-icon-name">Gmail</div>
-									</div>
-									<div class="single-profile-overlay">
-										<div class="profile-txt">
-											<a href="https://mail.google.com/mail/u"><img src="./assets/fonts/gmailafter.svg" width="24px" height="24px"></a>
-											<div class="profile-icon-name">Gmail</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="single-profile">
-									<div class="profile-txt">
-											<a href="https://www.google.com/maps"><img src="./assets/fonts/gmaps.svg" width="24px" height="24px"></a>
-										<div class="profile-icon-name">Google Map</div>
-									</div>
-									<div class="single-profile-overlay">
-										<div class="profile-txt">
-												<a href="https://www.google.com/maps"><img src="./assets/fonts/gmapsafter.svg" width="24px" height="24px"></a>
-											<div class="profile-icon-name">Google Map</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="single-profile profile-no-border">
-									<div class="profile-txt">
-										<a href="https://github.com"><i class="flaticon-github-logo"></i></a>
-										<div class="profile-icon-name">github</div>
-									</div>
-									<div class="single-profile-overlay">
-										<div class="profile-txt">
-											<a href="https://github.com"><i class="flaticon-github-logo"></i></a>
-											<div class="profile-icon-name">github</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="profile-border"></div>
-						<div class="row">
-							<div class="col-sm-3">
-								<div class="single-profile">
-									<div class="profile-txt">
-										<a href="https://metronom.us/en/"><i class="flaticon-flickr-website-logo-silhouette"></i></a>
-										<div class="profile-icon-name">metronom</div>
-									</div>
-									<div class="single-profile-overlay">
-										<div class="profile-txt">
-											<a href="https://metronom.us/en/"><i class="flaticon-flickr-website-logo-silhouette"></i></a>
-											<div class="profile-icon-name">metronom</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="single-profile">
-									<div class="profile-txt">
-										<a href="https://leetcode.com/"><img src="./assets/fonts/leetcode.svg" width="24px" height="24px"></a>
-										<div class="profile-icon-name">LeetCode</div>
-									</div>
-									<div class="single-profile-overlay">
-										<div class="profile-txt">
-											<a href="https://leetcode.com/"><img src="./assets/fonts/leetcodeafter.svg" width="24px" height="24px"></a>
-											<div class="profile-icon-name">LeetCode</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="single-profile">
-									<div class="profile-txt">
-										<a href="https://www.overleaf.com/project"><img src="./assets/fonts/overleaf.svg" width="24px" height="24px"></a>
-										<div class="profile-icon-name">OverLeaf</div>
-									</div>
-									<div class="single-profile-overlay">
-										<div class="profile-txt">
-											<a href="https://www.overleaf.com/project"><img src="./assets/fonts/overleafafter.svg" width="36px" height="36px"></a>
-											<div class="profile-icon-name">OverLeaf</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-3">
-								<div class="single-profile profile-no-border">
-									<div class="profile-txt">
-									<a href="https://en.cppreference.com/w/"><img src="./assets/fonts/cpp.svg" width="24px" height="34px"></a>
-									<div class="profile-icon-name">CppReference</div>
-									</div>
-									<div class="single-profile-overlay">
-										<div class="profile-txt">
-										<a href="https://en.cppreference.com/w/"><img src="./assets/fonts/cppafter.svg" width="24px" height="24px"></a>
-										<div class="profile-icon-name">CppReference</div>
-										</div>
-		m							</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!--profiles end -->
 
 		<!--calender start -->
 		<section>
@@ -501,11 +377,150 @@
 		</section>
 		<!--calender end -->
 
+		<!--profiles start -->
+		<section id="profiles">
+			<div class="profiles-details">
+				<div class="container">
+					<div>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+										<a href=""><img src="./assets/fonts/clouddrive.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">Google Drive</div>
+									</div>
+									<div class="single-profile-overlay">
+										<div class="profile-txt">
+											<a href="https://drive.google.com/drive/u/0/my-drive"><img src="./assets/fonts/clouddriveafter.svg" width="24px" height="24px"></a>
+											<div class="profile-icon-name">Google Drive</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+											<a href="https://mail.google.com/mail/u"><img src="./assets/fonts/gmail.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">Gmail</div>
+									</div>
+									<div class="single-profile-overlay">
+										<div class="profile-txt">
+											<a href="https://mail.google.com/mail/u"><img src="./assets/fonts/gmailafter.svg" width="24px" height="24px"></a>
+											<div class="profile-icon-name">Gmail</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+											<a href="https://www.google.com/maps"><img src="./assets/fonts/gmaps.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">Google Map</div>
+									</div>
+									<div class="single-profile-overlay">
+										<div class="profile-txt">
+												<a href="https://www.google.com/maps"><img src="./assets/fonts/gmapsafter.svg" width="24px" height="24px"></a>
+											<div class="profile-icon-name">Google Map</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile profile-no-border">
+									<div class="profile-txt">
+										<a href="https://github.com"><i class="flaticon-github-logo"></i></a>
+										<div class="profile-icon-name">github</div>
+									</div>
+									<div class="single-profile-overlay">
+										<div class="profile-txt">
+											<a href="https://github.com"><i class="flaticon-github-logo"></i></a>
+											<div class="profile-icon-name">github</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="profile-border"></div>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+										<a href="https://metronom.us/en/"><i class="flaticon-flickr-website-logo-silhouette"></i></a>
+										<div class="profile-icon-name">metronom</div>
+									</div>
+									<div class="single-profile-overlay">
+										<div class="profile-txt">
+											<a href="https://metronom.us/en/"><i class="flaticon-flickr-website-logo-silhouette"></i></a>
+											<div class="profile-icon-name">metronom</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+										<a href="https://leetcode.com/"><img src="./assets/fonts/leetcode.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">LeetCode</div>
+									</div>
+									<div class="single-profile-overlay">
+										<div class="profile-txt">
+											<a href="https://leetcode.com/"><img src="./assets/fonts/leetcodeafter.svg" width="24px" height="24px"></a>
+											<div class="profile-icon-name">LeetCode</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile">
+									<div class="profile-txt">
+										<a href="https://www.overleaf.com/project"><img src="./assets/fonts/overleaf.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">OverLeaf</div>
+									</div>
+									<div class="single-profile-overlay">
+										<div class="profile-txt">
+											<a href="https://www.overleaf.com/project"><img src="./assets/fonts/overleafafter.svg" width="36px" height="36px"></a>
+											<div class="profile-icon-name">OverLeaf</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="single-profile profile-no-border">
+									<div class="profile-txt">
+									<a href="https://en.cppreference.com/w/"><img src="./assets/fonts/cpp.svg" width="24px" height="34px"></a>
+									<div class="profile-icon-name">CppReference</div>
+									</div>
+									<div class="single-profile-overlay">
+										<div class="profile-txt">
+										<a href="https://en.cppreference.com/w/"><img src="./assets/fonts/cppafter.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">CppReference</div>
+										</div>
+		m							</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--profiles end -->
+
+		<!--side-->
+		<div class="sideMenu">
+			<nav>
+				<ul>
+					<li><a class="sideBtn" href="#"><img src='#' alt='icon' class='icon'>Home</a></li>
+					<li><a class="sideBtn" href="#"><img src='#' alt='icon' class='icon'>Calendar</a></li>
+					<li><a class="sideBtn" href="#"><img src='#' alt='icon' class='icon'>Timer</a></li>
+					<li><a class="sideBtn" href="#"><img src='#' alt='icon' class='icon'>Setting</a></li>
+				</ul>
+			</nav>
+		</div>
+
 		<div id="scroll-Top">
 			<div class="return-to-top">
-				<i class="fa fa-angle-up " id="scroll-top" ></i>
-			</div>
-				
+				<i class="fa fa-angle-up" id="scroll-top" ></i>
+			</div>	
 		</div><!--/.scroll-Top-->
 		
 		<!-- Include all js compiled plugins (below), or include individual files as needed -->
@@ -530,7 +545,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!--Custom JS-->
         <script src="assets/js/custom.js"></script>
-		
     </body>
 	
 </html>

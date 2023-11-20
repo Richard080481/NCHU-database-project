@@ -164,12 +164,37 @@ nav.navbar.bootsnav .navbar-toggle i{color: #9000a9;}
     display: flex;
     align-items: center;
     justify-content: center;
-    position:relative;
     background:url(../images/about/homepicture.jpg)no-repeat;
     background-size:cover;
     background-position: center;
-    height:680px;
+    height:500px;
+    position: relative;
+    top:3%;
+    left: 15%;
+    width: 70%;
 }
+/*
+ .search{
+    display: grid;
+    align-items: center;
+}
+
+.long-search-bar {
+    grid-row: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px;
+  }
+
+  .short-search-bar {
+    grid-row: 2;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px;
+  } 
+*/
 .welcome-hero:before{
     position:absolute;
     content: " ";
@@ -181,6 +206,15 @@ nav.navbar.bootsnav .navbar-toggle i{color: #9000a9;}
 }
 
 /*.header-text-area*/
+
+.header-text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
 .header-text h2 {
     color: #fff;
     font-size: 54px;
@@ -213,6 +247,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #9000a9;}
     -o-transition: 0.3s linear; 
     transition: 0.3s linear;
 }
+
 .header-text a:hover{ box-shadow: 0 5px 20px rgba(0,0,0,.4);background:#9f00ff;border: 1px solid #9f00ff;}
 /*.header-text-area*/
 
@@ -249,9 +284,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #9000a9;}
     font-size: 16px;
 }
 .single-profile.profile-no-border{border-right:transparent;}
-.profile-border {
 
-}
 .single-profile-overlay{
     display:flex;
     align-items:center;
@@ -337,4 +370,36 @@ nav.navbar.bootsnav .navbar-toggle i{color: #9000a9;}
     0%   {bottom:0px;}
     100%  {bottom:7px;}
 }
+
+/*===============================
+    Side
+===============================*/
+.sideMenu{
+    width:150px;
+    height: 100%;
+    background-color:#201f1d;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.742);
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top:0;
+}
+
+.sideMenu a{
+    display: block;
+    color: rgb(159, 151, 151);
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sideMenu a:hover{
+    background-color: #aaa0a0;
+    color: #fff;
+}
+.sideMenu a:hover .icon{
+    filter: invert(100%);
+}
+
 /*========================Thank you=================
