@@ -63,7 +63,7 @@ body.overlay:before {
 }
 html {
   height: 100%;
-  background: #201f1d;
+  background: #003567;
   color: #ffffff;
   font-size: 13px;
   font-family: 'Lato', sans-serif;
@@ -116,7 +116,7 @@ header {
   height: 80px;
   width: 100%;
   z-index: 50;
-  background: #201f1d;
+  background: #003567;
 }
 header > .wrapper {
   display: flex;
@@ -203,7 +203,7 @@ header > .wrapper a {
   width: 30px;
   height: 30px;
   padding: 9px 12px;
-  background-color: #201f1d;
+  background-color: #004b8f;
   cursor: pointer;
   z-index: 10;
   box-sizing: border-box;
@@ -231,14 +231,14 @@ header > .wrapper a {
 }
 .c-month .prev:hover {
   padding: 9px 10px;
-  background-color: #201f1d;
+  background-color: #0055a4;
 }
 .c-month .next {
   right: 0;
 }
 .c-month .next:hover {
   padding: 9px 14px;
-  background-color: #201f1d;
+  background-color: #0055a4;
 }
 .c-paginator__year {
   height: 80px;
@@ -250,7 +250,7 @@ header > .wrapper a {
   padding: 0 10px;
   line-height: 30px;
   height: 30px;
-  background-color: #201f1d;
+  background-color: #004b8f;
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 15px;
@@ -270,7 +270,7 @@ header > .wrapper a {
   margin-left: 10px;
 }
 .o-btn:hover {
-  background-color: #201f1d;
+  background-color: #0055a4;
 }
 .c-calendar {
   padding-top: 80px;
@@ -279,7 +279,7 @@ header > .wrapper a {
   flex-direction: row;
 }
 .c-calendar__style {
-  background-color: #201f1d;
+  background-color: #00407b;
   margin: 20px;
   padding: 10px;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.18);
@@ -389,19 +389,19 @@ header > .wrapper a {
   background: rgba(215, 16, 15, 0.2);
 }
 .c-cal__cel:nth-child(7) p {
-  background: #201f1d;
+  background: #003b71;
 }
 .c-cal__cel:hover {
   background-color: #004b8f !important;
 }
 .c-cal__cel:hover p {
-  background: #201f1d !important;
+  background: #003b71 !important;
 }
 .c-cal__cel.isSelected {
   background-color: #004b8f;
 }
 .c-cal__cel.isSelected p {
-  background: #201f1d;
+  background: #003b71;
 }
 .c-cal__cel.isToday {
   background-color: rgba(245, 113, 112, 0.2);
