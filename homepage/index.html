@@ -8,6 +8,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import Calender Font-->
+		<link rel="stylesheet" href="./assets/css/calender.css">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Home</title>
@@ -125,7 +127,7 @@
 			                    <li class="smooth-menu"><a href="https://idp.nchu.edu.tw/nidp/idff/sso?id=20&sid=5&option=credential&sid=5&target=https%3A%2F%2Fportal.nchu.edu.tw%2Fportal">興大入口</a></li>
 			                    <li class="smooth-menu"><a href="https://lms2020.nchu.edu.tw/">iLearning 3.0</a></li>
 			                    <li class="smooth-menu"><a href="https://chat.openai.com/">ChatGPT</a></li>
-			                    <li class="smooth-menu"><a href="https://github.com">GitHub</a></li>
+			                    <li class="smooth-menu"><a href="https://www.youtube.com/">Youtube</a></li>
 			                    <li class="smooth-menu"><a href="https://streetvoice.com/">StreetVoice</a></li>
 			                    <li class="smooth-menu"><a href="https://www.netflix.com">NetFlix</a></li>
 			                    <li class="smooth-menu"><a href="https://www.facebook.com/">facebook</a></li>
@@ -149,7 +151,7 @@
 						<div class="header-text">
 							<!--<h2>Welcome</h2>-->
 							<p for="searchBar">Google Search:</p> <br>
-							<input type="text" id="searchBar" placeholder="輸入搜尋內容">
+							<input type="text" id="searchBar" placeholder="輸入搜尋內容(按Enter可進到Google主頁)">
 							<script>
 								const searchInput = document.getElementById('searchBar');
 								searchInput.addEventListener("keydown", function(event) {
@@ -161,7 +163,7 @@
 								});
 							</script>
 							<p for="youtubeBar">Youtube Search:</p> <br>
-							<input type="text" id="youtubeBar" placeholder="輸入搜尋內容">
+							<input type="text" id="youtubeBar" placeholder="輸入想搜尋的影片(按Enter可進到YT主頁)">
 							<script>
 								const youtubeInput = document.getElementById('youtubeBar');
 								youtubeInput.addEventListener("keydown", function(event) {
@@ -173,7 +175,7 @@
 								});
 							</script>
                             <p for="translateBar">Translate:</p>
-                            <input type="text" id="translateBar" placeholder="Type here...">
+                            <input type="text" id="translateBar" placeholder="輸入想翻譯的文字(英翻中，其他語言翻英)">
                             <script>
                                 const translateBar = document.getElementById('translateBar');
                                 // Add an event listener for the "keydown" event
@@ -196,10 +198,10 @@
 
 
 		<!--profiles start -->
-		<section id="profiles" class="profiles">
+		<section id="profiles">
 			<div class="profiles-details">
 				<div class="container">
-					<div class="profiles-content">
+					<div>
 						<div class="row">
 							<div class="col-sm-3">
 								<div class="single-profile">
@@ -218,13 +220,13 @@
 							<div class="col-sm-3">
 								<div class="single-profile">
 									<div class="profile-txt">
-										<a href=""><i class="flaticon-dribbble"></i></a>
-										<div class="profile-icon-name">dribbble</div>
+											<a href="https://mail.google.com/mail/u"><img src="./assets/fonts/gmail.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">Gmail</div>
 									</div>
 									<div class="single-profile-overlay">
 										<div class="profile-txt">
-											<a href=""><i class="flaticon-dribbble"></i></a>
-											<div class="profile-icon-name">dribbble</div>
+											<a href="https://mail.google.com/mail/u"><img src="./assets/fonts/gmailafter.svg" width="24px" height="24px"></a>
+											<div class="profile-icon-name">Gmail</div>
 										</div>
 									</div>
 								</div>
@@ -232,13 +234,13 @@
 							<div class="col-sm-3">
 								<div class="single-profile">
 									<div class="profile-txt">
-										<a href=""><i class="flaticon-behance-logo"></i></a>
-										<div class="profile-icon-name">behance</div>
+											<a href="https://www.google.com/maps"><img src="./assets/fonts/gmaps.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">Google Map</div>
 									</div>
 									<div class="single-profile-overlay">
 										<div class="profile-txt">
-											<a href=""><i class="flaticon-behance-logo"></i></a>
-											<div class="profile-icon-name">behance</div>
+												<a href="https://www.google.com/maps"><img src="./assets/fonts/gmapsafter.svg" width="24px" height="24px"></a>
+											<div class="profile-icon-name">Google Map</div>
 										</div>
 									</div>
 								</div>
@@ -263,13 +265,13 @@
 							<div class="col-sm-3">
 								<div class="single-profile">
 									<div class="profile-txt">
-										<a href=""><i class="flaticon-flickr-website-logo-silhouette"></i></a>
-										<div class="profile-icon-name">flickR</div>
+										<a href="https://metronom.us/en/"><i class="flaticon-flickr-website-logo-silhouette"></i></a>
+										<div class="profile-icon-name">metronom</div>
 									</div>
 									<div class="single-profile-overlay">
 										<div class="profile-txt">
-											<a href=""><i class="flaticon-flickr-website-logo-silhouette"></i></a>
-											<div class="profile-icon-name">flickR</div>
+											<a href="https://metronom.us/en/"><i class="flaticon-flickr-website-logo-silhouette"></i></a>
+											<div class="profile-icon-name">metronom</div>
 										</div>
 									</div>
 								</div>
@@ -277,13 +279,13 @@
 							<div class="col-sm-3">
 								<div class="single-profile">
 									<div class="profile-txt">
-										<a href=""><i class="flaticon-smug"></i></a>
-										<div class="profile-icon-name">smungMung</div>
+										<a href="https://leetcode.com/"><img src="./assets/fonts/leetcode.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">LeetCode</div>
 									</div>
 									<div class="single-profile-overlay">
 										<div class="profile-txt">
-											<a href=""><i class="flaticon-smug"></i></a>
-											<div class="profile-icon-name">smungMung</div>
+											<a href="https://leetcode.com/"><img src="./assets/fonts/leetcodeafter.svg" width="24px" height="24px"></a>
+											<div class="profile-icon-name">LeetCode</div>
 										</div>
 									</div>
 								</div>
@@ -291,13 +293,13 @@
 							<div class="col-sm-3">
 								<div class="single-profile">
 									<div class="profile-txt">
-										<a href=""><i class="flaticon-squarespace-logo"></i></a>
-										<div class="profile-icon-name">squareSpace</div>
+										<a href="https://www.overleaf.com/project"><img src="./assets/fonts/overleaf.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">OverLeaf</div>
 									</div>
 									<div class="single-profile-overlay">
 										<div class="profile-txt">
-											<a href=""><i class="flaticon-squarespace-logo"></i></a>
-											<div class="profile-icon-name">squareSpace</div>
+											<a href="https://www.overleaf.com/project"><img src="./assets/fonts/overleafafter.svg" width="36px" height="36px"></a>
+											<div class="profile-icon-name">OverLeaf</div>
 										</div>
 									</div>
 								</div>
@@ -305,13 +307,13 @@
 							<div class="col-sm-3">
 								<div class="single-profile profile-no-border">
 									<div class="profile-txt">
-										<a href=""><i class="flaticon-bitbucket-logotype-camera-lens-in-perspective"></i></a>
-										<div class="profile-icon-name">bitBucket</div>
+									<a href="https://en.cppreference.com/w/"><img src="./assets/fonts/cpp.svg" width="24px" height="34px"></a>
+									<div class="profile-icon-name">CppReference</div>
 									</div>
 									<div class="single-profile-overlay">
 										<div class="profile-txt">
-											<a href=""><i class="flaticon-bitbucket-logotype-camera-lens-in-perspective"></i></a>
-											<div class="profile-icon-name">bitBucket</div>
+										<a href="https://en.cppreference.com/w/"><img src="./assets/fonts/cppafter.svg" width="24px" height="24px"></a>
+										<div class="profile-icon-name">CppReference</div>
 										</div>
 									</div>
 								</div>
@@ -320,9 +322,11 @@
 					</div>
 				</div>
 			</div>
-
-		</section><!--/.profiles-->
+		</section>
 		<!--profiles end -->
+
+		<object type="text/html" data=".calender.html"></object>
+
 
 
 			<div id="scroll-Top">
