@@ -1,6 +1,139 @@
+body{
+	font-family: 'Poppins', sans-serif;
+	font-size:16px;
+	color: #676a81;
+	background: #201f1d;
+    max-width:1920px;
+    margin:0 auto;
+	overflow-x:hidden;
+}
+
+/*-header-------------------*/
 #header{
     position: fixed;
     top:0;
     width: 100%;
+}
+
+#homeTitle{
+    background-color: #201f1d;
+}
+
+.brandlogo{
+    background-color: #201f1d;
+}
+
+.header nav{
+    width: 80px;
+}
+
+.nav-wrapper {
+    background-color: #201f1d;
+}
+
+.nav-wrapper li {
+    -webkit-transition: background 0.3s ease; 
+    -moz-transition: background 0.3s ease; 
+    -ms-transition: background 0.3s ease; 
+    -o-transition: background 0.3s ease; 
+    transition: background 0.3s ease;
+}
+
+.nav-wrapper li:hover{
+    background-color: #6a1b9a;
+}
+        
+/*button bar--------------*/
+#buttonBar{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #252423;
+}
+
+#buttonBar div{
+    height: 100px;
+    width: 25%;
+    padding: 15px;
+    -webkit-transition:background 0.5s linear; 
+    -moz-transition:background 0.5s linear; 
+    -ms-transition:background 0.5s linear; 
+    -o-transition:background 0.5s linear; 
+    transition:background 0.5s linear;
+    -webkit-transition:color 0.5s ease; 
+    -moz-transition:color 0.5s ease; 
+    -ms-transition:color 0.5s ease; 
+    -o-transition:color 0.5s ease; 
+    transition:color 0.5s ease;
+}
+
+#buttonBar a{
+    display:flex;
+    align-items:center;
+    text-transform: capitalize;
+    justify-content:center;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#buttonBar div:hover{
+    background-color: #6a1b9a ;
+    color: #ffffff;
+}
+
+#buttonBar .btnicon{
+    width: 24px;
+    height: 24px;
+    transition: .5s ;
+}
+
+#buttonBar div:hover .btnicon{
+    filter: brightness(230%);
+    transition: .5s ;
+}
+
+/*side bar------------*/
+#sideBar{
+    background-color:#201f1d;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.742);
+}
+.sideBtn{
+    background-color: #201f1d;
+    text-align: center;
+    height: 50px;
+    padding: 5px;
+    color: #fff;
+}
+
+/*search Bar-------------*/
+#searchBarDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 100%;
+}
+
+.search{
+    background-color: #edf4cf;
+    width: 33%;
+    height: 100%;
+    margin: 5px;
+    text-align: center;
+    
+}
+
+.shortSearchBar{
+    color: #676a81;
+    width: 80%;
+}
+
+::placeholder{
+    color: #37394c;
+    text-align: center;
 }
 

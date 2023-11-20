@@ -36,3 +36,31 @@ function checkLanguage() {
     }
     translateBar.value = '';
 }
+
+const searchInput = document.getElementById('searchBar');
+searchInput.addEventListener("keydown", function(event) {
+    // Check if the pressed key is "Enter" (key code 13)
+    if (event.keyCode === 13) {
+        // Execute your search function or any other action here
+        searchGoogle();
+    }
+});
+
+const youtubeInput = document.getElementById('youtubeBar');
+youtubeInput.addEventListener("keydown", function(event) {
+    // Check if the pressed key is "Enter" (key code 13)
+    if (event.keyCode === 13) {
+        // Execute your search function or any other action here
+        searchYoutube();
+    }
+});
+
+const translateBar = document.getElementById('translateBar');
+// Add an event listener for the "keydown" event
+translateBar.addEventListener('keydown', function(event) {
+    // Check if the pressed key is "Enter" (key code 13)
+    if (event.keyCode === 13) {
+        // Call the function to check if the entered text is English
+        checkLanguage();
+    }
+});

@@ -4,28 +4,28 @@
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
 }
+
 #header {
     grid-column: 1 / 11;
     grid-row: 1 / 2;
 }
-#searchBar {
-    grid-column: 2 / 11;
-    grid-row: 2 / 4;
-}
+
 #sideBar {
     grid-column: 1;
     grid-row: 2 / 9;
 }
+
+#searchBarDiv {
+    grid-column: 2 / 11;
+    grid-row: 2 / 4;
+}
+
 #calender {
     grid-column: 2 / 11;
     grid-row: 4 / 7;
 }
+
 #buttonBar {
     grid-column: 2 / 11;
     grid-row: 7 / 9;
-}
-
-.gridDiv{
-    border: 1px solid rgba(42, 29, 29, 0.8);
-    background-color: rgba(200, 168, 168, 0.8);
 }
