@@ -101,10 +101,13 @@ body{
     background-color:#201f1d;
     display: flex;
     flex-direction: column;
+    align-items:center;
     box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.742);
+    width: 100%;
 }
 #sideBar div{
     margin: 60px 0 0 0;
+    position: fixed;
 }
 
 .sideLink{
@@ -120,12 +123,18 @@ body{
     margin: 20px 0;
 }
 
+#settingBtn{
+    position: fixed;
+    bottom: 0;
+    left: 23px;
+}
+
 /*search Bar-------------*/
 #searchBarDiv{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px;
+    margin: 80px 5px;
     width: 100%;
 }
 
@@ -135,7 +144,7 @@ body{
     height: 100%;
     margin: 5px;
     text-align: center;
-    
+    padding: 15px;
 }
 
 .shortSearchBar{
