@@ -3,57 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Detection</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #searchInput {
-            padding: 10px;
-            font-size: 16px;
-        }
-    </style>
+    <title>External SVG Example</title>
 </head>
 <body>
 
-    <label for="searchInput">Enter text:</label>
-    <input type="text" id="searchInput" placeholder="Type here...">
-    
-    <script>
-        const searchInput = document.getElementById('searchInput');
+    <h1>External SVG Example</h1>
 
-        // Add an event listener for the "keydown" event
-        searchInput.addEventListener('keydown', function(event) {
-            // Check if the pressed key is "Enter" (key code 13)
-            if (event.keyCode === 13) {
-                // Call the function to check if the entered text is English
-                checkLanguage();
-            }
-        });
-
-        function checkLanguage() {
-            const enteredText = searchInput.value;
-            
-            // Regular expression to match English letters
-            const englishRegex = /^[A-Za-z]+$/;
-
-            // Test if the entered text contains only English letters
-            if (englishRegex.test(enteredText)) {
-                alert('The entered text is in English.');
-            } else {
-                alert('The entered text is not in English.');
-            }
-
-            // Clear the search input
-            searchInput.value = '';
-        }
-    </script>
+    <!-- Reference external SVG file -->
+    <img src="./assets/fonts/clouddrive.svg" alt="SVG Icon">
 
 </body>
 </html>
