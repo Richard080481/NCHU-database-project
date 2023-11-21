@@ -17,3 +17,44 @@
 2023-11-20 22:17:52 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\PowerUser\Documents\GitHub\NCHU-database-project\xampp\mysql\data\ib_buffer_pool
 2023-11-20 22:17:52 0 [Note] Plugin 'FEEDBACK' is disabled.
 2023-11-20 22:17:52 0 [Note] Server socket created on IP: '::'.
+2023-11-21 17:56:22 0 [Note] Starting MariaDB 10.4.28-MariaDB source revision c8f2e9a5c0ac5905f28b050b7df5a9ffd914b7e7 as process 15580
+2023-11-21 17:56:22 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2023-11-21 17:56:22 0 [Note] InnoDB: Uses event mutexes
+2023-11-21 17:56:22 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+2023-11-21 17:56:22 0 [Note] InnoDB: Number of pools: 1
+2023-11-21 17:56:22 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2023-11-21 17:56:22 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2023-11-21 17:56:22 0 [Note] InnoDB: Completed initialization of buffer pool
+2023-11-21 17:56:22 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=300946
+2023-11-21 17:56:23 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2023-11-21 17:56:23 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2023-11-21 17:56:23 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2023-11-21 17:56:23 0 [Note] InnoDB: Setting file '\github_repository\NCHU-database-project\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2023-11-21 17:56:23 0 [Note] InnoDB: File '\github_repository\NCHU-database-project\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2023-11-21 17:56:23 0 [Note] InnoDB: Waiting for purge to start
+2023-11-21 17:56:23 0 [Note] InnoDB: 10.4.28 started; log sequence number 300955; transaction id 195
+2023-11-21 17:56:23 0 [Note] InnoDB: Loading buffer pool(s) from D:\github_repository\NCHU-database-project\xampp\mysql\data\ib_buffer_pool
+2023-11-21 17:56:23 0 [Note] Plugin 'FEEDBACK' is disabled.
+2023-11-21 17:56:23 0 [Note] InnoDB: Buffer pool(s) load completed at 231121 17:56:23
+2023-11-21 17:56:23 0 [Note] Server socket created on IP: '::'.
+2023-11-21 17:56:23 0 [ERROR] Can't start server: Bind on TCP/IP port. Got error: 10048: 一次只能用一個通訊端位址 (通訊協定/網路位址/連接埠)。
+
+2023-11-21 17:56:23 0 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+2023-11-21 17:56:23 0 [ERROR] Aborting
+2023-11-21 17:56:49 0 [Note] Starting MariaDB 10.4.28-MariaDB source revision c8f2e9a5c0ac5905f28b050b7df5a9ffd914b7e7 as process 18404
+2023-11-21 17:56:49 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2023-11-21 17:56:49 0 [Note] InnoDB: Uses event mutexes
+2023-11-21 17:56:49 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+2023-11-21 17:56:49 0 [Note] InnoDB: Number of pools: 1
+2023-11-21 17:56:49 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2023-11-21 17:56:49 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2023-11-21 17:56:49 0 [Note] InnoDB: Completed initialization of buffer pool
+2023-11-21 17:56:49 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2023-11-21 17:56:49 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2023-11-21 17:56:49 0 [Note] InnoDB: Setting file '\github_repository\NCHU-database-project\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2023-11-21 17:56:49 0 [Note] InnoDB: File '\github_repository\NCHU-database-project\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2023-11-21 17:56:49 0 [Note] InnoDB: Waiting for purge to start
+2023-11-21 17:56:49 0 [Note] InnoDB: 10.4.28 started; log sequence number 300964; transaction id 195
+2023-11-21 17:56:49 0 [Note] InnoDB: Loading buffer pool(s) from D:\github_repository\NCHU-database-project\xampp\mysql\data\ib_buffer_pool
+2023-11-21 17:56:49 0 [Note] Plugin 'FEEDBACK' is disabled.
+2023-11-21 17:56:49 0 [Note] Server socket created on IP: '::'.

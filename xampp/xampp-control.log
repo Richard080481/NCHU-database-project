@@ -1,0 +1,59 @@
+上午 01:51:10  [main] 	Initializing Control Panel
+上午 01:51:10  [main] 	Windows Version:  Home  64-bit
+上午 01:51:10  [main] 	XAMPP Version: 8.1.17
+上午 01:51:10  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+上午 01:51:10  [main] 	You are not running with administrator rights! This will work for
+上午 01:51:10  [main] 	most application stuff but whenever you do something with services
+上午 01:51:10  [main] 	there will be a security dialogue or things will break! So think 
+上午 01:51:10  [main] 	about running this application with administrator rights!
+上午 01:51:10  [main] 	XAMPP Installation Directory: "d:\github_repository\nchu-database-project\xampp\"
+上午 01:51:10  [main] 	Checking for prerequisites
+上午 01:51:15  [main] 	All prerequisites found
+上午 01:51:15  [main] 	Initializing Modules
+上午 01:51:15  [mysql] 	Problem detected!
+上午 01:51:15  [mysql] 	Port 3306 in use by "Unable to open process"!
+上午 01:51:15  [mysql] 	MySQL WILL NOT start without the configured ports free!
+上午 01:51:15  [mysql] 	You need to uninstall/disable/reconfigure the blocking application
+上午 01:51:15  [mysql] 	or reconfigure MySQL and the Control Panel to listen on a different port
+上午 01:51:15  [main] 	The FileZilla module is disabled
+上午 01:51:15  [main] 	The Mercury module is disabled
+上午 01:51:15  [main] 	Starting Check-Timer
+上午 01:51:15  [main] 	Control Panel Ready
+上午 01:51:41  [Apache] 	Attempting to start Apache app...
+上午 01:51:42  [Apache] 	Status change detected: running
+上午 01:51:43  [mysql] 	Problem detected!
+上午 01:51:43  [mysql] 	Port 3306 in use by "Unable to open process"!
+上午 01:51:43  [mysql] 	MySQL WILL NOT start without the configured ports free!
+上午 01:51:43  [mysql] 	You need to uninstall/disable/reconfigure the blocking application
+上午 01:51:43  [mysql] 	or reconfigure MySQL and the Control Panel to listen on a different port
+上午 01:51:43  [mysql] 	Attempting to start MySQL app...
+上午 01:51:45  [Apache] 	Status change detected: stopped
+上午 01:51:45  [Apache] 	Error: Apache shutdown unexpectedly.
+上午 01:51:45  [Apache] 	This may be due to a blocked port, missing dependencies, 
+上午 01:51:45  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+上午 01:51:45  [Apache] 	Press the Logs button to view error logs and check
+上午 01:51:45  [Apache] 	the Windows Event Viewer for more clues
+上午 01:51:45  [Apache] 	If you need more help, copy and post this
+上午 01:51:45  [Apache] 	entire log window on the forums
+上午 01:51:45  [mysql] 	Status change detected: running
+上午 01:51:46  [mysql] 	Status change detected: stopped
+上午 01:51:46  [mysql] 	Error: MySQL shutdown unexpectedly.
+上午 01:51:46  [mysql] 	This may be due to a blocked port, missing dependencies, 
+上午 01:51:46  [mysql] 	improper privileges, a crash, or a shutdown by another method.
+上午 01:51:46  [mysql] 	Press the Logs button to view error logs and check
+上午 01:51:46  [mysql] 	the Windows Event Viewer for more clues
+上午 01:51:46  [mysql] 	If you need more help, copy and post this
+上午 01:51:46  [mysql] 	entire log window on the forums
+上午 01:51:47  [Apache] 	Attempting to start Apache app...
+上午 01:51:47  [Apache] 	Status change detected: running
+上午 01:51:48  [Apache] 	Status change detected: stopped
+上午 01:51:48  [Apache] 	Error: Apache shutdown unexpectedly.
+上午 01:51:48  [Apache] 	This may be due to a blocked port, missing dependencies, 
+上午 01:51:48  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+上午 01:51:48  [Apache] 	Press the Logs button to view error logs and check
+上午 01:51:48  [Apache] 	the Windows Event Viewer for more clues
+上午 01:51:48  [Apache] 	If you need more help, copy and post this
+上午 01:51:48  [Apache] 	entire log window on the forums
+下午 01:40:35  [main] 	Deinitializing Modules
+下午 01:40:35  [main] 	Deinitializing Control Panel
+

@@ -11,7 +11,7 @@
 @if %ErrorLevel% == 9009 @echo You do not have Perl in your PATH.
 @goto endofperl
 @rem ';
-#!\Users\PowerUser\Documents\GitHub\NCHU-database-project\xampp\perl\bin\perl.exe 
+#!\github_repository\NCHU-database-project\xampp\perl\bin\perl.exe 
 #line 30
 
 use strict;
