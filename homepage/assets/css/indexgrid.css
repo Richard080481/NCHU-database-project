@@ -1,31 +1,33 @@
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 10vh 25vh 61vh 30vh;
+    grid-template-columns: 8vw 90vw;
+    grid-template-areas: 
+    "header header"
+    "sidebar searchbar"
+    "sidebar calender"
+    "sidebar buttonbar";
     grid-gap: 10px;
     grid-auto-rows: minmax(70px, auto);
+    margin: 0;
 }
 
 #header {
-    grid-column: 1 / 11;
-    grid-row: 1 / 2;
+    grid-area: header;
 }
 
 #sideBar {
-    grid-column: 1;
-    grid-row: 1 / 13;
+    grid-area: sidebar;
 }
 
 #searchBarDiv {
-    grid-column: 2 / 11;
-    grid-row: 2 / 4;
+    grid-area: searchbar;
 }
 
 #calender {
-    grid-column: 2 / 11;
-    grid-row: 4 / 10;
+    grid-area: calender;
 }
 
 #buttonBar {
-    grid-column: 2 / 11;
-    grid-row: 10 / 13;
+    grid-area: buttonbar;
 }
