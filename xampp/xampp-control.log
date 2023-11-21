@@ -57,3 +57,133 @@
 下午 01:40:35  [main] 	Deinitializing Modules
 下午 01:40:35  [main] 	Deinitializing Control Panel
 
+上午 01:47:16  [main] 	Initializing Control Panel
+上午 01:47:16  [main] 	Windows Version:  Home  64-bit
+上午 01:47:16  [main] 	XAMPP Version: 8.1.17
+上午 01:47:16  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+上午 01:47:16  [main] 	You are not running with administrator rights! This will work for
+上午 01:47:16  [main] 	most application stuff but whenever you do something with services
+上午 01:47:16  [main] 	there will be a security dialogue or things will break! So think 
+上午 01:47:16  [main] 	about running this application with administrator rights!
+上午 01:47:16  [main] 	XAMPP Installation Directory: "c:\users\poweruser\documents\github\nchu-database-project\xampp\"
+上午 01:47:16  [main] 	Checking for prerequisites
+上午 01:47:16  [main] 	All prerequisites found
+上午 01:47:16  [main] 	Initializing Modules
+上午 01:47:16  [main] 	The FileZilla module is disabled
+上午 01:47:16  [main] 	The Mercury module is disabled
+上午 01:47:16  [main] 	Starting Check-Timer
+上午 01:47:16  [main] 	Control Panel Ready
+上午 01:47:17  [Apache] 	Attempting to start Apache app...
+上午 01:47:17  [Apache] 	Status change detected: running
+上午 01:47:20  [mysql] 	Attempting to start MySQL app...
+上午 01:47:20  [mysql] 	Status change detected: running
+上午 01:47:21  [mysql] 	Status change detected: stopped
+上午 01:47:21  [mysql] 	Error: MySQL shutdown unexpectedly.
+上午 01:47:21  [mysql] 	This may be due to a blocked port, missing dependencies, 
+上午 01:47:21  [mysql] 	improper privileges, a crash, or a shutdown by another method.
+上午 01:47:21  [mysql] 	Press the Logs button to view error logs and check
+上午 01:47:21  [mysql] 	the Windows Event Viewer for more clues
+上午 01:47:21  [mysql] 	If you need more help, copy and post this
+上午 01:47:21  [mysql] 	entire log window on the forums
+上午 01:53:54  [mysql] 	Attempting to start MySQL app...
+上午 01:55:08  [mysql] 	Attempting to start MySQL app...
+上午 01:55:08  [mysql] 	Status change detected: running
+上午 01:55:09  [mysql] 	Status change detected: stopped
+上午 01:55:09  [mysql] 	Error: MySQL shutdown unexpectedly.
+上午 01:55:09  [mysql] 	This may be due to a blocked port, missing dependencies, 
+上午 01:55:09  [mysql] 	improper privileges, a crash, or a shutdown by another method.
+上午 01:55:09  [mysql] 	Press the Logs button to view error logs and check
+上午 01:55:09  [mysql] 	the Windows Event Viewer for more clues
+上午 01:55:09  [mysql] 	If you need more help, copy and post this
+上午 01:55:09  [mysql] 	entire log window on the forums
+上午 01:56:39  [mysql] 	Attempting to start MySQL app...
+上午 01:57:11  [mysql] 	Attempting to start MySQL app...
+上午 01:57:12  [mysql] 	Attempting to start MySQL app...
+上午 01:57:13  [mysql] 	Attempting to start MySQL app...
+上午 01:57:14  [mysql] 	Attempting to start MySQL app...
+上午 01:57:23  [mysql] 	Attempting to start MySQL app...
+上午 01:57:29  [Apache] 	Attempting to stop Apache (PID: 9908)
+上午 01:57:29  [Apache] 	Attempting to stop Apache (PID: 10936)
+上午 01:57:29  [Apache] 	Status change detected: stopped
+上午 01:57:32  [main] 	Deinitializing Modules
+上午 01:57:32  [main] 	Deinitializing Control Panel
+
+上午 01:57:36  [main] 	Initializing Control Panel
+上午 01:57:36  [main] 	Windows Version:  Home  64-bit
+上午 01:57:36  [main] 	XAMPP Version: 8.1.17
+上午 01:57:36  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+上午 01:57:36  [main] 	You are not running with administrator rights! This will work for
+上午 01:57:36  [main] 	most application stuff but whenever you do something with services
+上午 01:57:36  [main] 	there will be a security dialogue or things will break! So think 
+上午 01:57:36  [main] 	about running this application with administrator rights!
+上午 01:57:36  [main] 	XAMPP Installation Directory: "c:\users\poweruser\documents\github\nchu-database-project\xampp\"
+上午 01:57:37  [main] 	Checking for prerequisites
+上午 01:57:37  [main] 	All prerequisites found
+上午 01:57:37  [main] 	Initializing Modules
+上午 01:57:37  [main] 	The FileZilla module is disabled
+上午 01:57:37  [main] 	The Mercury module is disabled
+上午 01:57:37  [main] 	Starting Check-Timer
+上午 01:57:37  [main] 	Control Panel Ready
+上午 01:57:38  [mysql] 	Attempting to start MySQL app...
+上午 01:58:20  [mysql] 	Attempting to start MySQL app...
+上午 01:58:20  [mysql] 	Attempting to start MySQL app...
+上午 01:58:24  [Apache] 	Attempting to start Apache app...
+上午 01:58:25  [Apache] 	Status change detected: running
+上午 01:58:25  [Apache] 	Status change detected: stopped
+上午 01:58:25  [Apache] 	Error: Apache shutdown unexpectedly.
+上午 01:58:25  [Apache] 	This may be due to a blocked port, missing dependencies, 
+上午 01:58:25  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+上午 01:58:25  [Apache] 	Press the Logs button to view error logs and check
+上午 01:58:25  [Apache] 	the Windows Event Viewer for more clues
+上午 01:58:25  [Apache] 	If you need more help, copy and post this
+上午 01:58:25  [Apache] 	entire log window on the forums
+上午 01:58:29  [Apache] 	Attempting to start Apache app...
+上午 01:58:29  [Apache] 	Status change detected: running
+上午 01:58:30  [Apache] 	Status change detected: stopped
+上午 01:58:30  [Apache] 	Error: Apache shutdown unexpectedly.
+上午 01:58:30  [Apache] 	This may be due to a blocked port, missing dependencies, 
+上午 01:58:30  [Apache] 	improper privileges, a crash, or a shutdown by another method.
+上午 01:58:30  [Apache] 	Press the Logs button to view error logs and check
+上午 01:58:30  [Apache] 	the Windows Event Viewer for more clues
+上午 01:58:30  [Apache] 	If you need more help, copy and post this
+上午 01:58:30  [Apache] 	entire log window on the forums
+上午 01:58:42  [main] 	Deinitializing Modules
+上午 01:58:42  [main] 	Deinitializing Control Panel
+
+上午 02:00:07  [main] 	Initializing Control Panel
+上午 02:00:07  [main] 	Windows Version:  Home  64-bit
+上午 02:00:07  [main] 	XAMPP Version: 8.1.17
+上午 02:00:07  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+上午 02:00:07  [main] 	You are not running with administrator rights! This will work for
+上午 02:00:07  [main] 	most application stuff but whenever you do something with services
+上午 02:00:07  [main] 	there will be a security dialogue or things will break! So think 
+上午 02:00:07  [main] 	about running this application with administrator rights!
+上午 02:00:07  [main] 	XAMPP Installation Directory: "c:\users\poweruser\documents\github\nchu-database-project\xampp\"
+上午 02:00:07  [main] 	Checking for prerequisites
+上午 02:00:08  [main] 	All prerequisites found
+上午 02:00:08  [main] 	Initializing Modules
+上午 02:00:08  [main] 	The FileZilla module is disabled
+上午 02:00:08  [main] 	The Mercury module is disabled
+上午 02:00:08  [main] 	Starting Check-Timer
+上午 02:00:08  [main] 	Control Panel Ready
+上午 02:00:10  [mysql] 	Attempting to start MySQL app...
+上午 02:00:11  [mysql] 	Status change detected: running
+上午 02:00:22  [Apache] 	Attempting to start Apache app...
+上午 02:00:22  [Apache] 	Status change detected: running
+上午 02:09:38  [mysql] 	Attempting to stop MySQL app...
+上午 02:09:38  [mysql] 	Status change detected: stopped
+上午 02:09:39  [Apache] 	Attempting to stop Apache (PID: 14136)
+上午 02:09:39  [Apache] 	Attempting to stop Apache (PID: 11876)
+上午 02:09:39  [Apache] 	Status change detected: stopped
+上午 02:09:41  [mysql] 	Attempting to start MySQL app...
+上午 02:09:42  [mysql] 	Status change detected: running
+上午 02:09:43  [Apache] 	Attempting to start Apache app...
+上午 02:09:44  [Apache] 	Status change detected: running
+上午 02:09:56  [Apache] 	Attempting to stop Apache (PID: 6812)
+上午 02:09:56  [Apache] 	Attempting to stop Apache (PID: 14732)
+上午 02:09:56  [Apache] 	Status change detected: stopped
+上午 02:09:57  [mysql] 	Attempting to stop MySQL app...
+上午 02:09:57  [mysql] 	Status change detected: stopped
+上午 02:10:01  [main] 	Deinitializing Modules
+上午 02:10:01  [main] 	Deinitializing Control Panel
+
