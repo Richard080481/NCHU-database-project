@@ -1,4 +1,4 @@
-#!"\Users\PowerUser\Documents\GitHub\NCHU-database-project\xampp\perl\bin\perl.exe"
+#!"\github_repository\NCHU-database-project\xampp\perl\bin\perl.exe"
 
 print "Content-type: text/html\n\n";
 print '<html>';

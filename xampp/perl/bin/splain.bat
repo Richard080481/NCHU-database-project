@@ -26,7 +26,7 @@ goto endofperl
 @rem ';
 #!perl
 #line 29
-    eval 'exec \Users\PowerUser\Documents\GitHub\NCHU-database-project\xampp\perl\bin\perl.exe -S $0 ${1+"$@"}'
+    eval 'exec \github_repository\NCHU-database-project\xampp\perl\bin\perl.exe -S $0 ${1+"$@"}'
 	if $running_under_some_shell;
 
 BEGIN { pop @INC if $INC[-1] eq '.' }

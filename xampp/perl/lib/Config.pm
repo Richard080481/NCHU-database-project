@@ -84,7 +84,7 @@ sub AUTOLOAD {
 
 # tie returns the object, so the value returned to require will be true.
 tie %Config, 'Config', {
-    archlibexp => '\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\lib',
+    archlibexp => '\\github_repository\\NCHU-database-project\\xampp\\perl\\lib',
     archname => 'MSWin32-x64-multi-thread',
     cc => 'gcc',
     d_readlink => undef,
@@ -96,14 +96,14 @@ tie %Config, 'Config', {
     inc_version_list => '',
     intsize => '4',
     ldlibpthname => '',
-    libpth => '\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\c\\lib \\xampp\\c\\x86_64-w64-mingw32\\lib \\xampp\\c\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0',
+    libpth => '\\github_repository\\NCHU-database-project\\xampp\\c\\lib \\xampp\\c\\x86_64-w64-mingw32\\lib \\xampp\\c\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0',
     osname => 'MSWin32',
     osvers => '10.0.19042.746',
     path_sep => ';',
-    privlibexp => '\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\lib',
-    scriptdir => '\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\bin',
-    sitearchexp => '\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\site\\lib',
-    sitelibexp => '\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\site\\lib',
+    privlibexp => '\\github_repository\\NCHU-database-project\\xampp\\perl\\lib',
+    scriptdir => '\\github_repository\\NCHU-database-project\\xampp\\perl\\bin',
+    sitearchexp => '\\github_repository\\NCHU-database-project\\xampp\\perl\\site\\lib',
+    sitelibexp => '\\github_repository\\NCHU-database-project\\xampp\\perl\\site\\lib',
     so => 'dll',
     useithreads => 'define',
     usevendorprefix => 'define',

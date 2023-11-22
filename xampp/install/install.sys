@@ -1,4 +1,4 @@
-DIR = \Users\PowerUser\Documents\GitHub\NCHU-database-project\xampp
+DIR = \github_repository\NCHU-database-project\xampp
 xampp = 8.1.17
 
 server = 1.8.0
