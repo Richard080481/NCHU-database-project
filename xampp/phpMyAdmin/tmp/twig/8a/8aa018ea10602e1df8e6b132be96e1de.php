@@ -83,6 +83,6 @@ class __TwigTemplate_62187c826ce82946aae1375c058cf6d3 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "navigation/tree/state.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\navigation\\tree\\state.twig");
+        return new Source("", "navigation/tree/state.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\navigation\\tree\\state.twig");
     }
 }

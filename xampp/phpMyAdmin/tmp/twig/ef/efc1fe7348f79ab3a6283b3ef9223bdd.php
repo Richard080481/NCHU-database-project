@@ -98,6 +98,6 @@ echo _gettext("Query results operations");
 
     public function getSourceContext()
     {
-        return new Source("", "sql/no_results_returned.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\sql\\no_results_returned.twig");
+        return new Source("", "sql/no_results_returned.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\sql\\no_results_returned.twig");
     }
 }

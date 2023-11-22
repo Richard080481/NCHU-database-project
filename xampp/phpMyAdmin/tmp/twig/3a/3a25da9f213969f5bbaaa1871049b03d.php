@@ -413,6 +413,6 @@ echo _gettext("Close");
 
     public function getSourceContext()
     {
-        return new Source("", "columns_definitions/column_definitions_form.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\columns_definitions\\column_definitions_form.twig");
+        return new Source("", "columns_definitions/column_definitions_form.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\columns_definitions\\column_definitions_form.twig");
     }
 }

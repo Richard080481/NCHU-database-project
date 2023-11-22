@@ -136,6 +136,6 @@ class __TwigTemplate_fb42645336d02f6aceeab5117c52e378 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/index.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\database\\structure\\index.twig");
+        return new Source("", "database/structure/index.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\database\\structure\\index.twig");
     }
 }

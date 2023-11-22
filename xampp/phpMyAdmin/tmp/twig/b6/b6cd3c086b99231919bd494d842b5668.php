@@ -75,6 +75,6 @@ class __TwigTemplate_22a00831e2cfa4211fd0da783d2bfbbd extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "recent_favorite_table_recent.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\recent_favorite_table_recent.twig");
+        return new Source("", "recent_favorite_table_recent.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\recent_favorite_table_recent.twig");
     }
 }

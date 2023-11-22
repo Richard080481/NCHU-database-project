@@ -6,12 +6,13 @@
 	
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.js"></script>
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--Import Calender Font-->
 		<link rel="stylesheet" href="./assets/css/calender.css">
 		<link rel="stylesheet" href="./assets/css/indexgrid.css">
-		<link rel="stylesheet" href="./assets/css/style2.css">
+		<link rel="stylesheet" href="./assets/css/style.css">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -33,7 +34,7 @@
 	<body>
 		<div class="wrapper">
 			<!---header start--->
-			<div class="gridDiv" id="header">
+			<div id="header">
 				<nav>
 					<div class="nav-wrapper">
 						<a id="homeTitle" class="brand-logo" href="index2.html">&nbsp;&nbsp;Cactus</a>
@@ -45,7 +46,7 @@
 							<li class="navbarButton"><a href="https://streetvoice.com/">StreetVoice</a></li>
 							<li class="navbarButton"><a href="https://www.netflix.com">NetFlix</a></li>
 							<li class="navbarButton"><a href="https://www.facebook.com/">facebook</a></li>
-							<li class="navbarButton"><a href="#">Log in</a></li>
+							<li class="navbarButton"><a id="loginA" href="#">Log in</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -53,7 +54,7 @@
 			<!---header end--->
 
 			<!---searchbar start--->
-			<div class="gridDiv" id="searchBarDiv">
+			<div id="searchBarDiv">
 				<div class="search">
 					<p for="youtubeBar">Youtube Search</p><br>
 					<input class="shortSearchBar" type="text" id="youtubeBar" placeholder="輸入想搜尋的影片(按Enter可進到YT主頁)">
@@ -70,7 +71,7 @@
 			<!---searchbar end--->
 
 			<!---sidebar start--->
-			<div class="gridDiv" id="sideBar">
+			<div id="sideBar">
 				<div>
 					<ul>
 						<li><a class="sideLink" href="#"><i class="material-icons">cottage</i>Home</a></li>
@@ -83,12 +84,21 @@
 			<!---sidebar end--->
 
 
-			<div class="gridDiv" id="calender">calender
+			<div id="calendar">
+				<div class="showUp" id="today">
+					<p>today</p>
+				</div>
+				<div class="showUp" id="mainCalendar">
+					<p>calendar</p>
+				</div>
+				<div class="showUp" id="month">
+					<p>month</p>
+				</div>
 			</div>
 
 
 			<!--buttonbar start-->
-			<div class="gridDiv" id="buttonBar">
+			<div id="buttonBar">
 				<div class="buttonbar"><a href="https://drive.google.com/drive/u/0/my-drive"><img src="assets/images/clouddrive.svg" class="btnicon">Google Drive</a></div>
 				<div class="buttonbar"><a href="https://mail.google.com/mail/u"><img src="assets/images/gmail.svg" class="btnicon">Gmail</a></div>
 				<div class="buttonbar"><a href="https://www.google.com/maps"><img src="assets/images/gmaps.svg" class="btnicon">Google Map</a></div>
@@ -100,7 +110,30 @@
 			</div>
 			<!--buttonbar end-->
 		</div>
+		
+		<div id="mask" class="hidden">
+			<div id="logInBox">
+				<div class="form">
+					<form class="signupFrom">
+						<p class="ErrorMessage"> </p>
+						<input id="signupName" type="text" placeholder="username" required/>
+						<input id="signupAccount" type="text" placeholder="account" required/>
+						<input id="signupPasswd" type="password" placeholder="password" required/>
+						<button id="signupBtn">create</button>
+						<p class="message">Already registered? <a href="#">Log In</a></p>
+					</form>
+					<form class="loginFrom">
+						<p class="ErrorMessage"> </p>
+						<input id="loginAccount" type="text" placeholder="account" required/>
+						<input id="loginPasswd" type="password" placeholder="password" required/>
+						<button id="loginBtn">login</button>
+						<p class="message">Not registered? <a href="#">Create an account</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<script src = "assets/js/search.js"></script>
+		<script src = "assets/js/login.js"></script>
 	</body>
 </html>
