@@ -80,6 +80,7 @@ body{
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
+    color: #676a81;
 }
 
 #buttonBar div:hover{
@@ -94,6 +95,10 @@ body{
 }
 
 #buttonBar div:hover .btnicon{
+    filter: brightness(230%);
+    transition: .5s ;
+}
+#buttonBar div:hover a{
     filter: brightness(230%);
     transition: .5s ;
 }
