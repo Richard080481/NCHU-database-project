@@ -6,6 +6,7 @@
 	
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="assets/js/jquery.js"></script>
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--Import Calender Font-->
@@ -45,7 +46,7 @@
 							<li class="navbarButton"><a href="https://streetvoice.com/">StreetVoice</a></li>
 							<li class="navbarButton"><a href="https://www.netflix.com">NetFlix</a></li>
 							<li class="navbarButton"><a href="https://www.facebook.com/">facebook</a></li>
-							<li class="navbarButton"><a href="#">Log in</a></li>
+							<li class="navbarButton"><a id="loginA" href="#">Log in</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -100,7 +101,30 @@
 			</div>
 			<!--buttonbar end-->
 		</div>
+		
+		<div id="mask" class="hidden">
+			<div id="logInBox">
+				<div class="form">
+					<form class="signupFrom">
+						<p class="ErrorMessage"> </p>
+						<input id="signupName" type="text" placeholder="username" required/>
+						<input id="signupAccount" type="text" placeholder="account" required/>
+						<input id="signupPasswd" type="password" placeholder="password" required/>
+						<button id="signupBtn">create</button>
+						<p class="message">Already registered? <a href="#">Log In</a></p>
+					</form>
+					<form class="loginFrom">
+						<p class="ErrorMessage"> </p>
+						<input id="loginAccount" type="text" placeholder="account" required/>
+						<input id="loginPasswd" type="password" placeholder="password" required/>
+						<button id="loginBtn">login</button>
+						<p class="message">Not registered? <a href="#">Create an account</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<script src = "assets/js/search.js"></script>
+		<script src = "assets/js/login.js"></script>
 	</body>
 </html>
