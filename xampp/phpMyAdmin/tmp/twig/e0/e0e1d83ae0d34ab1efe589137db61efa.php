@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* display/results/empty_display.twig */
-class __TwigTemplate_711093acec74ce53564e44654becc7f8 extends Template
+/* javascript/redirect.twig */
+class __TwigTemplate_1b49685275139529846e1fe4447da5ac extends Template
 {
     private $source;
     private $macros = [];
@@ -34,15 +34,20 @@ class __TwigTemplate_711093acec74ce53564e44654becc7f8 extends Template
     {
         $macros = $this->macros;
         // line 1
-        echo "<td class=\"";
-        echo twig_escape_filter($this->env, ($context["classes"] ?? null), "html", null, true);
-        echo "\"></td>
+        echo "<script type='text/javascript'>
+    window.onload = function () {
+        window.location = '";
+        // line 3
+        echo twig_escape_filter($this->env, ($context["url"] ?? null), "html", null, true);
+        echo "';
+    };
+</script>
 ";
     }
 
     public function getTemplateName()
     {
-        return "display/results/empty_display.twig";
+        return "javascript/redirect.twig";
     }
 
     public function isTraitable()
@@ -52,15 +57,11 @@ class __TwigTemplate_711093acec74ce53564e44654becc7f8 extends Template
 
     public function getDebugInfo()
     {
-        return array (  37 => 1,);
+        return array (  41 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
     {
-<<<<<<< Updated upstream
-        return new Source("", "display/results/empty_display.twig", "C:\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\display\\results\\empty_display.twig");
-=======
-        return new Source("", "display/results/empty_display.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\display\\results\\empty_display.twig");
->>>>>>> Stashed changes
+        return new Source("", "javascript/redirect.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\javascript\\redirect.twig");
     }
 }

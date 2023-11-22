@@ -71,6 +71,10 @@ class __TwigTemplate_d2ac0785c3e270de3f2a29fe2264847a extends Template
 
     public function getSourceContext()
     {
+<<<<<<< Updated upstream
         return new Source("", "display/results/row_data.twig", "C:\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\display\\results\\row_data.twig");
+=======
+        return new Source("", "display/results/row_data.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\display\\results\\row_data.twig");
+>>>>>>> Stashed changes
     }
 }

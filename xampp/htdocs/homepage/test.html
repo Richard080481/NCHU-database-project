@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Bar Layout Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+    }
+
+    .long-search-bar {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      margin: 5px;
+    }
+
+    .short-search-bar {
+      width: 50%; /* 或者你想要的宽度百分比 */
+      box-sizing: border-box;
+      padding: 10px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <input type="text" class="long-search-bar" placeholder="Search...">
+  <input type="text" class="short-search-bar" placeholder="Short 1">
+  <input type="text" class="short-search-bar" placeholder="Short 2">
+</div>
+
+</body>
+</html>
