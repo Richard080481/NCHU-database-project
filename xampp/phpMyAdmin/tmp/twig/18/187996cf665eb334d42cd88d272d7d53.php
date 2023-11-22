@@ -1589,6 +1589,6 @@ echo _gettext("Go");
 
     public function getSourceContext()
     {
-        return new Source("", "server/privileges/privileges_table.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\server\\privileges\\privileges_table.twig");
+        return new Source("", "server/privileges/privileges_table.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\server\\privileges\\privileges_table.twig");
     }
 }

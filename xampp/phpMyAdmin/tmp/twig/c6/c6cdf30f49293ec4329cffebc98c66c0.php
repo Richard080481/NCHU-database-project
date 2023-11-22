@@ -77,6 +77,6 @@ echo _gettext("Close");
 
     public function getSourceContext()
     {
-        return new Source("", "modals/unhide_nav_item.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\modals\\unhide_nav_item.twig");
+        return new Source("", "modals/unhide_nav_item.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\modals\\unhide_nav_item.twig");
     }
 }

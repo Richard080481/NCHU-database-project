@@ -1229,7 +1229,7 @@
  *	This symbol contains the ~name expanded version of ARCHLIB, to be used
  *	in programs that are not prepared to deal with ~ expansion at run-time.
  */
-#define ARCHLIB "\\github_repository\\NCHU-database-project\\xampp\\perl\\lib"		/**/
+#define ARCHLIB "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\lib"		/**/
 /*#define ARCHLIB_EXP ""	/ **/
 
 /* BIN:
@@ -1244,8 +1244,8 @@
  *	This symbol, if defined, indicates that we'd like to relocate entries
  *	in @INC at run time based on the location of the perl binary.
  */
-#define BIN "\\github_repository\\NCHU-database-project\\xampp\\perl\\bin"	/**/
-#define BIN_EXP "\\github_repository\\NCHU-database-project\\xampp\\perl\\bin"	/**/
+#define BIN "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\bin"	/**/
+#define BIN_EXP "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\bin"	/**/
 #define PERL_RELOCATABLE_INC "undef"		/**/
 
 /* PERL_INC_VERSION_LIST:
@@ -1283,7 +1283,7 @@
  *	This symbol contains the ~name expanded version of PRIVLIB, to be used
  *	in programs that are not prepared to deal with ~ expansion at run-time.
  */
-#define PRIVLIB "\\github_repository\\NCHU-database-project\\xampp\\perl\\lib"		/**/
+#define PRIVLIB "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\lib"		/**/
 #define PRIVLIB_EXP (PerlEnv_lib_path(PERL_VERSION_STRING, NULL))	/**/
 
 /* SITEARCH:
@@ -1301,7 +1301,7 @@
  *	This symbol contains the ~name expanded version of SITEARCH, to be used
  *	in programs that are not prepared to deal with ~ expansion at run-time.
  */
-#define SITEARCH "\\github_repository\\NCHU-database-project\\xampp\\perl\\site\\lib"		/**/
+#define SITEARCH "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\site\\lib"		/**/
 /*#define SITEARCH_EXP ""	/ **/
 
 /* SITELIB:
@@ -1324,7 +1324,7 @@
  *	removed.  The elements in inc_version_list (inc_version_list.U) can
  *	be tacked onto this variable to generate a list of directories to search.
  */
-#define SITELIB "\\github_repository\\NCHU-database-project\\xampp\\perl\\site\\lib"		/**/
+#define SITELIB "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\site\\lib"		/**/
 #define SITELIB_EXP (PerlEnv_sitelib_path(PERL_VERSION_STRING, NULL))	/**/
 #define SITELIB_STEM ""		/**/
 
@@ -1343,8 +1343,8 @@
  *	This symbol contains the ~name expanded version of PERL_VENDORARCH, to be used
  *	in programs that are not prepared to deal with ~ expansion at run-time.
  */
-#define PERL_VENDORARCH "\\github_repository\\NCHU-database-project\\xampp\\perl\\vendor\\lib"		/**/
-#define PERL_VENDORARCH_EXP "\\github_repository\\NCHU-database-project\\xampp\\perl\\vendor\\lib"		/**/
+#define PERL_VENDORARCH "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\vendor\\lib"		/**/
+#define PERL_VENDORARCH_EXP "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\vendor\\lib"		/**/
 
 /* PERL_VENDORLIB_EXP:
  *	This symbol contains the ~name expanded version of VENDORLIB, to be used
@@ -1355,7 +1355,7 @@
  *	removed.  The elements in inc_version_list (inc_version_list.U) can
  *	be tacked onto this variable to generate a list of directories to search.
  */
-#define PERL_VENDORLIB_EXP "\\github_repository\\NCHU-database-project\\xampp\\perl\\vendor\\lib"		/**/
+#define PERL_VENDORLIB_EXP "\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\perl\\vendor\\lib"		/**/
 #define PERL_VENDORLIB_STEM ""		/**/
 
 /* OSNAME:

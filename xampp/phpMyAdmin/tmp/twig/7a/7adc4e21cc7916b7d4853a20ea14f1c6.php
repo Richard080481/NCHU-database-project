@@ -75,6 +75,6 @@ class __TwigTemplate_e36365911c09bd12521b624a56a49faf extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/favorite_anchor.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\database\\structure\\favorite_anchor.twig");
+        return new Source("", "database/structure/favorite_anchor.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\database\\structure\\favorite_anchor.twig");
     }
 }

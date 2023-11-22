@@ -187,3 +187,28 @@
 ¤W¤È 02:10:01  [main] 	Deinitializing Modules
 ¤W¤È 02:10:01  [main] 	Deinitializing Control Panel
 
+?? 03:43:32  [main] 	Initializing Control Panel
+?? 03:43:32  [main] 	Windows Version:  Enterprise  64-bit
+?? 03:43:32  [main] 	XAMPP Version: 8.1.17
+?? 03:43:32  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+?? 03:43:32  [main] 	Running with Administrator rights - good!
+?? 03:43:32  [main] 	XAMPP Installation Directory: "c:\users\richa\documents\github\nchu-database-project\xampp\"
+?? 03:43:32  [main] 	Checking for prerequisites
+?? 03:43:32  [main] 	All prerequisites found
+?? 03:43:32  [main] 	Initializing Modules
+?? 03:43:32  [main] 	The FileZilla module is disabled
+?? 03:43:32  [main] 	The Mercury module is disabled
+?? 03:43:32  [main] 	Starting Check-Timer
+?? 03:43:32  [main] 	Control Panel Ready
+?? 03:43:33  [mysql] 	Attempting to start MySQL app...
+?? 03:43:34  [mysql] 	Status change detected: running
+?? 03:43:42  [Apache] 	Attempting to start Apache app...
+?? 03:43:42  [Apache] 	Status change detected: running
+?? 03:46:52  [mysql] 	Attempting to stop MySQL app...
+?? 03:46:53  [mysql] 	Status change detected: stopped
+?? 03:46:53  [Apache] 	Attempting to stop Apache (PID: 12236)
+?? 03:46:53  [Apache] 	Attempting to stop Apache (PID: 1528)
+?? 03:46:53  [Apache] 	Status change detected: stopped
+?? 03:46:59  [main] 	Deinitializing Modules
+?? 03:46:59  [main] 	Deinitializing Control Panel
+

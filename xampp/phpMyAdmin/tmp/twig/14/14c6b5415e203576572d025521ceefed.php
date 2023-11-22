@@ -77,6 +77,6 @@ echo _gettext("Close");
 
     public function getSourceContext()
     {
-        return new Source("", "modals/preview_sql_modal.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\modals\\preview_sql_modal.twig");
+        return new Source("", "modals/preview_sql_modal.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\modals\\preview_sql_modal.twig");
     }
 }

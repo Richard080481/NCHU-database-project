@@ -80,10 +80,6 @@ class __TwigTemplate_ed03903f31c99ea1afbe88655c705bc6 extends Template
 
     public function getSourceContext()
     {
-<<<<<<< Updated upstream
-        return new Source("", "sql/sql_query_results.twig", "C:\\Users\\PowerUser\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\sql\\sql_query_results.twig");
-=======
-        return new Source("", "sql/sql_query_results.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\sql\\sql_query_results.twig");
->>>>>>> Stashed changes
+        return new Source("", "sql/sql_query_results.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\sql\\sql_query_results.twig");
     }
 }

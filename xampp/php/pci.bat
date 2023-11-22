@@ -12,5 +12,5 @@ rem @version    CVS: $Id: compatinfo.bat,v 1.9 2008/07/22 20:26:59 farell Exp $
 rem @link       http://pear.php.net/package/PHP_CompatInfo
 rem @since      File available since Release 1.3.0
 
-set XAMPPPHPDIR=\github_repository\NCHU-database-project\xampp\php
+set XAMPPPHPDIR=\Users\richa\Documents\GitHub\NCHU-database-project\xampp\php
 "%XAMPPPHPDIR%\php.exe" -f "%XAMPPPHPDIR%\pci" -- %*

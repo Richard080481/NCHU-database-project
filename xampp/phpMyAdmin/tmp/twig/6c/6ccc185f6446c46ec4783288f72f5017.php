@@ -78,6 +78,6 @@ class __TwigTemplate_6704f232d41b93b0cd8c7c0235a2a16a extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/comment_for_row.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\display\\results\\comment_for_row.twig");
+        return new Source("", "display/results/comment_for_row.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\display\\results\\comment_for_row.twig");
     }
 }

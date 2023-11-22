@@ -304,6 +304,6 @@ echo _gettext("This method requires using an '<em>SSL connection</em>' or an '<e
 
     public function getSourceContext()
     {
-        return new Source("", "server/privileges/login_information_fields.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\server\\privileges\\login_information_fields.twig");
+        return new Source("", "server/privileges/login_information_fields.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\server\\privileges\\login_information_fields.twig");
     }
 }

@@ -83,6 +83,6 @@ class __TwigTemplate_6493442f85c9daecdf9af45270a22804 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "server/privileges/get_user_link.twig", "D:\\github_repository\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\server\\privileges\\get_user_link.twig");
+        return new Source("", "server/privileges/get_user_link.twig", "C:\\Users\\richa\\Documents\\GitHub\\NCHU-database-project\\xampp\\phpMyAdmin\\templates\\server\\privileges\\get_user_link.twig");
     }
 }
