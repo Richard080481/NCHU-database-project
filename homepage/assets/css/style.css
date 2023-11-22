@@ -69,7 +69,6 @@ body{
 }
 
 #buttonBar a{
-    color: #676a81;
     display:flex;
     align-items:center;
     text-transform: capitalize;
@@ -81,15 +80,7 @@ body{
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-}
-
-#buttonBar a:hover{
-    color: #ffffff;
-    -webkit-transition:color 0.5s ease; 
-    -moz-transition:color 0.5s ease; 
-    -ms-transition:color 0.5s ease; 
-    -o-transition:color 0.5s ease; 
-    transition:color 0.5s ease;
+    color: #676a81;
 }
 
 #buttonBar div:hover{
@@ -104,6 +95,10 @@ body{
 }
 
 #buttonBar div:hover .btnicon{
+    filter: brightness(230%);
+    transition: .5s ;
+}
+#buttonBar div:hover a{
     filter: brightness(230%);
     transition: .5s ;
 }
@@ -177,48 +172,12 @@ body{
 }
 
 /*calendar--------------*/
-#calendar{
-    background-color: #201f1d;
+#calender{
+    background-color: #252423;
     margin: 0 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#calendar p{
-    font-size: large;
-    font-weight: 400;
-    color: #ffffffe6;
-}
-
-.showUp{
-    padding: 0 20px;
-}
-
-#today{
-    background-color: #252423;
-    text-align: center;
-    height: 100%;
-    width: 16%;
-}
-#month{
-    background-color: #252423;
-    text-align: center;
-    height: 100%;
-    width: 16%;
-}
-
-#mainCalendar{
-    background-color: #252423;
-    text-align: center;
-    height: 100%;
-    width: 66%;
-}
-
-#calendar p{
-    font-size: large;
-    font-weight: 400;
-    color: #ffffffe6;
 }
 
 /*logInBox---------------*/

@@ -1,0 +1,33 @@
+.wrapper {
+    display: grid;
+    grid-template-rows: 10vh 25vh 61vh 30vh;
+    grid-template-columns: 8vw 90vw;
+    grid-template-areas: 
+    "header header"
+    "sidebar searchbar"
+    "sidebar calender"
+    "sidebar buttonbar";
+    grid-gap: 10px;
+    grid-auto-rows: minmax(70px, auto);
+    margin: 0;
+}
+
+#header {
+    grid-area: header;
+}
+
+#sideBar {
+    grid-area: sidebar;
+}
+
+#searchBarDiv {
+    grid-area: searchbar;
+}
+
+#calender {
+    grid-area: calender;
+}
+
+#buttonBar {
+    grid-area: buttonbar;
+}
