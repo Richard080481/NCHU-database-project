@@ -184,17 +184,19 @@ body{
     background-color:#252423;
     margin: 0 5px;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 20% 58% 20%;
     height: 100%;
 }
 
 #today{
     grid-column: 1;
+    width: 30%;
 }
 
 /* calendarContent start */
 
 #mainCalendar {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -214,6 +216,9 @@ body{
 #friday { grid-area: 2 / 6 / 3 / 7; }
 #saturday { grid-area: 2 / 7 / 3 / 8; }
     
+#month{
+    width: 30%;
+}
 
 #mainCalendar button {
     width: 30px;
@@ -223,7 +228,8 @@ body{
     outline: none;
     padding: 5px;
     border-radius: 5px;
-    color: #fff;
+    color: #676a81;
+    background-color: #201f1d;
 }
 
 .day {
