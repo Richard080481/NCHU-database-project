@@ -216,15 +216,14 @@ body{
     
 
 #mainCalendar button {
-    width: px;
+    width: 30px;
     cursor: pointer;
     box-shadow: 0px 0px 2px gray;
     border: none;
     outline: none;
     padding: 5px;
     border-radius: 5px;
-    color: #676a81;
-    background-color: #252423;
+    color: #fff;
 }
 
 .day {
