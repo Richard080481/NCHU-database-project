@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" href="assets/css/indexgrid.css">
 		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/calendar.css">
 
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -75,9 +76,80 @@
 			</div>
 			<!---sidebar end--->
 
-
-			<div class="gridDiv" id="calender">calender
+			<!-- calendar star -->
+			
+			<div class="gridDiv" id="calendar">
+				<div class="calendarContent" id="today">today</div>
+				<div class="calendarContent" id="mainCalendar">
+					<div id="calheader">
+						<div id="monthDisplay"></div>
+						<div class="headerButton">
+							<button id="backButton">Back</button>
+							<button id="nextButton">Next</button>
+						</div>
+					</div>
+				
+					<div id="weekdays">
+						<div id="sunday">Sunday</div>
+						<div id="monday">Monday</div>
+						<div id="tuesday">Tuesday</div>
+						<div id="wednesay">Wednesday</div>
+						<div id="thursday">Thursday</div>
+						<div id="friday">Friday</div>
+						<div id="aturday">Saturday</div>
+						</div>
+					</div>
+					
+				<!-- <div id="newEventModal">
+					<h2>New Event</h2>
+					
+					<form action="/addEvent.php" method="post">
+						<input type="text" name="eventTitle" placeholder="Event Title" />
+						
+						<label for="startTime">Starting Time:</label>
+						<input type="datetime-local" id="startTime" name="startTime">
+						<label for="endTime">Ending Time:</label>
+						<input type="datetime-local" id="endTime" name="endTime">
+				
+						<div id="classCheckBox">Class
+							<label><input type="checkbox" name="class">1</label>
+							<label><input type="checkbox" name="class">2</label>
+							<label><input type="checkbox" name="class">3</label>
+						</div>
+				
+						<div id="repeatCheckBox">Repeat
+							<label><input type="checkbox" name="repeat">不重複</label>
+							<label><input type="checkbox" name="repeat">每日</label>
+							<label><input type="checkbox" name="repeat">每周</label>
+							<label><input type="checkbox" name="repeat">每月</label>
+							<label><input type="checkbox" name="repeat">每年</label>
+						</div>
+				
+						<label for="priorityRange">Priority</label>
+						<input type="range" id="priorityRange" name="priorityRange" min="1" max="4" step="1" value="1">
+						<label for="describeText">Describe</label>
+						<input type="text" id="describeText" name="describeText" placeholder="describe" maxlength="100">
+						<input type="submit" value="submit">
+					</form>	
+					<input id="eventTitleInput" placeholder="Event Title" />
+					<button id="saveButton">Save</button>
+					<button id="cancelButton">Cancel</button>
+					
+				</div>
+				
+					<div id="deleteEventModal">
+						<h2>Event</h2>
+				
+						<p id="eventText"></p>
+				
+						<button id="deleteButton">Delete</button>
+						<button id="closeButton">Close</button>
+					</div> -->
+				
+				<div id="modalBackDrop"></div>
+				<div class="calendarContent" id="month">month</div>
 			</div>
+			
 
 
 			<!--buttonbar start-->
@@ -118,5 +190,6 @@
 
 		<script src = "assets/js/search.js"></script>
 		<script src = "assets/js/login.js"></script>
+		<script src="assets/js/calendar.js"></script>
 	</body>
 </html>

@@ -5,7 +5,7 @@
     grid-template-areas: 
     "header header"
     "sidebar searchbar"
-    "sidebar calender"
+    "sidebar calendar"
     "sidebar buttonbar";
     grid-gap: 10px;
     grid-auto-rows: minmax(70px, auto);
@@ -24,8 +24,8 @@
     grid-area: searchbar;
 }
 
-#calender {
-    grid-area: calender;
+#calendar {
+    grid-area: calendar;
 }
 
 #buttonBar {
