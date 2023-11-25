@@ -34,18 +34,17 @@
     <div id="newEventModal">
       <h2>New Event</h2>
       <form action="/addEvent.php" method="post">
-        <input type="text" name="eventTitle" placeholder="Event Title" />
-        
-        <label for="startTime">Starting Time:</label>
-        <input type="datetime-local" id="startTime" name="startTime">
-        
-        <label for="endTime">Ending Time:</label>
-        <input type="datetime-local" id="endTime" name="endTime">
-
+        <label for="eventTitle">eventTitle</label>
+        <input type="text" name="eventTitle" placeholder="Event Title" /><br>
+        <label for="startTime">Starting Time</label>
+        <input type="datetime-local" id="startTime" name="startTime"><br>
+        <label for="endTime">Ending Time</label>
+        <input type="datetime-local" id="endTime" name="endTime"><br>
+    
         <div id="classCheckBox">Class
           <label><input type="checkbox" name="class">1</label>
           <label><input type="checkbox" name="class">2</label>
-          <label><input type="checkbox" name="class">3</label>
+          <label><input type="checkbox" name="class">3</label><br>
         </div>
 
         <div id="repeatCheckBox">Repeat
@@ -53,20 +52,20 @@
           <label><input type="checkbox" name="repeat">每日</label>
           <label><input type="checkbox" name="repeat">每周</label>
           <label><input type="checkbox" name="repeat">每月</label>
-          <label><input type="checkbox" name="repeat">每年</label>
+          <label><input type="checkbox" name="repeat">每年</label><br>
         </div>
 
         <label for="priorityRange">Priority</label>
-        <input type="range" id="priorityRange" name="priorityRange" min="1" max="4" step="1" value="1">
+        <input type="range" id="priorityRange" name="priorityRange" min="1" max="4" step="1" value="1"><br>
 
         <label for="describeText">Describe</label>
-        <input type="text" id="describeText" name="describeText" placeholder="describe" maxlength="100">
+        <input type="text" id="describeText" name="describeText" placeholder="describe" maxlength="100"><br>
 
-        <input type="submit" value="submit">
+        <input type="submit" value="submit"><br>
       </form>
 
-      <input id="eventTitleInput" placeholder="Event Title" />
-
+      
+      <input id="eventTitleInput" placeholder="Event Title" /><br>
       <button id="saveButton">Save</button>
       <button id="cancelButton">Cancel</button>
       

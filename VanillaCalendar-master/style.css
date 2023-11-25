@@ -2,29 +2,29 @@ body {
   display: flex;
   margin-top: 50px;
   justify-content: center;
-  background-color: #FFFCFF;
+  background-color: #201F1D;
 }
 button {
   width: 75px;
   cursor: pointer;
-  box-shadow: 0px 0px 2px gray;
+  box-shadow: 0px 0px px #64CCC5;
   border: none;
   outline: none;
   padding: 5px;
   border-radius: 5px;
-  color: white;
+  color: #201F1D;
 }
 
 #header {
   padding: 10px;
-  color: #d36c6c;
+  color: #64CCC5;
   font-size: 26px;
   font-family: sans-serif;
   display: flex;
   justify-content: space-between;
 }
 #header button {
-  background-color:#92a1d1;
+  background-color:#64CCC5;
 }
 #container {
   width: 770px;
@@ -32,7 +32,7 @@ button {
 #weekdays {
   width: 100%;
   display: flex;
-  color: #247BA0;
+  color: #DAFFFB;
 }
 #weekdays div {
   width: 100px;
@@ -50,24 +50,25 @@ button {
   height: 100px;
   cursor: pointer;
   box-sizing: border-box;
-  background-color: white;
+  background-color: #414d4b;
+  border-radius: 4px;
   margin: 5px;
-  box-shadow: 0px 0px 3px #CBD4C2;
+  box-shadow: 0px 0px 8px #414d4b;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .day:hover {
-  background-color: #e8faed;
+  background-color: #64CCC5;
 }
 
 .day + #currentDay {
-  background-color:#e8f4fa;
+  background-color:#DAFFFB;
 }
 .event {
   font-size: 10px;
   padding: 3px;
-  background-color: #58bae4;
+  background-color: rgb(212, 64, 200);
   color: white;
   border-radius: 5px;
   max-height: 55px;
@@ -75,40 +76,72 @@ button {
 }
 .padding {
   cursor: default !important;
-  background-color: #FFFCFF !important;
+  background-color: #252423 !important;
   box-shadow: none !important;
+  border-radius: 4px;
 }
 #newEventModal, #deleteEventModal {
   display: none;
   z-index: 20;
   padding: 25px;
   background-color: #e8f4fa;
-  box-shadow: 0px 0px 3px black;
-  border-radius: 5px;
+  box-shadow: 0px 0px 50px rgb(118, 133, 132);
+  border-radius: 15px;
   width: 350px;
-  top: 100px;
-  left: calc(50% - 175px);
-  position: absolute;
+  top: 70px;
+  left: calc(45% - 175px);
+  position: fixed;
   font-family: sans-serif;
+  color: #427571;
 }
+
+#newEventModal h2,
+#deleteEventModal h2{
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+#newEventModal input[type="text"][name="eventTitle"], 
+#newEventModal input[type="datetime-local"][name="startTime"],
+#newEventModal input[type="datetime-local"][name="endTime"],
+#newEventModal input[type="text"][name="describeText"] {
+  border: 0px solid #a0a0a0; /* 邊框更細 */
+  padding: 3px; /* 內邊距減少 */
+  border-radius: 5px;
+  margin-top: 5px; /* 上下外邊距減少 */
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 3px gray;
+  font-size: 14px; /* 字體大小減小，如果需要 */
+  width: 95%; /* 調整寬度，如果需要 */
+}
+#newEventModal label,
+#newEventModal div {
+  margin-top: 10px; /* 增加顶部外边距 */
+  margin-bottom: 10px; /* 增加底部外边距 */
+}
+
+
+
+
 #eventTitleInput {
-  padding: 10px;
+  padding: 3px;
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 25px;
-  border-radius: 3px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
   outline: none;
   border: none;
   box-shadow: 0px 0px 3px gray;
 }
 #eventTitleInput.error {
-  border: 2px solid red;
+  border: 2px solid rgba(255, 0, 0, 0.466);
 }
 #cancelButton, #deleteButton {
-  background-color: #d36c6c;
+  background-color: #F7CDCE;
 }
 #saveButton, #closeButton {
-  background-color: #92a1d1;
+  background-color: #96AEDA;
 }
 #eventText {
   font-size: 14px;
@@ -120,6 +153,6 @@ button {
   z-index: 10;
   width: 100vw;
   height: 100vh;
-  position: absolute;
-  background-color: rgba(0,0,0,0.8);
+  position: fixed;
+  background-color:rgba(30, 130, 133, 0.5);
 }
