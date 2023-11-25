@@ -101,27 +101,25 @@ button {
   margin-bottom: 20px;
   margin-top: 0px;
 }
-#newEventModal input[type="text"][name="eventTitle"], 
-#newEventModal input[type="datetime-local"][name="startTime"],
-#newEventModal input[type="datetime-local"][name="endTime"],
-#newEventModal input[type="text"][name="describeText"] {
+
+#newEventModal form{
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
   border: 0px solid #a0a0a0; /* 邊框更細 */
   padding: 3px; /* 內邊距減少 */
   border-radius: 5px;
   margin-top: 5px; /* 上下外邊距減少 */
-  margin-bottom: 10px;
   box-shadow: 0px 0px 3px gray;
   font-size: 14px; /* 字體大小減小，如果需要 */
   width: 95%; /* 調整寬度，如果需要 */
 }
-#newEventModal label,
+
 #newEventModal div {
-  margin-top: 10px; /* 增加顶部外边距 */
-  margin-bottom: 10px; /* 增加底部外边距 */
+  margin:10px 0;
 }
-
-
-
 
 #eventTitleInput {
   padding: 3px;

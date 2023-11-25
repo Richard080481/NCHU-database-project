@@ -34,13 +34,18 @@
     <div id="newEventModal">
       <h2>New Event</h2>
       <form action="/addEvent.php" method="post">
-        <label for="eventTitle">eventTitle</label>
-        <input type="text" name="eventTitle" placeholder="Event Title" /><br>
-        <label for="startTime">Starting Time</label>
-        <input type="datetime-local" id="startTime" name="startTime"><br>
-        <label for="endTime">Ending Time</label>
-        <input type="datetime-local" id="endTime" name="endTime"><br>
-    
+        <div>
+          <label for="eventTitle">Title</label>
+          <input class="inputField" type="text" name="eventTitle" placeholder="Event Title" /><br>
+        </div>
+        <div>
+          <label for="startTime">Starting Time</label>
+          <input class="inputField" type="datetime-local" id="startTime" name="startTime"><br>
+        </div>
+        <div>
+          <label for="endTime">Ending Time</label>
+          <input class="inputField" type="datetime-local" id="endTime" name="endTime"><br>
+        </div>
         <div id="classCheckBox">Class
           <label><input type="checkbox" name="class">1</label>
           <label><input type="checkbox" name="class">2</label>
@@ -54,12 +59,14 @@
           <label><input type="checkbox" name="repeat">每月</label>
           <label><input type="checkbox" name="repeat">每年</label><br>
         </div>
-
-        <label for="priorityRange">Priority</label>
-        <input type="range" id="priorityRange" name="priorityRange" min="1" max="4" step="1" value="1"><br>
-
-        <label for="describeText">Describe</label>
-        <input type="text" id="describeText" name="describeText" placeholder="describe" maxlength="100"><br>
+        <div>
+          <label for="priorityRange">Priority</label>
+          <input type="range" id="priorityRange" name="priorityRange" min="1" max="4" step="1" value="1"><br>
+        </div>
+        <div>
+          <label for="describeText">Describe</label>
+          <input class="inputField" type="text" id="describeText" name="describeText" placeholder="describe" maxlength="100"><br>
+        </div>
 
         <input type="submit" value="submit"><br>
       </form>
