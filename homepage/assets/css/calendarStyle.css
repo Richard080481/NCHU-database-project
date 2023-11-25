@@ -53,7 +53,7 @@
 .day {
   width: 13.27%;
   padding: 8px;
-  height: 18%;
+  height: 14%;
   cursor: pointer;
   box-sizing: border-box;
   background-color: #414d4b;
@@ -97,7 +97,7 @@
   background-color: #e8f4fa;
   box-shadow: 0px 0px 50px rgb(118, 133, 132);
   border-radius: 15px;
-  width: 35%;
+  width: 30%;
   top: 70px;
   left: calc(45% - 175px);
   position: fixed;
