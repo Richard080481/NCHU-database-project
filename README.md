@@ -1,5 +1,9 @@
 # NCHU-database-project
 
+## 2023/11/25
+- 將月曆搬進網頁內
+- 微調月曆JS、CSS
+
 ## 2023/11/22
 - 確認sql table可讀取
 - 修改檔案結構(移除舊版月曆) 將網頁從index2 改為index index改為參考檔案
