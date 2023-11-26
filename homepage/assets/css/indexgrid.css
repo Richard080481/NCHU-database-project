@@ -1,6 +1,6 @@
 .wrapper {
     display: grid;
-    grid-template-rows: 10vh 25vh 61vh 30vh;
+    grid-template-rows: 10vh 24vh 65vh 30vh;
     grid-template-columns: 8vw 90vw;
     grid-template-areas: 
     "header header"

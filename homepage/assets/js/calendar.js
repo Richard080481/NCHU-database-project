@@ -113,6 +113,11 @@ function deleteEvent() {
   closeModal();
 }
 
+function gototoday(){
+  nav = 0;
+  load();
+}
+
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
     nav++;
@@ -124,6 +129,7 @@ function initButtons() {
     load();
   });
 
+  document.getElementById('TodayButton').addEventListener('click', gototoday)
   document.getElementById('saveButton').addEventListener('click', saveEvent);
   document.getElementById('cancelButton').addEventListener('click', closeModal);
   document.getElementById('deleteButton').addEventListener('click', deleteEvent);
