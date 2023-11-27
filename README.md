@@ -1,6 +1,6 @@
 # NCHU-database-project
 
-## 2023/11/26
+## 2023/11/27
 - 點擊新增頁面旁邊空白可以關閉視窗
 - 加入空白頁面setting，timer, home, calendar頁面連結
 - 增加新增事件按鈕（功能未實做）
