@@ -13,12 +13,14 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="stylesheet" href="assets/css/calendarStyle.css">
 
+
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script src="assets/js/jquery.js"></script>
 
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
 		<!--font-family-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
 		<!-- For favicon png -->
@@ -46,31 +48,14 @@
 			</div>
 			<!---header end--->
 
-			<!---searchbar start--->
-			<div class="gridDiv" id="searchBarDiv">
-				<div class="search">
-					<p for="youtubeBar">Youtube Search</p><br>
-					<input class="shortSearchBar" type="text" id="youtubeBar" placeholder="輸入想搜尋的影片(按Enter可進到YT主頁)">
-				</div>
-				<div class="search">
-					<p for="searchBar">Google Search</p><br>
-					<input class="shortSearchBar" type="text" id="searchBar" placeholder="輸入搜尋內容(按Enter可進到Google主頁)">
-				</div>
-				<div class="search">
-					<p for="translateBar">Translate</p><br>
-					<input class="shortSearchBar" type="text" id="translateBar" placeholder="輸入想翻譯的文字(英翻中，其他語言翻英)">
-				</div>  
-			</div>
-			<!---searchbar end--->
-
 			<!---sidebar start--->
 			<div class="gridDiv" id="sideBar">
 				<div>
 					<ul>
-						<li class="sideBarIcon"><a class="sideLink" href="#"><i class="material-icons">cottage</i>Home</a></li>
-						<li class="sideBarIcon"><a class="sideLink" href="#"><i class="material-icons">event</i>calendar</a></li>
-						<li class="sideBarIcon"><a class="sideLink" href="#"><i class="material-icons">timer</i>Timer</a></li>
-						<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="#"><i class="material-icons">settings</i>Setting</a></li>
+						<li class="sideBarIcon"><a class="sideLink" href="index.html"><i class="material-icons">cottage</i>Home</a></li>
+						<li class="sideBarIcon"><a class="sideLink" href="calendar.html"><i class="material-icons">event</i>calendar</a></li>
+						<li class="sideBarIcon"><a class="sideLink" href="timer.html"><i class="material-icons">timer</i>Timer</a></li>
+						<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="setting.html"><i class="material-icons">settings</i>Setting</a></li>
 					</ul>
 				</div>
 			</div>
@@ -106,7 +91,7 @@
 						<form action="/addEvent.php" method="post">
 						  <div>
 							<label for="eventTitle">Title</label>
-							<input class="inputField" type="text" id="eventTitle" name="eventTitle" placeholder="Event Title" /><br>
+							<input id="eventTitleInput" placeholder="Event Title" /><br>
 						  </div>
 						  <div>
 							<label for="startTime">Starting Time</label>
@@ -117,17 +102,22 @@
 							<input class="inputField" type="datetime-local" id="endTime" name="endTime"><br>
 						  </div>
 						  <div id="classCheckBox">Class
-							<label><input type="checkbox" name="class">1</label>
-							<label><input type="checkbox" name="class">2</label>
-							<label><input type="checkbox" name="class">3</label><br>
+							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>1</span></label>
+							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>2</span></label>
+							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>3</span></label><br>
 						  </div>
-				  
-						  <div id="repeatCheckBox">Repeat
-							<label><input type="checkbox" name="repeat">不重複</label>
-							<label><input type="checkbox" name="repeat">每日</label>
-							<label><input type="checkbox" name="repeat">每周</label>
-							<label><input type="checkbox" name="repeat">每月</label>
-							<label><input type="checkbox" name="repeat">每年</label><br>
+						  <div class="switch">
+							<label>
+							  重複
+							  <input type="checkbox">
+							  <span class="lever"></span>
+							</label>
+						  </div>
+						  <div id="repeatCheckBox">
+							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每日<span></label>
+							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每周<span></label>
+							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每月</span></label>
+							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每年</span></label><br>
 						  </div>
 						  <div>
 							<label for="priorityRange">Priority</label>
@@ -138,11 +128,8 @@
 							<input class="inputField" type="text" id="describeText" name="describeText" placeholder="describe" maxlength="100"><br>
 						  </div>
 				  
-						  <input type="submit" value="submit"><br>
 						</form>
 				  
-						
-						<input id="eventTitleInput" placeholder="Event Title" /><br>
 						<button id="saveButton">Save</button>
 						<button id="cancelButton">Cancel</button>
 						
@@ -162,22 +149,6 @@
 				<div class="calendarContent" id="month">month</div>
 			</div>
 			
-
-
-			<!--buttonbar start-->
-			<div class="gridDiv" id="buttonBar">
-				<div class="buttonbar"><a href="https://drive.google.com/drive/u/0/my-drive"><img src="assets/images/clouddrive.svg" class="btnicon">Google Drive</a></div>
-				<div class="buttonbar"><a href="https://mail.google.com/mail/u"><img src="assets/images/gmail.svg" class="btnicon">Gmail</a></div>
-				<div class="buttonbar"><a href="https://www.google.com/maps"><img src="assets/images/gmaps.svg" class="btnicon">Google Map</a></div>
-				<div class="buttonbar"><a href="https://github.com"><img src="assets/images/github.svg" class="btnicon">github</a></div>
-				<div class="buttonbar"><a href="https://metronom.us/en/"><img src="assets/images/metronomus.svg" class="btnicon">metronomus</a></div>
-				<div class="buttonbar"><a href="https://leetcode.com/"><img src="assets/images/leetcode.svg" class="btnicon">LeetCode</a></div>
-				<div class="buttonbar"><a href="https://www.overleaf.com/project"><img src="assets/images/overleaf.svg" class="btnicon">OverLeaf</a></div>
-				<div class="buttonbar"><a href="https://en.cppreference.com/w/"><img src="assets/images/cpp.svg" class="btnicon">CppReference</a></div>
-			</div>
-			<!--buttonbar end-->
-		</div>
-		
 		<div id="mask" class="hidden">
 			<div id="logInBox">
 				<div class="form">
@@ -199,7 +170,8 @@
 				</div>
 			</div>
 		</div>
-
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script src = "assets/js/search.js"></script>
 		<script src = "assets/js/login.js"></script>
 		<script src="assets/js/calendar.js"></script>

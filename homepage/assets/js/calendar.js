@@ -9,10 +9,21 @@ const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.datepicker');
+  var instances = M.Datepicker.init(elems, options);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.timepicker');
+  var instances = M.Timepicker.init(elems, options);
+});
+
 function openModal(date) {
   clicked = date;
 
   const eventForDay = events.find(e => e.date === clicked);
+  const modalBackDrop = document.getElementById('modalBackDrop');
 
   if (eventForDay) {
     document.getElementById('eventText').innerText = eventForDay.title;
@@ -20,6 +31,12 @@ function openModal(date) {
   } else {
     newEventModal.style.display = 'block';
   }
+
+  modalBackDrop.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('event')) {
+      closeModal(); // 點擊非事件區域時關閉視窗
+    }
+  });
 
   backDrop.style.display = 'block';
 }
@@ -77,11 +94,14 @@ function load() {
       daySquare.classList.add('padding');
     }
 
+    
+
     calendar.appendChild(daySquare);    
   }
 }
 
 function closeModal() {
+  
   eventTitleInput.classList.remove('error');
   newEventModal.style.display = 'none';
   deleteEventModal.style.display = 'none';
