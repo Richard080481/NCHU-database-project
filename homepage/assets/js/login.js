@@ -103,6 +103,60 @@ function fSignup(){
 
 function loadUser(userID, userName){
     $('#loginA').text(`Hello! ${userName}`);
+    loadAllEvent(userID);
+}
+
+function loadAllEvent(userID){
+    $.ajax({
+        url:"assets/php/searchAllEvent.php",
+        method:"post",
+        dataType:"json",
+        data:{'userID':userID},
+        success:function(json){
+            console.log(json);
+            showTodayEvent(json);
+        },
+        error:function(err){
+            console.log(err);
+        }
+    });
+}
+
+function showTodayEvent(allEventJson){
+    const dt = new Date();
+    const day = dt.getDate();
+    const month = dt.getMonth();
+    const year = dt.getFullYear();
+    const today = `${year}-${month+1}-${day}`
+
+    allEventJson.forEach(function(event){
+        if(event.startTime.includes(today)){
+            $('#EventBox').append(createEventDiv(event));
+        }
+    })
+}
+
+function createEventDiv(event){
+    var $eventDiv= $('<div>').addClass('event');
+    var $eventTimeDiv = $('<div>').addClass('eventTime');
+
+    var startTimeDate = new Date(event.startTime);
+    var startH = startTimeDate.getHours();
+    var startM = startTimeDate.getMinutes();
+    var formattedStartTime = `${startH.toString().padStart(2, '0')}:${startM.toString().padStart(2, '0')}`;
+    var $eventStartDiv = $('<div>').addClass('eventStart').text(formattedStartTime);
+
+    var endTimeDate = new Date(event.endTime);
+    var endH = endTimeDate.getHours();
+    var endM = endTimeDate.getMinutes();
+    var formattedEndTime = `${endH.toString().padStart(2, '0')}:${endM.toString().padStart(2, '0')}`;
+    var $eventEndDiv = $('<div>').addClass('eventEnd').text(formattedEndTime);
+
+    $eventTimeDiv.append($eventStartDiv, $eventEndDiv);
+    var $eventTagColorDiv = $('<div>').addClass('eventTagColor');
+    var $eventNameP = $('<p>').addClass('eventName').text(event.name);
+    $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
+    return $eventDiv
 }
 
 $(document).ready(()=>{
