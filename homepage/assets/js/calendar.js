@@ -9,9 +9,6 @@ const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-/*add--------------*/
-
-
 function openModal(date) {
   clicked = date;
 
@@ -61,14 +58,17 @@ function load() {
 
   document.getElementById('monthDisplay').innerText = 
     `${dt.toLocaleDateString('en-us', { month: 'long' })} ${year}`;
+  
+  document.getElementById('pickDayDisplay').innerText = 
+  `${day} ${dt.toLocaleDateString('en-us', {month: 'short'})} `;
 
   calendar.innerHTML = '';
 
   for(let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement('div');
     daySquare.classList.add('day');
-
-    const dayString = `${month + 1}/${i - paddingDays}/${year}`;
+    const dayString = `${year}/${month + 1}/${i - paddingDays}`;
+    daySquare.setAttribute('data-day', dayString)
 
     if (i > paddingDays) {
       daySquare.innerText = i - paddingDays;
@@ -85,7 +85,7 @@ function load() {
         daySquare.appendChild(eventDiv);
       }
 
-      daySquare.addEventListener('click', () => openModal(dayString));
+      daySquare.addEventListener('click', () => checkTheDay(daySquare));
     } else {
       daySquare.classList.add('padding');
     }
@@ -132,7 +132,18 @@ function gototoday(){
 }
 
 function openNewEventBox(){
+  const pickDayDiv = document.getElementById("currentDay");
+  const pickDay = pickDayDiv.getAttribute('data-day');
+  console.log(pickDay);
+}
 
+function checkTheDay(dayDIV){
+  document.getElementById("currentDay").removeAttribute("id");
+  dayDIV.id = "currentDay";
+  const pickDayDisplay = document.getElementById('pickDayDisplay');
+  const date = new Date(dayDIV.getAttribute('data-day'));
+  const day = date.getDate();
+  pickDayDisplay.innerText = `${day} ${date.toLocaleDateString('en-us', {month: 'short'})} `;
 }
 
 function initButtons() {

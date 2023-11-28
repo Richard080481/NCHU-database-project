@@ -77,7 +77,31 @@
 			<!-- calendar star -->
 			
 			<div class="gridDiv" id="calendarBar">
-				<div class="calendarContent" id="today">today</div>
+				<div class="calendarContent" id="today">
+					<div id="Eventheader">
+						<p>Task</p>
+						<div id="pickDayDisplay"></div>
+					</div>
+					<div id="EventBox">
+						<div class="event">
+							<div class="eventTime">
+								<div class="eventStart">18:00</div>
+								<div class="eventEnd">20:00</div>
+							</div>
+							<div class="eventTagColor"></div>
+							<p class="eventName">event1</p>
+						</div>
+
+						<div class="event">
+							<div class="eventTime">
+								<div class="eventStart">All</div>
+								<div class="eventEnd">Day</div>
+							</div>
+							<div class="eventTagColor"></div>
+							<p class="eventName">event2</p>
+						</div>
+					</div>
+				</div>
 				<div class="calendarContent" id="mainCalendar">
 					<div id="calendarheader">
 						<div id="monthDisplay"></div>
@@ -104,7 +128,7 @@
 						<h3>New Event</h3>
 						<form action="/addEvent.php" method="post">
 						  <div>
-							<label for="eventTitle">Title</label>
+							<label for="eventTitleInput">Title</label>
 							<input id="eventTitleInput" placeholder="Event Title" /><br>
 						  </div>
 						  <div>

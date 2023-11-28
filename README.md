@@ -1,5 +1,9 @@
 # NCHU-database-project
 
+## 2023/11/28
+- 載入今日事件
+- 按下日期按鈕可切換鎖定日期
+
 ## 2023/11/27
 - 點擊新增頁面旁邊空白可以關閉視窗
 - 加入空白頁面setting，timer, home, calendar頁面連結
