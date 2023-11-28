@@ -9,15 +9,8 @@ const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.datepicker');
-  var instances = M.Datepicker.init(elems, options);
-});
+/*add--------------*/
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.timepicker');
-  var instances = M.Timepicker.init(elems, options);
-});
 
 function openModal(date) {
   clicked = date;
@@ -25,6 +18,7 @@ function openModal(date) {
   const eventForDay = events.find(e => e.date === clicked);
   const modalBackDrop = document.getElementById('modalBackDrop');
 
+  console.log(eventForDay);
   if (eventForDay) {
     document.getElementById('eventText').innerText = eventForDay.title;
     deleteEventModal.style.display = 'block';
@@ -40,6 +34,8 @@ function openModal(date) {
 
   backDrop.style.display = 'block';
 }
+
+
 
 function load() {
   const dt = new Date();
@@ -93,9 +89,6 @@ function load() {
     } else {
       daySquare.classList.add('padding');
     }
-
-    
-
     calendar.appendChild(daySquare);    
   }
 }
@@ -138,6 +131,10 @@ function gototoday(){
   load();
 }
 
+function openNewEventBox(){
+
+}
+
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
     nav++;
@@ -148,7 +145,8 @@ function initButtons() {
     nav--;
     load();
   });
-
+  
+  document.getElementById('quickaddEventBtn').addEventListener('click', openNewEventBox);
   document.getElementById('TodayButton').addEventListener('click', gototoday)
   document.getElementById('saveButton').addEventListener('click', saveEvent);
   document.getElementById('cancelButton').addEventListener('click', closeModal);
