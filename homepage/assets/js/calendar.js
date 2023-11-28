@@ -1,38 +1,15 @@
 let nav = 0;
 let clicked = null;
-let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+let showMonth = thisMonth;
+let pickDay = today;
 
+const pickDayDisplay = document.getElementById('pickDayDisplay');
 const calendar = document.getElementById('calendar');
 const newEventModal = document.getElementById('newEventModal');
 const deleteEventModal = document.getElementById('deleteEventModal');
 const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-function openModal(date) {
-  clicked = date;
-
-  const eventForDay = events.find(e => e.date === clicked);
-  const modalBackDrop = document.getElementById('modalBackDrop');
-
-  console.log(eventForDay);
-  if (eventForDay) {
-    document.getElementById('eventText').innerText = eventForDay.title;
-    deleteEventModal.style.display = 'block';
-  } else {
-    newEventModal.style.display = 'block';
-  }
-
-  modalBackDrop.addEventListener('click', (event) => {
-    if (!event.target.classList.contains('event')) {
-      closeModal(); // 點擊非事件區域時關閉視窗
-    }
-  });
-
-  backDrop.style.display = 'block';
-}
-
-
 
 function load() {
   const dt = new Date();
@@ -58,39 +35,37 @@ function load() {
 
   document.getElementById('monthDisplay').innerText = 
     `${dt.toLocaleDateString('en-us', { month: 'long' })} ${year}`;
-  
-  document.getElementById('pickDayDisplay').innerText = 
-  `${day} ${dt.toLocaleDateString('en-us', {month: 'short'})} `;
 
   calendar.innerHTML = '';
 
   for(let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement('div');
     daySquare.classList.add('day');
-    const dayString = `${year}/${month + 1}/${i - paddingDays}`;
+    const dayString = `${year}-${(month+1).toString().padStart(2, '0')}-${(i-paddingDays).toString().padStart(2, '0')}`;
     daySquare.setAttribute('data-day', dayString)
 
     if (i > paddingDays) {
       daySquare.innerText = i - paddingDays;
-      const eventForDay = events.find(e => e.date === dayString);
+
+      const eventPointDiv = document.createElement("div");
+      eventPointDiv.classList.add("eventPointDiv");
+      daySquare.appendChild(eventPointDiv);
 
       if (i - paddingDays === day && nav === 0) {
         daySquare.id = 'currentDay';
       }
-
-      if (eventForDay) {
-        const eventDiv = document.createElement('div');
-        eventDiv.classList.add('event');
-        eventDiv.innerText = eventForDay.title;
-        daySquare.appendChild(eventDiv);
-      }
-
       daySquare.addEventListener('click', () => checkTheDay(daySquare));
     } else {
       daySquare.classList.add('padding');
     }
     calendar.appendChild(daySquare);    
   }
+
+  const pickDaydate = new Date(pickDay);
+  const pickDayGetDate = pickDaydate.getDate();
+  pickDayDisplay.innerText = `${pickDayGetDate} ${pickDaydate.toLocaleDateString('en-us', {month: 'short'})} `;
+
+  showMonth = `${year}-${month + 1}`;
 }
 
 function closeModal() {
@@ -126,37 +101,64 @@ function deleteEvent() {
   closeModal();
 }
 
-function gototoday(){
-  nav = 0;
-  load();
-}
-
 function openNewEventBox(){
   const pickDayDiv = document.getElementById("currentDay");
   const pickDay = pickDayDiv.getAttribute('data-day');
   console.log(pickDay);
+  const modalBackDrop = document.getElementById('modalBackDrop');
+  newEventModal.style.display = 'block';
+
+  modalBackDrop.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('event')) {
+      closeModal(); // 點擊非事件區域時關閉視窗
+    }
+  });
+  backDrop.style.display = 'block';
 }
 
 function checkTheDay(dayDIV){
-  document.getElementById("currentDay").removeAttribute("id");
+  const cDay = document.getElementById("currentDay");
+  if(cDay){
+    cDay.removeAttribute("id");
+  }
   dayDIV.id = "currentDay";
-  const pickDayDisplay = document.getElementById('pickDayDisplay');
-  const date = new Date(dayDIV.getAttribute('data-day'));
+  const dateString = dayDIV.getAttribute('data-day');
+  pickDay = dateString;
+  const date = new Date(dateString);
   const day = date.getDate();
   pickDayDisplay.innerText = `${day} ${date.toLocaleDateString('en-us', {month: 'short'})} `;
+  const userID = localStorage.getItem("userID");
+  loadADayEvent(userID, dateString);
+}
+
+function gototoday(){
+  nav = 0;
+  pickDay = today;
+  load();
+  const userID = localStorage.getItem("userID");
+  loadAMonthEvent(userID,thisMonth);
+  loadADayEvent(userID,today);
+}
+
+function nextMonth(){
+  nav++;
+  load();
+  const userID = localStorage.getItem("userID");
+  loadAMonthEvent(userID,showMonth);
+  loadADayEvent(userID,pickDay);
+}
+
+function backMonth(){
+  nav--;
+  load();
+  const userID = localStorage.getItem("userID");
+  loadAMonthEvent(userID,showMonth);
+  loadADayEvent(userID,pickDay);
 }
 
 function initButtons() {
-  document.getElementById('nextButton').addEventListener('click', () => {
-    nav++;
-    load();
-  });
-
-  document.getElementById('backButton').addEventListener('click', () => {
-    nav--;
-    load();
-  });
-  
+  document.getElementById('nextButton').addEventListener('click',nextMonth);
+  document.getElementById('backButton').addEventListener('click', backMonth);
   document.getElementById('quickaddEventBtn').addEventListener('click', openNewEventBox);
   document.getElementById('TodayButton').addEventListener('click', gototoday)
   document.getElementById('saveButton').addEventListener('click', saveEvent);

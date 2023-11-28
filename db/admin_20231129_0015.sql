@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-11-28 17:15:12
+-- 產生時間： 2023-11-28 20:18:58
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -56,7 +56,9 @@ CREATE TABLE `schedules` (
 
 INSERT INTO `schedules` (`userID`, `scheduleID`, `name`, `startTime`, `endTime`, `tag`, `duplicate`, `detail`) VALUES
 (1, 1, '考試1', '2023-11-28 09:10:00', '2023-11-28 12:00:00', NULL, 0, NULL),
-(1, 2, 'meeting', '2023-11-29 13:00:00', '2023-11-29 15:30:00', NULL, 0, NULL);
+(1, 2, 'meeting', '2023-11-29 13:00:00', '2023-11-29 15:30:00', NULL, 0, NULL),
+(1, 3, '聚餐', '2023-12-01 15:00:00', '2023-12-01 18:00:00', NULL, 0, NULL),
+(1, 4, '測試', '2023-10-23 10:00:00', '2023-10-23 17:00:00', NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -111,7 +113,7 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `scheduleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `scheduleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`

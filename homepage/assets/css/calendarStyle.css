@@ -72,15 +72,6 @@
   background-color:#DAFFFB;
   color: #292827;
 }
-.event {
-  font-size: 10px;
-  padding: 3px;
-  background-color: rgb(212, 64, 200);
-  color: white;
-  border-radius: 5px;
-  max-height: 55px;
-  overflow: hidden;
-}
 .padding {
   cursor: default !important;
   background-color: #292827 !important;
@@ -211,6 +202,7 @@
   display: flex;
   padding: 5px;
   align-items: center;
+  color: #fff;
 }
 
 .eventTime{
@@ -233,4 +225,17 @@
 .eventName{
   font-size: 18px;
   padding: 5px;
+}
+
+/*calendar event point*/
+.eventPointDiv{
+  display: flex;
+}
+
+.point{
+  font-size: 20px;
+}
+
+.tag-1{
+  color: #64CCC5;
 }

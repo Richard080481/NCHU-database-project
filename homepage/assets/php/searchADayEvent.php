@@ -21,7 +21,8 @@
 
     // POST
     $userid = $_POST['userID'];
-    $sql = "SELECT name,startTime,endTime,tag FROM users, schedules where schedules.userID=users.userID and users.userID='$userid'";  
+    $day = $_POST['day'];
+    $sql = "SELECT name,startTime,endTime,tag FROM users, schedules where schedules.userID=users.userID and users.userID='$userid' and schedules.startTime LIKE '%$day%'";  
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
