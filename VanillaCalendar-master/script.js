@@ -13,7 +13,7 @@ function openModal(date) {
   clicked = date;
 
   const eventForDay = events.find(e => e.date === clicked);
-
+  console.log(eventForDay);
   if (eventForDay) {
     document.getElementById('eventText').innerText = eventForDay.title;
     deleteEventModal.style.display = 'block';
