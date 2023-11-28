@@ -1,3 +1,10 @@
+const dt = new Date();
+const day = dt.getDate();
+const month = dt.getMonth();
+const year = dt.getFullYear();
+const today = `${year}-${(month+1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`
+const thisMonth = `${year}-${(month+1).toString().padStart(2, '0')}`
+
 $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
@@ -103,18 +110,20 @@ function fSignup(){
 
 function loadUser(userID, userName){
     $('#loginA').text(`Hello! ${userName}`);
-    loadAllEvent(userID);
+    localStorage.setItem("userID", userID);
+    loadAMonthEvent(userID,thisMonth);
+    loadADayEvent(userID,today);
 }
 
-function loadAllEvent(userID){
+function loadAMonthEvent(userID,m){
     $.ajax({
-        url:"assets/php/searchAllEvent.php",
+        url:"assets/php/searchAMonthEvent.php",
         method:"post",
         dataType:"json",
-        data:{'userID':userID},
+        data:{'userID':userID, 'month':m},
         success:function(json){
-            console.log(json);
-            showTodayEvent(json);
+            //console.log(json);
+            showAMonthCalendar(json, m);
         },
         error:function(err){
             console.log(err);
@@ -122,34 +131,67 @@ function loadAllEvent(userID){
     });
 }
 
-function showTodayEvent(allEventJson){
-    const dt = new Date();
-    const day = dt.getDate();
-    const month = dt.getMonth();
-    const year = dt.getFullYear();
-    const today = `${year}-${month+1}-${day}`
+function loadADayEvent(userID, dateString){
+    $.ajax({
+      url:"assets/php/searchADayEvent.php",
+      method:"post",
+      dataType:"json",
+      data:{'userID':userID, 'day':dateString},
+      success:function(json){
+          //console.log(json);
+          showADayEvent(json, dateString);
+      },
+      error:function(err){
+          console.log(err);
+      }
+  });
+}
 
+function showAMonthCalendar(allEventJson, m){
     allEventJson.forEach(function(event){
-        if(event.startTime.includes(today)){
+        if(event.startTime.includes(m)){
+            addPointToCalendar(event);
+        }
+    })
+}
+
+function showADayEvent(allEventJson, d){
+    $('#EventBox').empty();
+    allEventJson.forEach(function(event){
+        if(event.startTime.includes(d)){
             $('#EventBox').append(createEventDiv(event));
         }
     })
+}
+
+function addPointToCalendar(event){
+    const startTimeDate = new Date(event.startTime);
+    const startYear = startTimeDate.getFullYear();
+    const startMonth = startTimeDate.getMonth();
+    const startDay = startTimeDate.getDate();
+    const eventDate = `${startYear}-${(startMonth+1).toString().padStart(2, '0')}-${(startDay).toString().padStart(2, '0')}`;
+    const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
+    const eventPointDiv = dayDiv.querySelector('.eventPointDiv');
+    const pointDiv = document.createElement("div");
+    pointDiv.classList.add("point" , "tag-1");
+    pointDiv.innerText = '●';
+    eventPointDiv.appendChild(pointDiv);
 }
 
 function createEventDiv(event){
     var $eventDiv= $('<div>').addClass('event');
     var $eventTimeDiv = $('<div>').addClass('eventTime');
 
-    var startTimeDate = new Date(event.startTime);
-    var startH = startTimeDate.getHours();
-    var startM = startTimeDate.getMinutes();
-    var formattedStartTime = `${startH.toString().padStart(2, '0')}:${startM.toString().padStart(2, '0')}`;
+    const startTimeDate = new Date(event.startTime);
+    const startH = startTimeDate.getHours();
+    const startM = startTimeDate.getMinutes();
+    const formattedStartTime = `${startH.toString().padStart(2, '0')}:${startM.toString().padStart(2, '0')}`;
     var $eventStartDiv = $('<div>').addClass('eventStart').text(formattedStartTime);
 
-    var endTimeDate = new Date(event.endTime);
-    var endH = endTimeDate.getHours();
-    var endM = endTimeDate.getMinutes();
-    var formattedEndTime = `${endH.toString().padStart(2, '0')}:${endM.toString().padStart(2, '0')}`;
+    const endTimeDate = new Date(event.endTime);
+    const endH = endTimeDate.getHours();
+    const endM = endTimeDate.getMinutes();
+    const formattedEndTime = `${endH.toString().padStart(2, '0')}:${endM.toString().padStart(2, '0')}`;
     var $eventEndDiv = $('<div>').addClass('eventEnd').text(formattedEndTime);
 
     $eventTimeDiv.append($eventStartDiv, $eventEndDiv);
