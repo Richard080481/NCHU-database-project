@@ -88,7 +88,7 @@
 /*new event-----------------*/
 #newEventModal{
   height: 80%;
-  overflow-y:scroll;
+  overflow-y:auto;
 }
 
 #newEventModal, #deleteEventModal {
@@ -170,7 +170,7 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background-color:rgba(30, 130, 133, 0.5);
+  background-color:rgba(24, 69, 71, 0.5);
 }
 
 /*event box-----*/
