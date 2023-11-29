@@ -8,11 +8,20 @@ const thisMonth = `${year}-${(month+1).toString().padStart(2, '0')}`
 $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
-
-
 function toggleLogInMask(){
     var mask = document.getElementById('mask');
     mask.classList.toggle('hidden');
+
+    detectClickSpace();
+}
+
+function detectClickSpace(){
+    const logInBack = document.getElementById('logInBack'); 
+    logInBack.addEventListener('click', (event) => {
+        if (!event.target.classList.contains('event')) {
+        toggleLogInMask(); // 點擊非事件區域時關閉視窗
+      }
+    });
 }
 
 function vibrateAtError(){
