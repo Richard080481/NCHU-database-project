@@ -61,7 +61,7 @@
 						<li class="sideBarIcon"><a class="sideLink" href="calendar.html"><i class="material-icons">event</i>calendar</a></li>
 						<li class="sideBarIcon"><a class="sideLink" href="timer.html"><i class="material-icons">timer</i>Timer</a></li>
 						<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="setting.html"><i class="material-icons">settings</i>Setting</a></li>
-						<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="assets/php/logout.php"><i class="material-icons">logout</i>Log out</a></li>
+						<li class="sideBarIcon"><a class="sideLink" id="logoutBtn" href="assets/php/logout.php"><i class="material-icons">logout</i>Log out</a></li>
 					</ul>
 				</div>
 			</nav>
