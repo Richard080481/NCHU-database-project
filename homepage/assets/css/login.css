@@ -1,0 +1,134 @@
+/*logInBox---------------*/
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: #252423;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+#logInBox{
+    width: 360px;
+    z-index: 10;
+}
+
+.form {
+    position: relative;
+    background: #FFFFFF;
+    max-width: 360px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+}
+
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #252423;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.form button:hover,.form button:active,.form button:focus {
+    background: #464340;
+}
+
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.form .message a {
+    color: #252423;
+    text-decoration: none;
+}
+
+.form .signupFrom {
+    display: none;
+}
+
+#logInBox.loginError{
+    animation-name: frames_error;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+}
+@keyframes frames_error{
+    0%{
+        top: 0;
+        border:solid 5px rgba(255, 0, 0, 0);
+    }
+    25%{
+        bottom: 50px;
+        border:solid 5px rgb(255, 92, 92);
+    }
+    50%{
+        top: 50px;
+        border:solid 5px rgb(255, 92, 92);
+    }
+    75%{
+        bottom: 50px;
+        border:solid 5px rgb(255, 92, 92);
+    }
+    100%{
+        top:0;
+        border:solid 5px rgb(255, 92, 92);
+    }
+}
+
+#logInBox.signupSuccess{
+    animation-name: frames_success;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes frames_success{
+    0%{
+        top: 0;
+        border:solid 5px rgba(0, 255, 0, 0);
+    }
+    25%{
+        bottom: 50px;
+        border:solid 5px rgb(125, 255, 92);
+    }
+    50%{
+        top: 50px;
+        border:solid 5px rgb(125, 255, 92);
+    }
+    75%{
+        bottom: 50px;
+        border:solid 5px rgb(125, 255, 92);
+    }
+    100%{
+        top:0;
+        border:solid 5px rgb(125, 255, 92);
+    }
+}
+
+.ErrorMessage{
+    color: rgb(255, 92, 92);
+}
