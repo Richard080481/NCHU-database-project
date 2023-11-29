@@ -9,6 +9,7 @@ $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
 
+
 function toggleLogInMask(){
     var mask = document.getElementById('mask');
     mask.classList.toggle('hidden');
