@@ -10,6 +10,10 @@ const deleteEventModal = document.getElementById('deleteEventModal');
 const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const selectSwitch = document.getElementById('repeat-switch');
+const repeatSelect = document.getElementById('repeat-select');
+
+selectSwitch.checked = false;
 
 function load() {
   const dt = new Date();
@@ -69,7 +73,8 @@ function load() {
 }
 
 function closeModal() {
-  
+  selectSwitch.checked = false;
+  repeatSelect.style.display = 'none';
   eventTitleInput.classList.remove('error');
   newEventModal.style.display = 'none';
   deleteEventModal.style.display = 'none';
@@ -106,7 +111,7 @@ function openNewEventBox(){
   const pickDay = pickDayDiv.getAttribute('data-day');
   console.log(pickDay);
   const modalBackDrop = document.getElementById('modalBackDrop');
-  newEventModal.style.display = 'block';
+  newEventModal.style.display = 'grid';
 
   modalBackDrop.addEventListener('click', (event) => {
     if (!event.target.classList.contains('event')) {
@@ -156,13 +161,24 @@ function backMonth(){
   loadADayEvent(userID,pickDay);
 }
 
+function showTheSelectBox() {
+  selectSwitch.addEventListener('change', function() {
+    if(this.checked) {
+      repeatSelect.style.display = 'block';
+    } else {
+      repeatSelect.style.display = 'none';
+    }
+  });
+}
+
 function initButtons() {
+  showTheSelectBox();
   document.getElementById('nextButton').addEventListener('click',nextMonth);
   document.getElementById('backButton').addEventListener('click', backMonth);
   document.getElementById('quickaddEventBtn').addEventListener('click', openNewEventBox);
   document.getElementById('TodayButton').addEventListener('click', gototoday)
   document.getElementById('saveButton').addEventListener('click', saveEvent);
-  document.getElementById('cancelButton').addEventListener('click', closeModal);
+  // document.getElementById('cancelButton').addEventListener('click', closeModal);
   document.getElementById('deleteButton').addEventListener('click', deleteEvent);
   document.getElementById('closeButton').addEventListener('click', closeModal);
 }

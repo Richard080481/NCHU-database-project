@@ -138,28 +138,24 @@
 							<label for="endTime">Ending Time</label>
 							<input class="inputField" type="datetime-local" id="endTime" name="endTime"><br>
 						  </div>
-						  <div id="classCheckBox">Class
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>1</span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>2</span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>3</span></label><br>
+						  <div id="classColor">color
+
 						  </div>
 						  <div class="switch">
 							<label>
 							  重複
-							  <input type="checkbox">
+							  <input type="checkbox" id="repeat-switch">
 							  <span class="lever"></span>
 							</label>
 						  </div>
-						  <div id="repeatCheckBox">
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每日<span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每周<span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每月</span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每年</span></label><br>
-						  </div>
-						  <div>
-							<label for="priorityRange">Priority</label>
-							<input type="range" id="priorityRange" name="priorityRange" min="1" max="4" step="1" value="1"><br>
-						  </div>
+						  
+						  <select id="repeat-select">
+							<option>每日</option>
+							<option>每周</option>
+							<option>每月</option>
+							<option>每年</option>
+						  </select>
+
 						  <div>
 							<label for="describeText">Describe</label>
 							<input class="inputField" type="text" id="describeText" name="describeText" placeholder="describe" maxlength="100"><br>
@@ -168,7 +164,7 @@
 						</form>
 				  
 						<button id="saveButton">Save</button>
-						<button id="cancelButton">Cancel</button>
+						<!-- <button id="cancelButton">Cancel</button> -->
 						
 					  </div>
 				  
