@@ -45,6 +45,26 @@ body{
 .nav-wrapper li:hover{
     background-color: #6a1b9a;
 }
+.navbarButton li {
+    display: flex;
+}
+
+.navbarButton li{
+    display: flex;
+}
+
+#loginA{
+    width: 100%;
+    height: auto;
+    height: 64px;
+    box-sizing: border-box;
+    background-color: #201f1d;
+    color: #fff;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+}
         
 /*button bar--------------*/
 #buttonBar{
