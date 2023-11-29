@@ -9,18 +9,6 @@
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="zh-TW">
-	<head>
-		<title>CactusPage</title>
-		
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<!-- Compiled and minified CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-		<link rel="stylesheet" href="assets/css/indexgrid.css">
-		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="stylesheet" href="assets/css/calendarStyle.css">
 
 		
 		<!--Import Google Icon Font-->
@@ -53,23 +41,6 @@
 			</div>
 			<!---header end--->
 
-			<!---searchbar start--->
-			<div class="gridDiv" id="searchBarDiv">
-				<div class="search">
-					<p for="youtubeBar">Youtube Search</p><br>
-					<input class="shortSearchBar" type="text" id="youtubeBar" placeholder="輸入想搜尋的影片(按Enter可進到YT主頁)">
-				</div>
-				<div class="search">
-					<p for="searchBar">Google Search</p><br>
-					<input class="shortSearchBar" type="text" id="searchBar" placeholder="輸入搜尋內容(按Enter可進到Google主頁)">
-				</div>
-				<div class="search">
-					<p for="translateBar">Translate</p><br>
-					<input class="shortSearchBar" type="text" id="translateBar" placeholder="輸入想翻譯的文字(英翻中，其他語言翻英)">
-				</div>  
-			</div>
-			<!---searchbar end--->
-
 			<!---sidebar start--->
 			<div class="gridDiv" id="sideBar">
 				<div>
@@ -81,119 +52,169 @@
 						<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="assets/php/logout.php"><i class="material-icons">logout</i>Log out</a></li>
 					</ul>
 				</div>
-			</div>
-			<!---sidebar end--->
+			</nav>
+		</div>
+		<!---header end--->
 
-			<!-- calendar star -->
-			
-			<div class="gridDiv" id="calendarBar">
-				<div class="calendarContent" id="today">
-					<div id="Eventheader">
-						<p>Task</p>
-						<div id="pickDayDisplay"></div>
-					</div>
-					<div id="EventBox">
+		<!---searchbar start--->
+		<div class="gridDiv" id="searchBarDiv">
+			<div class="search">
+				<p for="youtubeBar">Youtube Search</p><br>
+				<input class="shortSearchBar" type="text" id="youtubeBar" placeholder="輸入想搜尋的影片(按Enter可進到YT主頁)">
+			</div>
+			<div class="search">
+				<p for="searchBar">Google Search</p><br>
+				<input class="shortSearchBar" type="text" id="searchBar" placeholder="輸入搜尋內容(按Enter可進到Google主頁)">
+			</div>
+			<div class="search">
+				<p for="translateBar">Translate</p><br>
+				<input class="shortSearchBar" type="text" id="translateBar" placeholder="輸入想翻譯的文字(英翻中，其他語言翻英)">
+			</div>
+		</div>
+		<!---searchbar end--->
+
+		<!---sidebar start--->
+		<div class="gridDiv" id="sideBar">
+			<div>
+				<ul>
+					<li class="sideBarIcon"><a class="sideLink" href="index.html"><i
+								class="material-icons">cottage</i>Home</a></li>
+					<li class="sideBarIcon"><a class="sideLink" href="calendar.html"><i
+								class="material-icons">event</i>calendar</a></li>
+					<li class="sideBarIcon"><a class="sideLink" href="timer.html"><i
+								class="material-icons">timer</i>Timer</a></li>
+					<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="setting.html"><i
+								class="material-icons">settings</i>Setting</a></li>
+				</ul>
+			</div>
+		</div>
+		<!---sidebar end--->
+
+		<!-- calendar star -->
+
+		<div class="gridDiv" id="calendarBar">
+			<div class="calendarContent" id="today">
+				<div id="Eventheader">
+					<p>Task</p>
+					<div id="pickDayDisplay"></div>
+				</div>
+				<div id="EventBox">
+				</div>
+			</div>
+
+			<!-- mainCalendar start -->
+			<div class="calendarContent" id="mainCalendar">
+				<div id="calendarheader">
+					<div id="monthDisplay"></div>
+					<div>
+						<button id="quickaddEventBtn">+Event</button>
+						<button id="TodayButton">Today</button>
+						<button id="backButton">＜</button>
+						<button id="nextButton">＞</button>
 					</div>
 				</div>
-				<div class="calendarContent" id="mainCalendar">
-					<div id="calendarheader">
-						<div id="monthDisplay"></div>
-						<div>
-							<button id="quickaddEventBtn">+Event</button>
-							<button id="TodayButton">Today</button>
-							<button id="backButton">＜</button>
-							<button id="nextButton">＞</button>
-						</div>
-					  </div>
-				
-					  <div id="weekdays">
-						<div>Sun</div>
-						<div>Mon</div>
-						<div>Tue</div>
-						<div>Wed</div>
-						<div>Thu</div>
-						<div>Fri</div>
-						<div>Sat</div>
-					</div>
-					<div id="calendar"></div>
 
-					<div id="newEventModal">
-						<h3>New Event</h3>
-						<form action="/addEvent.php" method="post">
-						  <div>
+				<div id="weekdays">
+					<div>Sun</div>
+					<div>Mon</div>
+					<div>Tue</div>
+					<div>Wed</div>
+					<div>Thu</div>
+					<div>Fri</div>
+					<div>Sat</div>
+				</div>
+				<div id="calendar"></div>
+
+				<div id="newEventModal">
+					<h3>New Event</h3>
+					<form action="/addEvent.php" method="post">
+						<div>
 							<label for="eventTitleInput">Title</label>
 							<input id="eventTitleInput" placeholder="Event Title" /><br>
-						  </div>
-						  <div>
+						</div>
+						<div>
 							<label for="startTime">Starting Time</label>
 							<input class="inputField" type="datetime-local" id="startTime" name="startTime"><br>
-						  </div>
-						  <div>
+						</div>
+						<div>
 							<label for="endTime">Ending Time</label>
 							<input class="inputField" type="datetime-local" id="endTime" name="endTime"><br>
-						  </div>
-						  <div id="classCheckBox">Class
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>1</span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>2</span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>3</span></label><br>
-						  </div>
-						  <div class="switch">
+						</div>
+
+						<!-- color picker -->
+
+						<div id="classColor">
+							<button class="swatchy-trigger"><i
+								class="material-icons">colorize</i></button>
+							<input type="text" class="swatchy-output" disabled>
+						</div>
+
+						<!-- color picker end -->
+						<!-- switch start -->
+						<div class="switch">
 							<label>
-							  重複
-							  <input type="checkbox">
-							  <span class="lever"></span>
+								重複
+								<input type="checkbox" id="repeat-switch">
+								<span class="lever"></span>
 							</label>
-						  </div>
-						  <div id="repeatCheckBox">
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每日<span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每周<span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每月</span></label>
-							<label><input type="checkbox" class="filled-in" checked="checked" name="repeat"><span>每年</span></label><br>
-						  </div>
-						  <div>
-							<label for="priorityRange">Priority</label>
-							<input type="range" id="priorityRange" name="priorityRange" min="1" max="4" step="1" value="1"><br>
-						  </div>
-						  <div>
+						</div>
+
+						<select id="repeat-select">
+							<option>每日</option>
+							<option>每周</option>
+							<option>每月</option>
+							<option>每年</option>
+						</select>
+
+						<div>
 							<label for="describeText">Describe</label>
-							<input class="inputField" type="text" id="describeText" name="describeText" placeholder="describe" maxlength="100"><br>
-						  </div>
-				  
-						</form>
-				  
-						<button id="saveButton">Save</button>
-						<button id="cancelButton">Cancel</button>
-						
-					  </div>
-				  
-					  <div id="deleteEventModal">
-						<h2>Event</h2>
-				  
-						<p id="eventText"></p>
-				  
-						<button id="deleteButton">Delete</button>
-						<button id="closeButton">Close</button>
-					  </div>
-				  
-					  <div id="modalBackDrop"></div>
+							<input class="inputField" type="text" id="describeText" name="describeText"
+								placeholder="describe" maxlength="100"><br>
+						</div>
+
+					</form>
+
+					<button id="saveButton">Save</button>
+					<!-- <button id="cancelButton">Cancel</button> -->
+
 				</div>
-				<div class="calendarContent" id="month">month</div>
+
+				<div id="deleteEventModal">
+					<h2>Event</h2>
+
+					<p id="eventText"></p>
+
+					<button id="deleteButton">Delete</button>
+					<button id="closeButton">Close</button>
+				</div>
+
+				<div id="modalBackDrop"></div>
 			</div>
-			
+			<!-- mainCalendar end -->
+
+			<div class="calendarContent" id="month">month</div>
+		</div>
 
 
-			<!--buttonbar start-->
-			<div class="gridDiv" id="buttonBar">
-				<div class="buttonbar"><a href="https://drive.google.com/drive/u/0/my-drive"><img src="assets/images/clouddrive.svg" class="btnicon">Google Drive</a></div>
-				<div class="buttonbar"><a href="https://mail.google.com/mail/u"><img src="assets/images/gmail.svg" class="btnicon">Gmail</a></div>
-				<div class="buttonbar"><a href="https://www.google.com/maps"><img src="assets/images/gmaps.svg" class="btnicon">Google Map</a></div>
-				<div class="buttonbar"><a href="https://github.com"><img src="assets/images/github.svg" class="btnicon">github</a></div>
-				<div class="buttonbar"><a href="https://metronom.us/en/"><img src="assets/images/metronomus.svg" class="btnicon">metronomus</a></div>
-				<div class="buttonbar"><a href="https://leetcode.com/"><img src="assets/images/leetcode.svg" class="btnicon">LeetCode</a></div>
-				<div class="buttonbar"><a href="https://www.overleaf.com/project"><img src="assets/images/overleaf.svg" class="btnicon">OverLeaf</a></div>
-				<div class="buttonbar"><a href="https://en.cppreference.com/w/"><img src="assets/images/cpp.svg" class="btnicon">CppReference</a></div>
-			</div>
-			<!--buttonbar end-->
+
+		<!--buttonbar start-->
+		<div class="gridDiv" id="buttonBar">
+			<div class="buttonbar"><a href="https://drive.google.com/drive/u/0/my-drive"><img
+						src="assets/images/clouddrive.svg" class="btnicon">Google Drive</a></div>
+			<div class="buttonbar"><a href="https://mail.google.com/mail/u"><img src="assets/images/gmail.svg"
+						class="btnicon">Gmail</a></div>
+			<div class="buttonbar"><a href="https://www.google.com/maps"><img src="assets/images/gmaps.svg"
+						class="btnicon">Google Map</a></div>
+			<div class="buttonbar"><a href="https://github.com"><img src="assets/images/github.svg"
+						class="btnicon">github</a></div>
+			<div class="buttonbar"><a href="https://metronom.us/en/"><img src="assets/images/metronomus.svg"
+						class="btnicon">metronomus</a></div>
+			<div class="buttonbar"><a href="https://leetcode.com/"><img src="assets/images/leetcode.svg"
+						class="btnicon">LeetCode</a></div>
+			<div class="buttonbar"><a href="https://www.overleaf.com/project"><img src="assets/images/overleaf.svg"
+						class="btnicon">OverLeaf</a></div>
+			<div class="buttonbar"><a href="https://en.cppreference.com/w/"><img src="assets/images/cpp.svg"
+						class="btnicon">CppReference</a></div>
 		</div>
 		<!-- Compiled and minified JavaScript -->
 		<script>

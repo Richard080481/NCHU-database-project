@@ -150,11 +150,18 @@
   background-color: #F7CDCE;
 }
 #saveButton, #closeButton {
+  margin-left: auto;
+  margin-right: auto;
   background-color: #96AEDA;
 }
 #eventText {
   font-size: 14px;
 }
+
+#repeat-select{
+  background-color: #d6e0e4;
+}
+
 #modalBackDrop {
   display: none;
   top: 0px;

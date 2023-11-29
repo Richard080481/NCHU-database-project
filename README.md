@@ -1,11 +1,17 @@
 # NCHU-database-project
 
 ## 2023/11/29
+- 微調logIn button大小與樣式
+- logIn button旁邊空白可以關閉視窗
+- 設定重複日期的拉桿並且開啟時預設為關
+- 新增color picker(待合併風格)
+
 - 修改登入機制
     - 正確登入後才可跳轉到index.html
     - 使用cookie保持登入
 - 調整資料庫，將使用者登入帳號改成mail
 - 調整日曆計算月份Bug
+
 
 ## 2023/11/28
 - 登入後可載入資料庫事件
