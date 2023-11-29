@@ -51,7 +51,7 @@
 }
 .day {
   width: 13.27%;
-  padding: 8px;
+  padding: 6px;
   height: 14%;
   cursor: pointer;
   box-sizing: border-box;
@@ -64,6 +64,12 @@
   justify-content: space-between;
   color: #fff;
 }
+
+.day p{
+  margin: 0;
+  font-size: 15px;
+}
+
 .day:hover {
   background-color: #64CCC5;
 }
@@ -229,11 +235,19 @@
 
 /*calendar event point*/
 .eventPointDiv{
+  flex-basis: 50%;
   display: flex;
+  margin: 0;
+  align-content: center;
+  flex-direction: row;
+  padding: 1px;
 }
 
 .point{
-  font-size: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: #64CCC5;
 }
 
 .tag-1{

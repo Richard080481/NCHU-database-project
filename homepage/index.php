@@ -1,3 +1,12 @@
+<?php
+    session_start();
+	require 'assets/php/function.php';
+
+	if(!isLoggedIn()){
+		header("Location: assets/php/login.php");
+		die;
+	};
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="zh-TW">
 	<head>
@@ -28,7 +37,7 @@
 			<div class="gridDiv" id="header">
 				<nav>
 					<div class="nav-wrapper">
-						<a id="homeTitle" class="brand-logo" href="index2.html">&nbsp;&nbsp;Cactus</a>
+						<a id="homeTitle" class="brand-logo" href="index.php">&nbsp;&nbsp;Cactus</a>
 						<ul id="nav-mobile" class="right hide-on-med-and-down">
 							<li class="navbarButton"><a href="https://idp.nchu.edu.tw/nidp/idff/sso?id=20&sid=5&option=credential&sid=5&target=https%3A%2F%2Fportal.nchu.edu.tw%2Fportal">興大入口</a></li>
 							<li class="navbarButton"><a href="https://lms2020.nchu.edu.tw/">iLearning 3.0</a></li>
@@ -37,8 +46,7 @@
 							<li class="navbarButton"><a href="https://streetvoice.com/">StreetVoice</a></li>
 							<li class="navbarButton"><a href="https://www.netflix.com">NetFlix</a></li>
 							<li class="navbarButton"><a href="https://www.facebook.com/">facebook</a></li>
-							<li class="navbarButton"><a id="loginA" href="#">Log in</a></li>
-							<li class="navbarButton"><button>Log in</button></li>
+							<li class="navbarButton"><button id="nameButton">Hello! <?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?></button></li>
 						</ul>
 					</div>
 				</nav>
@@ -66,10 +74,11 @@
 			<div class="gridDiv" id="sideBar">
 				<div>
 					<ul>
-						<li class="sideBarIcon"><a class="sideLink" href="index.html"><i class="material-icons">cottage</i>Home</a></li>
+						<li class="sideBarIcon"><a class="sideLink" href="index.php"><i class="material-icons">cottage</i>Home</a></li>
 						<li class="sideBarIcon"><a class="sideLink" href="calendar.html"><i class="material-icons">event</i>calendar</a></li>
 						<li class="sideBarIcon"><a class="sideLink" href="timer.html"><i class="material-icons">timer</i>Timer</a></li>
 						<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="setting.html"><i class="material-icons">settings</i>Setting</a></li>
+						<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="assets/php/logout.php"><i class="material-icons">logout</i>Log out</a></li>
 					</ul>
 				</div>
 			</div>
@@ -84,23 +93,6 @@
 						<div id="pickDayDisplay"></div>
 					</div>
 					<div id="EventBox">
-						<div class="event">
-							<div class="eventTime">
-								<div class="eventStart">18:00</div>
-								<div class="eventEnd">20:00</div>
-							</div>
-							<div class="eventTagColor"></div>
-							<p class="eventName">event1</p>
-						</div>
-
-						<div class="event">
-							<div class="eventTime">
-								<div class="eventStart">All</div>
-								<div class="eventEnd">Day</div>
-							</div>
-							<div class="eventTagColor"></div>
-							<p class="eventName">event2</p>
-						</div>
 					</div>
 				</div>
 				<div class="calendarContent" id="mainCalendar">
@@ -203,34 +195,17 @@
 			</div>
 			<!--buttonbar end-->
 		</div>
-		
-		<div id="mask" class="hidden">
-			<div id="logInBox">
-				<div class="form">
-					<form class="signupFrom">
-						<p class="ErrorMessage"> </p>
-						<input id="signupName" type="text" placeholder="username" required/>
-						<input id="signupAccount" type="text" placeholder="account" required/>
-						<input id="signupPasswd" type="password" placeholder="password" required/>
-						<button id="signupBtn">create</button>
-						<p class="message">Already registered? <a href="#">Log In</a></p>
-					</form>
-					<form class="loginFrom">
-						<p class="ErrorMessage"> </p>
-						<input id="loginAccount" type="text" placeholder="account" required/>
-						<input id="loginPasswd" type="password" placeholder="password" required/>
-						<button id="loginBtn">login</button>
-						<p class="message">Not registered? <a href="#">Create an account</a></p>
-					</form>
-				</div>
-			</div>
-		</div>
 		<!-- Compiled and minified JavaScript -->
+		<script>
+			const userName = "<?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?>";
+			const userID = "<?php echo isset($_SESSION['USERID']) ? $_SESSION['USERID'] : ''; ?>";
+			console.log(userID);
+		</script>
+
 		<script src="assets/js/jquery.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="assets/js/globalVariable.js"></script>
 		<script src = "assets/js/search.js"></script>
-		<script src = "assets/js/login.js"></script>
 		<script src="assets/js/calendar.js"></script>
-		
 	</body>
 </html>

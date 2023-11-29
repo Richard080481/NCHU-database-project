@@ -15,12 +15,16 @@ function load() {
   const dt = new Date();
 
   if (nav !== 0) {
-    dt.setMonth(new Date().getMonth() + nav);
+    let currentMonth = dt.getMonth();
+    dt.setDate(1);
+    dt.setMonth(currentMonth + nav);
   }
 
   const day = dt.getDate();
   const month = dt.getMonth();
   const year = dt.getFullYear();
+
+  //console.log(`nav:${nav}, month:${month+1}`);
 
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -45,7 +49,10 @@ function load() {
     daySquare.setAttribute('data-day', dayString)
 
     if (i > paddingDays) {
-      daySquare.innerText = i - paddingDays;
+      const dayNumP = document.createElement("p");
+      dayNumP.innerText = i - paddingDays;
+      dayNumP.classList.add("dayNumP");
+      daySquare.appendChild(dayNumP);
 
       const eventPointDiv = document.createElement("div");
       eventPointDiv.classList.add("eventPointDiv");
@@ -127,7 +134,6 @@ function checkTheDay(dayDIV){
   const date = new Date(dateString);
   const day = date.getDate();
   pickDayDisplay.innerText = `${day} ${date.toLocaleDateString('en-us', {month: 'short'})} `;
-  const userID = localStorage.getItem("userID");
   loadADayEvent(userID, dateString);
 }
 
@@ -135,7 +141,6 @@ function gototoday(){
   nav = 0;
   pickDay = today;
   load();
-  const userID = localStorage.getItem("userID");
   loadAMonthEvent(userID,thisMonth);
   loadADayEvent(userID,today);
 }
@@ -143,7 +148,6 @@ function gototoday(){
 function nextMonth(){
   nav++;
   load();
-  const userID = localStorage.getItem("userID");
   loadAMonthEvent(userID,showMonth);
   loadADayEvent(userID,pickDay);
 }
@@ -151,9 +155,94 @@ function nextMonth(){
 function backMonth(){
   nav--;
   load();
-  const userID = localStorage.getItem("userID");
   loadAMonthEvent(userID,showMonth);
   loadADayEvent(userID,pickDay);
+}
+
+
+function loadAMonthEvent(userID,m){
+  $.ajax({
+      url:"assets/php/searchAMonthEvent.php",
+      method:"post",
+      dataType:"json",
+      data:{'userID':userID, 'month':m},
+      success:function(json){
+          //console.log(json);
+          showAMonthCalendar(json, m);
+      },
+      error:function(err){
+          console.log(err);
+      }
+  });
+}
+
+function loadADayEvent(userID, dateString){
+  $.ajax({
+    url:"assets/php/searchADayEvent.php",
+    method:"post",
+    dataType:"json",
+    data:{'userID':userID, 'day':dateString},
+    success:function(json){
+        //console.log(json);
+        showADayEvent(json, dateString);
+    },
+    error:function(err){
+        console.log(err);
+    }
+});
+}
+
+function showAMonthCalendar(allEventJson, m){
+  allEventJson.forEach(function(event){
+      if(event.startTime.includes(m)){
+          addPointToCalendar(event);
+      }
+  })
+}
+
+function showADayEvent(allEventJson, d){
+  $('#EventBox').empty();
+  allEventJson.forEach(function(event){
+      if(event.startTime.includes(d)){
+          $('#EventBox').append(createEventDiv(event));
+      }
+  })
+}
+
+function addPointToCalendar(event){
+  const startTimeDate = new Date(event.startTime);
+  const startYear = startTimeDate.getFullYear();
+  const startMonth = startTimeDate.getMonth();
+  const startDay = startTimeDate.getDate();
+  const eventDate = `${startYear}-${(startMonth+1).toString().padStart(2, '0')}-${(startDay).toString().padStart(2, '0')}`;
+  const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
+  const eventPointDiv = dayDiv.querySelector('.eventPointDiv');
+  const pointDiv = document.createElement("div");
+  pointDiv.classList.add("point" , "tag-1");
+  eventPointDiv.appendChild(pointDiv);
+}
+
+function createEventDiv(event){
+  var $eventDiv= $('<div>').addClass('event');
+  var $eventTimeDiv = $('<div>').addClass('eventTime');
+
+  const startTimeDate = new Date(event.startTime);
+  const startH = startTimeDate.getHours();
+  const startM = startTimeDate.getMinutes();
+  const formattedStartTime = `${startH.toString().padStart(2, '0')}:${startM.toString().padStart(2, '0')}`;
+  var $eventStartDiv = $('<div>').addClass('eventStart').text(formattedStartTime);
+
+  const endTimeDate = new Date(event.endTime);
+  const endH = endTimeDate.getHours();
+  const endM = endTimeDate.getMinutes();
+  const formattedEndTime = `${endH.toString().padStart(2, '0')}:${endM.toString().padStart(2, '0')}`;
+  var $eventEndDiv = $('<div>').addClass('eventEnd').text(formattedEndTime);
+
+  $eventTimeDiv.append($eventStartDiv, $eventEndDiv);
+  var $eventTagColorDiv = $('<div>').addClass('eventTagColor');
+  var $eventNameP = $('<p>').addClass('eventName').text(event.name);
+  $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
+  return $eventDiv
 }
 
 function initButtons() {
@@ -169,3 +258,5 @@ function initButtons() {
 
 initButtons();
 load();
+loadAMonthEvent(userID,thisMonth);
+loadADayEvent(userID,today);
