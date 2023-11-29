@@ -33,35 +33,20 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<!---header start--->
-			<div class="gridDiv" id="header">
-				<nav>
-					<div class="nav-wrapper">
-						<a id="homeTitle" class="brand-logo" href="index.php">&nbsp;&nbsp;Cactus</a>
-						<ul id="nav-mobile" class="right hide-on-med-and-down">
-							<li class="navbarButton"><a href="https://idp.nchu.edu.tw/nidp/idff/sso?id=20&sid=5&option=credential&sid=5&target=https%3A%2F%2Fportal.nchu.edu.tw%2Fportal">興大入口</a></li>
-							<li class="navbarButton"><a href="https://lms2020.nchu.edu.tw/">iLearning 3.0</a></li>
-							<li class="navbarButton"><a href="https://chat.openai.com/">ChatGPT</a></li>
-							<li class="navbarButton"><a href="https://www.youtube.com/">Youtube</a></li>
-							<li class="navbarButton"><a href="https://streetvoice.com/">StreetVoice</a></li>
-							<li class="navbarButton"><a href="https://www.netflix.com">NetFlix</a></li>
-							<li class="navbarButton"><a href="https://www.facebook.com/">facebook</a></li>
-							<li class="navbarButton"><button id="nameButton">Hello! <?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?></button></li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-			<!---header end--->
-
-			<!---sidebar start--->
-			<div class="gridDiv" id="sideBar">
-				<div>
-					<ul>
-						<li class="sideBarIcon"><a class="sideLink" href="index.php"><i class="material-icons">cottage</i>Home</a></li>
-						<li class="sideBarIcon"><a class="sideLink" href="calendar.html"><i class="material-icons">event</i>calendar</a></li>
-						<li class="sideBarIcon"><a class="sideLink" href="timer.html"><i class="material-icons">timer</i>Timer</a></li>
-						<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="setting.html"><i class="material-icons">settings</i>Setting</a></li>
-						<li class="sideBarIcon"><a class="sideLink" id="logoutBtn" href="assets/php/logout.php"><i class="material-icons">logout</i>Log out</a></li>
+		<!---header start--->
+		<div class="gridDiv" id="header">
+			<nav>
+				<div class="nav-wrapper">
+					<a id="homeTitle" class="brand-logo" href="index.php">&nbsp;&nbsp;Cactus</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li class="navbarButton"><a href="https://idp.nchu.edu.tw/nidp/idff/sso?id=20&sid=5&option=credential&sid=5&target=https%3A%2F%2Fportal.nchu.edu.tw%2Fportal">興大入口</a></li>
+						<li class="navbarButton"><a href="https://lms2020.nchu.edu.tw/">iLearning 3.0</a></li>
+						<li class="navbarButton"><a href="https://chat.openai.com/">ChatGPT</a></li>
+						<li class="navbarButton"><a href="https://www.youtube.com/">Youtube</a></li>
+						<li class="navbarButton"><a href="https://streetvoice.com/">StreetVoice</a></li>
+						<li class="navbarButton"><a href="https://www.netflix.com">NetFlix</a></li>
+						<li class="navbarButton"><a href="https://www.facebook.com/">facebook</a></li>
+						<li class="navbarButton"><button id="nameButton">Hello! <?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?></button></li>
 					</ul>
 				</div>
 			</nav>
@@ -89,7 +74,7 @@
 		<div class="gridDiv" id="sideBar">
 			<div>
 				<ul>
-					<li class="sideBarIcon"><a class="sideLink" href="index.html"><i
+					<li class="sideBarIcon"><a class="sideLink" href="index.php"><i
 								class="material-icons">cottage</i>Home</a></li>
 					<li class="sideBarIcon"><a class="sideLink" href="calendar.html"><i
 								class="material-icons">event</i>calendar</a></li>
@@ -97,6 +82,8 @@
 								class="material-icons">timer</i>Timer</a></li>
 					<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="setting.html"><i
 								class="material-icons">settings</i>Setting</a></li>
+					<li class="sideBarIcon"><a class="sideLink" id="logoutBtn" href="assets/php/logout.php"><i 
+								class="material-icons">logout</i>Log out</a></li>
 				</ul>
 			</div>
 		</div>
