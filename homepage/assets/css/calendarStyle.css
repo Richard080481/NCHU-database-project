@@ -152,6 +152,10 @@
   font-size: 14px;
 }
 
+#repeat-select{
+  background-color: #d6e0e4;
+}
+
 #modalBackDrop {
   display: none;
   top: 0px;
