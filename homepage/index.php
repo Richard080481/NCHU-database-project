@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="assets/css/indexgrid.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="stylesheet" href="assets/css/calendarStyle.css">
+		<link rel="stylesheet" href="assets/css/swatchy.css">
 
 		
 		<!--Import Google Icon Font-->
@@ -143,7 +144,7 @@
 						<!-- color picker -->
 
 						<div id="classColor">
-							<button class="swatchy-trigger"><i
+							<button class="swatchy-trigger" type="button"><i
 								class="material-icons">colorize</i></button>
 							<input type="text" class="swatchy-output" disabled>
 						</div>
@@ -227,5 +228,6 @@
 		<script src="assets/js/globalVariable.js"></script>
 		<script src = "assets/js/search.js"></script>
 		<script src="assets/js/calendar.js"></script>
+		<script src="assets/js/swatchy.js"></script>
 	</body>
 </html>

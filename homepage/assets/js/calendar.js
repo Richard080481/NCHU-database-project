@@ -121,13 +121,13 @@ function openNewEventBox(){
   const endTimeInput = document.getElementById("endTime");
   startTimeInput.value = pickDay + "T00:00";
   endTimeInput.value = pickDay + "T23:59";
+  backDrop.style.display = 'block';
   
   modalBackDrop.addEventListener('click', (event) => {
     if (!event.target.classList.contains('event')) {
       closeModal(); // 點擊非事件區域時關閉視窗
     }
   });
-  backDrop.style.display = 'block';
 }
 
 function checkTheDay(dayDIV){
