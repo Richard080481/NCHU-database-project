@@ -90,21 +90,37 @@ function closeModal() {
   clicked = null;
 }
 
-function saveEvent() {
-  if (eventTitleInput.value) {
-    eventTitleInput.classList.remove('error');
+// function saveEvent() {
+//   if (eventTitleInput.value) {
+//     eventTitleInput.classList.remove('error');
 
-    events.push({
-      date: clicked,
-      title: eventTitleInput.value,
-    });
+//     var eventData = {
+//       date: clicked,
+//       title: eventTitleInput.value,
+//       duplicate: clicked,
+//       detail: describeText.value,
+//     };
 
-    localStorage.setItem('events', JSON.stringify(events));
-    closeModal();
-  } else {
-    eventTitleInput.classList.add('error');
-  }
-}
+//     fetch('saveEvent.php', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(eventData),
+//     })
+//       .then(response => response.text())
+//       .then(data => {
+//         console.log(data);
+//         closeModal();
+//       })
+//       .catch(error => {
+//         console.error('Error:', error);
+//       });
+//   } else {
+//     eventTitleInput.classList.add('error');
+//   }
+// }
+
 
 function deleteEvent() {
   events = events.filter(e => e.date !== clicked);

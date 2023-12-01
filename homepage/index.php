@@ -145,8 +145,8 @@
 
 						<div id="classColor">
 							<button class="swatchy-trigger" type="button"><i
-								class="material-icons">colorize</i></button>
-							<input type="text" class="swatchy-output" disabled>
+							class="material-icons">colorize</i></button>
+							<div class="showColor"><input type="text" class="swatchy-output" disabled></div>
 						</div>
 
 						<!-- color picker end -->
@@ -174,8 +174,7 @@
 
 					</form>
 
-					<button id="saveButton">Save</button>
-					<!-- <button id="cancelButton">Cancel</button> -->
+					<button id="saveButton" type="submit">Save</button>
 
 				</div>
 
