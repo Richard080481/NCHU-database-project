@@ -57,15 +57,15 @@
 		<!---searchbar start--->
 		<div class="gridDiv" id="searchBarDiv">
 			<div class="search">
-				<p for="youtubeBar">Youtube Search</p><br>
+				<p for="youtubeBar">Youtube Search</p>
 				<input class="shortSearchBar" type="text" id="youtubeBar" placeholder="輸入想搜尋的影片(按Enter可進到YT主頁)">
 			</div>
 			<div class="search">
-				<p for="searchBar">Google Search</p><br>
+				<p for="searchBar">Google Search</p>
 				<input class="shortSearchBar" type="text" id="searchBar" placeholder="輸入搜尋內容(按Enter可進到Google主頁)">
 			</div>
 			<div class="search">
-				<p for="translateBar">Translate</p><br>
+				<p for="translateBar">Translate</p>
 				<input class="shortSearchBar" type="text" id="translateBar" placeholder="輸入想翻譯的文字(英翻中，其他語言翻英)">
 			</div>
 		</div>
