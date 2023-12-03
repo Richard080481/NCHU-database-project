@@ -328,7 +328,7 @@ function initButtons() {
   document.getElementById('backButton').addEventListener('click', backMonth);
   document.getElementById('quickaddEventBtn').addEventListener('click', openNewEventBox);
   document.getElementById('TodayButton').addEventListener('click', gototoday)
-  document.getElementById('saveButton').addEventListener('click', saveEvent);
+  // document.getElementById('saveButton').addEventListener('click', saveEvent);
   // document.getElementById('cancelButton').addEventListener('click', closeModal);
   document.getElementById('deleteButton').addEventListener('click', deleteEvent);
   document.getElementById('closeButton').addEventListener('click', closeModal);
