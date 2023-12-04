@@ -232,6 +232,7 @@ function loadAMonthEvent(userID,m){
           //console.log(json);
           showAMonthCalendar(json, m);
           showAMonthSchedule(json, m);
+          /*addEventClick();*/
       },
       error:function(err){
           console.log(err);
@@ -248,6 +249,7 @@ function loadADayEvent(userID, dateString){
     success:function(json){
         //console.log(json);
         showADayEvent(json, dateString);
+        addEventClick();
     },
     error:function(err){
         console.log(err);
@@ -273,7 +275,7 @@ function showAMonthSchedule(allEventJson, m){
 
 function createScheduleDiv(event){
   var $eventDiv= $('<div>').addClass('event');
-  $eventDiv.setAttribute("data-scheduleID");
+  $eventDiv.attr('data-scheduleID', event.scheduleID);
   var $eventTimeDiv = $('<div>').addClass('eventTime');
 
   const startTimeDate = new Date(event.startTime);
@@ -287,6 +289,10 @@ function createScheduleDiv(event){
   var $eventNameP = $('<p>').addClass('eventName').text(event.name);
   $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
   return $eventDiv
+}
+
+function addEventClick(){
+  $('.event').click(editEvent);
 }
 
 function showADayEvent(allEventJson, d){
@@ -315,6 +321,7 @@ function addPointToCalendar(event){
 
 function createEventDiv(event, day){
   var $eventDiv= $('<div>').addClass('event');
+  $eventDiv.attr('data-scheduleID', event.scheduleID);
   var $eventTimeDiv = $('<div>').addClass('eventTime');
 
   const startTimeDate = new Date(event.startTime);
@@ -386,6 +393,10 @@ function showTheSelectBox() {
       repeatSelect.style.display = 'none';
     }
   });
+}
+
+function editEvent(){
+  console.log("edit event");
 }
 
 function initButtons() {
