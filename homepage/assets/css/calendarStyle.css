@@ -174,14 +174,15 @@
 }
 
 /*event box-----*/
-#today{
+#today, #month{
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-y: auto;
 }
 
-#Eventheader {
+.cHeader {
   padding: 10px;
   display: flex;
   justify-content:center;
@@ -189,7 +190,7 @@
   align-items: center;
 }
 
-#Eventheader p{
+.cHeader p{
   margin: 0;
   color:#64CCC5;
   font-size: 26px;
@@ -199,10 +200,11 @@
   font-size: 20px;
 }
 
-#EventBox{
+.cBox{
   height: 90%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .event{
@@ -224,7 +226,7 @@
   padding: 5px;
   flex-direction: column;
   align-items: center;
-  font-size: 12px;
+  font-size: small;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
@@ -255,6 +257,7 @@
   height: 10px;
   border-radius: 20px;
   background-color: #64CCC5;
+  margin: 0 2px;
 }
 
 .tag-1{

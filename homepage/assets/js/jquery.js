@@ -3139,4 +3139,4 @@
 	return n.noConflict = function(b) {
 		return a.$ === n && (a.$ = Ob), b && a.jQuery === n && (a.jQuery = Nb), n
 	}, b || (a.jQuery = a.$ = n), n
-}); console.log('昀潔你有在應徵男朋友ㄇ，我想報名XD，對你蠻有好感的，想知道你對我是甚麼感覺。');
+});

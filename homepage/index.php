@@ -74,31 +74,31 @@
 		<!---searchbar end--->
 
 		<!---sidebar start--->
-		<div class="gridDiv" id="sideBar">
+		<!-- <div class="gridDiv" id="sideBar">
 			<div>
 				<ul>
 					<li class="sideBarIcon"><a class="sideLink" href="index.php"><i
 								class="material-icons">cottage</i>Home</a></li>
 					<li class="sideBarIcon"><a class="sideLink" href="calendar.html"><i
 								class="material-icons">event</i>calendar</a></li>
-					<!-- <li class="sideBarIcon"><a class="sideLink" href="timer.html"><i
+					<li class="sdf"><a class="sideLink" href="timer.html"><i
 								class="material-icons">timer</i>Timer</a></li>
 					<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="setting.html"><i
-								class="material-icons">settings</i>Setting</a></li> -->
+								class="material-icons">settings</i>Setting</a></li>
 				</ul>
 			</div>
-		</div>
+		</div> -->
 		<!---sidebar end--->
 
 		<!-- calendar star -->
 
 		<div class="gridDiv" id="calendarBar">
 			<div class="calendarContent" id="today">
-				<div id="Eventheader">
+				<div id="Eventheader" class="cHeader">
 					<p>Task</p>
 					<div id="pickDayDisplay"></div>
 				</div>
-				<div id="EventBox">
+				<div id="EventBox" class="cBox">
 				</div>
 			</div>
 
@@ -144,9 +144,9 @@
 						<!-- color picker -->
 
 						<div id="classColor">
-							<button class="swatchy-trigger" type="button"><i
+							<button class="swatchy-trigger" id="colorPciker" type="button"><i
 							class="material-icons">colorize</i></button>
-							<div class="showColor"><input type="text" class="swatchy-output" disabled></div>
+							<div class="showColor"><input type="text" class="swatchy-output" id="eventColor" disabled></div>
 						</div>
 
 						<!-- color picker end -->
@@ -160,10 +160,10 @@
 						</div>
 
 						<select id="repeat-select">
-							<option>每日</option>
-							<option>每周</option>
-							<option>每月</option>
-							<option>每年</option>
+							<option value="1">每日</option>
+							<option value="7">每周</option>
+							<option value="30">每月</option>
+							<option value="365">每年</option>
 						</select>
 
 						<div>
@@ -174,7 +174,7 @@
 
 					</form>
 
-					<button id="saveButton" type="submit">Save</button>
+					<button id="saveButton" onclick="saveEvent()">Save</button>
 
 				</div>
 
@@ -192,11 +192,11 @@
 			<!-- mainCalendar end -->
 
 			<div class="calendarContent" id="month">
-				<div id="Eventheader">
+				<div id="scheduleheader" class="cHeader">
 					<p>schedule</p>
 					<div id="pickMonthDisplay"></div>
 				</div>
-				<div id="EventBox">
+				<div id="scheduleBox" class="cBox">
 				</div>
 			</div>
 		</div>
@@ -223,11 +223,13 @@
 						class="btnicon">CppReference</a></div>
 		</div>
 		<!-- Compiled and minified JavaScript -->
+		
 		<script>
 			const userName = "<?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?>";
 			const userID = "<?php echo isset($_SESSION['USERID']) ? $_SESSION['USERID'] : ''; ?>";
 			console.log(userID);
 		</script>
+		
 
 		<script src="assets/js/jquery.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

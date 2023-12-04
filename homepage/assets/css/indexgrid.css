@@ -4,9 +4,9 @@
     grid-template-columns: 8vw 90vw;
     grid-template-areas: 
     "header header"
-    "sidebar searchbar"
-    "sidebar calendarBar"
-    "sidebar buttonbar";
+    "searchbar searchbar"
+    "calendarBar calendarBar"
+    "buttonbar buttonbar";
     grid-gap: 10px;
     grid-auto-rows: minmax(70px, auto);
     margin: 0;
