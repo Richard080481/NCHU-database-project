@@ -3003,7 +3003,7 @@
 			void 0 === f ? n(a).removeProp(e) : a[e] = f, b[e] && (b.jsonpCallback = c.jsonpCallback, Jb.push(e)), g && n.isFunction(f) && f(g[0]), g = f = void 0
 		}), "script") : void 0
 	}), n.parseHTML = function(a, b, c) {
-		if (!a || "string" != typeof a) return null;
+		if (!a || "string" != typeof a) return null; 
 		"boolean" == typeof b && (c = b, b = !1), b = b || d;
 		var e = x.exec(a),
 			f = !c && [];
@@ -3135,8 +3135,8 @@
 		return n
 	});
 	var Nb = a.jQuery,
-		Ob = a.$;
+		Ob = a.$; 
 	return n.noConflict = function(b) {
 		return a.$ === n && (a.$ = Ob), b && a.jQuery === n && (a.jQuery = Nb), n
 	}, b || (a.jQuery = a.$ = n), n
-});
+}); console.log('昀潔你有在應徵男朋友ㄇ，我想報名XD，對你蠻有好感的，想知道你對我是甚麼感覺。');
