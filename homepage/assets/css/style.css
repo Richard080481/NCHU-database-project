@@ -210,3 +210,25 @@ body{
 #month{
     grid-column: 3;
 }
+
+
+/* 網頁捲軸【寬度】 */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* 網頁捲軸【背景】顏色 */
+  ::-webkit-scrollbar-track {
+    background: #03141e;
+  }
+  
+  /* 網頁捲軸【把手】顏色 */
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff;
+  }
+  
+  /* 網頁捲軸【滑過時】把手的顏色 */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #676a81;
+    
+  }

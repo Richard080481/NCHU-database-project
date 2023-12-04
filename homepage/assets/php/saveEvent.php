@@ -1,22 +1,40 @@
 <?php
-// 获取前端通过 POST 请求发送的数据
-$data = json_decode(file_get_contents('php://input'), true);
 
-// 准备 SQL 语句插入数据（使用预处理语句防止 SQL 注入）
-$date = $data['date'];
-$title = $data['title'];
+$servername = "localhost";
+$username = "admin";
+$password = "admin";
+$dbname = "admin";
 
-$stmt = $conn->prepare("INSERT INTO schedules (date, title) VALUES (?, ?)");
-$stmt->bind_param("ss", $date, $title);
-
-// 执行预处理语句
-if ($stmt->execute()) {
-    echo "Event saved successfully";
-} else {
-    echo "Error: " . $stmt->error;
+// Check connection
+if (!$con = mysqli_connect($servername, $username, $password, $dbname)) {
+    die("Failed to connect");
 }
 
-// 关闭数据库连接
-$stmt->close();
-$conn->close();
+// Get the raw POST data
+$postData = file_get_contents("php://input");
+
+// Decode the JSON data
+$eventData = json_decode($postData);
+
+// Extract data from the decoded JSON
+$title = mysqli_real_escape_string($con, $eventData->title);
+$passStartTime = mysqli_real_escape_string($con, $eventData->passStartTime);
+$passEndTime = mysqli_real_escape_string($con, $eventData->passEndTime);
+$duplicate = mysqli_real_escape_string($con, $eventData->duplicate);
+$passEventColor = mysqli_real_escape_string($con, $eventData->passEventColor);
+$detail = mysqli_real_escape_string($con, $eventData->detail);
+$userID = mysqli_real_escape_string($con, $eventData->passUserID);
+
+// Your SQL query to insert data into the database
+$sql = "INSERT INTO schedules (userID, name, startTime, endTime, duplicate, tag, detail) VALUES ('$userID', '$title', '$passStartTime', '$passEndTime', '$duplicate', '$passEventColor', '$detail')";
+// Perform the query
+if (mysqli_query($con, $sql)) {
+    echo "Event saved successfully!";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($con);
+}
+
+// Close the database connection
+mysqli_close($con);
+
 ?>

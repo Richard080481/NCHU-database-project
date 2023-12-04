@@ -96,36 +96,45 @@ function closeModal() {
   clicked = null;
 }
 
-// function saveEvent() {
-//   if (eventTitleInput.value) {
-//     eventTitleInput.classList.remove('error');
+function saveEvent() {
+  const startTime = document.getElementById('startTime');
+  const endTime = document.getElementById('endTime');
+  const eventColor = document.getElementById('eventColor');
+  // const duplicateSwitch = document.getElementById('repeat-switch');
+  const duplicateTime = document.getElementById('repeat-select');
+  duplicateTime.value = '0';
+  if (eventTitleInput.value) {
+    eventTitleInput.classList.remove('error');
 
-//     var eventData = {
-//       date: clicked,
-//       title: eventTitleInput.value,
-//       duplicate: clicked,
-//       detail: describeText.value,
-//     };
+    var eventData = {
+      title: eventTitleInput.value,
+      passStartTime: startTime.value,
+      passEndTime: endTime.value,
+      duplicate: duplicateTime.value,
+      passEventColor: eventColor.value,
+      detail: describeText.value,
+      passUserID: userID
+    };
 
-//     fetch('saveEvent.php', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(eventData),
-//     })
-//       .then(response => response.text())
-//       .then(data => {
-//         console.log(data);
-//         closeModal();
-//       })
-//       .catch(error => {
-//         console.error('Error:', error);
-//       });
-//   } else {
-//     eventTitleInput.classList.add('error');
-//   }
-// }
+    fetch('assets/php/saveEvent.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(eventData),
+    })
+      .then(response => response.text())
+      .then(eventData => {
+        console.log(eventData);
+        closeModal();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  } else {
+    eventTitleInput.classList.add('error');
+  }
+}
 
 
 function deleteEvent() {
@@ -151,6 +160,22 @@ function openNewEventBox(){
     }
   });
 }
+
+// function openColorBox(){
+//   const modalBackDrop = document.getElementById('modalBackDrop');
+//   newEventModal.style.display = 'grid';
+//   const startTimeInput = document.getElementById("startTime");
+//   const endTimeInput = document.getElementById("endTime");
+//   startTimeInput.value = pickDay + "T00:00";
+//   endTimeInput.value = pickDay + "T23:59";
+//   backDrop.style.display = 'block';
+  
+//   modalBackDrop.addEventListener('click', (event) => {
+//     if (!event.target.classList.contains('event')) {
+//       closeModal(); // 點擊非事件區域時關閉視窗
+//     }
+//   });
+// }
 
 function checkTheDay(dayDIV){
 
@@ -206,6 +231,7 @@ function loadAMonthEvent(userID,m){
       success:function(json){
           //console.log(json);
           showAMonthCalendar(json, m);
+          showAMonthSchedule(json, m);
       },
       error:function(err){
           console.log(err);
@@ -229,12 +255,38 @@ function loadADayEvent(userID, dateString){
 });
 }
 
+
 function showAMonthCalendar(allEventJson, m){
   allEventJson.forEach(function(event){
       if(event.startTime.includes(m)){
           addPointToCalendar(event);
       }
   })
+}
+
+function showAMonthSchedule(allEventJson, m){
+  $('#scheduleBox').empty();
+  allEventJson.forEach(function(event){
+    $('#scheduleBox').append(createScheduleDiv(event));
+  })
+}
+
+function createScheduleDiv(event){
+  var $eventDiv= $('<div>').addClass('event');
+  $eventDiv.setAttribute("data-scheduleID");
+  var $eventTimeDiv = $('<div>').addClass('eventTime');
+
+  const startTimeDate = new Date(event.startTime);
+  const startD = startTimeDate.getDate();
+  const formattedStartTime = `${startD.toString().padStart(2, '0')}`;
+  var $eventStartDiv = $('<div>').addClass('eventStart');
+  $eventStartDiv.text(formattedStartTime);
+
+  $eventTimeDiv.append($eventStartDiv);
+  var $eventTagColorDiv = $('<div>').addClass('eventTagColor');
+  var $eventNameP = $('<p>').addClass('eventName').text(event.name);
+  $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
+  return $eventDiv
 }
 
 function showADayEvent(allEventJson, d){
@@ -341,6 +393,7 @@ function initButtons() {
   document.getElementById('nextButton').addEventListener('click',nextMonth);
   document.getElementById('backButton').addEventListener('click', backMonth);
   document.getElementById('quickaddEventBtn').addEventListener('click', openNewEventBox);
+  //document.getElementById('colorPciker').addEventListener('click', openColorBox);
   document.getElementById('TodayButton').addEventListener('click', gototoday)
   // document.getElementById('saveButton').addEventListener('click', saveEvent);
   // document.getElementById('cancelButton').addEventListener('click', closeModal);
