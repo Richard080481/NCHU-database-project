@@ -48,6 +48,8 @@
 						<li class="navbarButton"><a href="https://www.netflix.com">NetFlix</a></li>
 						<li class="navbarButton"><a href="https://www.facebook.com/">facebook</a></li>
 						<li class="navbarButton"><button id="nameButton">Hello! <?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?></button></li>
+						<li class="navbarButton"><a id="logoutBtn" href="assets/php/logout.php"><i 
+							class="material-icons">logout</i></a></li>
 					</ul>
 				</div>
 			</nav>
@@ -79,12 +81,10 @@
 								class="material-icons">cottage</i>Home</a></li>
 					<li class="sideBarIcon"><a class="sideLink" href="calendar.html"><i
 								class="material-icons">event</i>calendar</a></li>
-					<li class="sideBarIcon"><a class="sideLink" href="timer.html"><i
+					<!-- <li class="sideBarIcon"><a class="sideLink" href="timer.html"><i
 								class="material-icons">timer</i>Timer</a></li>
 					<li class="sideBarIcon"><a class="sideLink" id="settingBtn" href="setting.html"><i
-								class="material-icons">settings</i>Setting</a></li>
-					<li class="sideBarIcon"><a class="sideLink" id="logoutBtn" href="assets/php/logout.php"><i 
-								class="material-icons">logout</i>Log out</a></li>
+								class="material-icons">settings</i>Setting</a></li> -->
 				</ul>
 			</div>
 		</div>
