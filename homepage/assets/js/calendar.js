@@ -3,6 +3,7 @@ let clicked = null;
 let showMonth = thisMonth;
 let pickDay = today;
 
+const pickMonthDisplay = document.getElementById('pickMonthDisplay');
 const pickDayDisplay = document.getElementById('pickDayDisplay');
 const calendar = document.getElementById('calendar');
 const newEventModal = document.getElementById('newEventModal');
@@ -76,6 +77,11 @@ function load() {
   const pickDayGetDate = pickDaydate.getDate();
   pickDayDisplay.innerText = `${pickDayGetDate} ${pickDaydate.toLocaleDateString('en-us', {month: 'short'})} `;
 
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  
+  const monthIndex = dt.getMonth();
+  pickMonthDisplay.innerText = months[monthIndex];
+
   showMonth = `${year}-${month + 1}`;
 }
 
@@ -147,6 +153,7 @@ function openNewEventBox(){
 }
 
 function checkTheDay(dayDIV){
+
   const cDay = document.getElementById("currentDay");
   if(cDay){
     cDay.removeAttribute("id");
@@ -158,6 +165,13 @@ function checkTheDay(dayDIV){
   const day = date.getDate();
   pickDayDisplay.innerText = `${day} ${date.toLocaleDateString('en-us', {month: 'short'})} `;
   loadADayEvent(userID, dateString);
+}
+
+function checkTheMonth(){
+  const dateString = pickMonthDisplay.getAttribute('data-day');
+  showMonth = dateString;
+  pickDayDisplay.innerText = `${day} ${date.toLocaleDateString('en-us', {month: 'short'})} `;
+  loadAMonthEvent(userID, dateString);
 }
 
 function gototoday(){

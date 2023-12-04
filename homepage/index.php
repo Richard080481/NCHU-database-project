@@ -40,7 +40,7 @@
 				<div class="nav-wrapper">
 					<a id="homeTitle" class="brand-logo" href="index.php">&nbsp;&nbsp;Cactus</a>
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li class="navbarButton"><a href="https://idp.nchu.edu.tw/nidp/idff/sso?id=20&sid=5&option=credential&sid=5&target=https%3A%2F%2Fportal.nchu.edu.tw%2Fportal">興大入口</a></li>
+						<li class="navbarButton"><a href="https://idp.nchu.edu.tw/nidp/idff/sso?id=20&sid=5&option=credential&sid=5&target=https%3A%2F%2Fportal.nchu.edu.tw%2Fportal">NCHUSSO</a></li>
 						<li class="navbarButton"><a href="https://lms2020.nchu.edu.tw/">iLearning 3.0</a></li>
 						<li class="navbarButton"><a href="https://chat.openai.com/">ChatGPT</a></li>
 						<li class="navbarButton"><a href="https://www.youtube.com/">Youtube</a></li>
@@ -191,7 +191,14 @@
 			</div>
 			<!-- mainCalendar end -->
 
-			<div class="calendarContent" id="month">month</div>
+			<div class="calendarContent" id="month">
+				<div id="Eventheader">
+					<p>schedule</p>
+					<div id="pickMonthDisplay"></div>
+				</div>
+				<div id="EventBox">
+				</div>
+			</div>
 		</div>
 
 
