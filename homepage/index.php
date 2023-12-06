@@ -23,7 +23,7 @@
 		<link rel="stylesheet" href="assets/css/calendarStyle.css">
 		<link rel="stylesheet" href="assets/css/swatchy.css">
 
-		
+
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		

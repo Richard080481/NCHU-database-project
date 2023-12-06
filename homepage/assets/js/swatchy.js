@@ -3,21 +3,21 @@ let hasSwatchyRun = false;
 function Swatchy(
     autoClose = true,
     swatches = [
-        { color: "#64CCC5", tag: "Cya" },   // 青色
-        { color: "#6a1b9a", tag: "Pur" },   // 紫色
-        { color: "#f584d3", tag: "Pin" },   // 粉红色
-        { color: "#f20707", tag: "Red" },   // 红色
-        { color: "#d11d9b", tag: "Mag" },   // 洋红色
-        { color: "#f5e50a", tag: "Yel" },   // 黃色
-        { color: "#1af50a", tag: "Gre" },   // 綠色
-        { color: "#f2a90c", tag: "Ora" },   // 橙色
-        { color: "#ed8251", tag: "Pch" },   // 桃色
-        { color: "#5166ed", tag: "Blu" },   // 藍色
-        { color: "#6d6a8f", tag: "Gra" },   // 灰色
-        { color: "#40f7b1", tag: "Whi" },   // 白色
-        { color: "#000000", tag: "Bla" },   // 黑色
-        { color: "#756937", tag: "Bro" },   // 褐色
-        { color: "#11038c", tag: "DBl" },   // 深藍色
+        { color: "#64CCC5", tag: "" },
+        { color: "#009788", tag: "" },
+        { color: "#039be6", tag: "" },
+        { color: "#f5511e", tag: "" },
+        { color: "#ef6c00", tag: "" },
+        { color: "#ef9300", tag: "" },
+        { color: "#ad1457", tag: "" },
+        { color: "#d81a60", tag: "" },
+        { color: "#d60000", tag: "" },
+        { color: "#7986cc", tag: "" },
+        { color: "#b39ddb", tag: "" },
+        { color: "#9e69af", tag: "" },
+        { color: "#795547", tag: "" },
+        { color: "#616161", tag: "" },
+        { color: "#a79b8d", tag: "" },
     ]
 ) {
     if (!hasSwatchyRun) {
@@ -71,10 +71,10 @@ function Swatchy(
             function toggleEdit() {
                 // Find all input elements inside the container
                 let inputs = swatchContainer.querySelectorAll('.swatchy-tag-input');
-            
+
                 // Check if the inputs are in edit mode
                 let isEditMode = inputs[0].disabled;
-            
+
                 // Toggle between edit and display modes for each input
                 inputs.forEach(input => {
                     input.disabled = !isEditMode;
@@ -90,20 +90,58 @@ function Swatchy(
                         button.style.pointerEvents = 'auto';
                     }
                 });
-            
+
                 // Change the button text accordingly
                 editBut.innerHTML = isEditMode ? "save" : "edit";
+
+                if (!isEditMode) {
+                    // When in edit mode, send the updated data to colorTag.php
+                    sendDataToColorTagPHP();
+                }
             }
 
+            function sendDataToColorTagPHP() {
+                // Collect the updated data
+                let tags = [];
+                let inputs = swatchContainer.querySelectorAll('.swatchy-tag-input');
+                let passUserID = userID;
+
+                inputs.forEach(input => {
+                    tags.push(input.value);
+                    console.log(input.value);
+                });
+
+                let passData = {
+                    passUserID: passUserID,
+                    tags: tags,
+                };
+                console.log(passData)
+
+                // Send the data to colorTag.php using fetch
+                fetch('assets/php/colorTag.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(passData),
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data); // handle the response from the server if needed
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
 
             function selectColor(e) {
                 let input = document.querySelectorAll('.swatchy-output').item(id);
                 let newColor = e.target.getAttribute('data-swatchy-color');
                 let tagText = e.target.nextSibling.value;
-                
+
                 input.setAttribute('value', tagText);
                 input.setAttribute('data-swatchy-color', newColor);
-                input.setAttribute('style', 'background-color: ' + newColor + '; color: ' + newColor + ';');
+                input.setAttribute('style', 'background-color: ' + newColor + '; color: #ffffff;');
 
                 if (autoClose) {
                     togglePopup();
