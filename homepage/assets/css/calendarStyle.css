@@ -91,7 +91,7 @@
   overflow-y:auto;
 }
 
-#newEventModal, #deleteEventModal {
+#newEventModal {
   display: none;
   z-index: 20;
   padding: 25px;
@@ -105,9 +105,22 @@
   color: #427571;
 }
 
-#newEventModal h3,
-#deleteEventModal h3{
-  text-align: left;
+.btnBox{
+  display: flex;
+  justify-content: center;
+}
+
+#deleteButton{
+  display: none;
+}
+
+.btnBox button{
+  margin: 0 5px;
+}
+
+
+#newEventModal h3{
+  text-align: center;
   margin-bottom: 15px;
   margin-top: 0px;
 }
@@ -146,12 +159,10 @@
 #eventTitleInput.error {
   border: 2px solid rgba(255, 0, 0, 0.466);
 }
-#cancelButton, #deleteButton {
+#deleteButton {
   background-color: #F7CDCE;
 }
-#saveButton, #closeButton {
-  margin-left: auto;
-  margin-right: auto;
+#saveButton{
   background-color: #96AEDA;
 }
 #eventText {
@@ -218,6 +229,15 @@
   padding: 5px;
   align-items: center;
   color: #fff;
+}
+
+.event:active{
+  background-color:#DAFFFB;
+  color: #292827;
+}
+
+.event:hover{
+  background-color:#64CCC5;
 }
 
 .eventTime{

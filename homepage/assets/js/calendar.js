@@ -82,7 +82,11 @@ function load() {
   const monthIndex = dt.getMonth();
   pickMonthDisplay.innerText = months[monthIndex];
 
-  showMonth = `${year}-${month + 1}`;
+  showMonth = `${year}-${month + 1}-`;
+}
+
+function doubleClickAddEvent(){
+  $('.day').on('dblclick', openNewEventBox);
 }
 
 function closeModal() {
@@ -90,33 +94,31 @@ function closeModal() {
   repeatSelect.style.display = 'none';
   eventTitleInput.classList.remove('error');
   newEventModal.style.display = 'none';
-  deleteEventModal.style.display = 'none';
   backDrop.style.display = 'none';
   eventTitleInput.value = '';
   clicked = null;
 }
 
-function saveEvent() {
+function saveAndEditEvent() {
   const startTime = document.getElementById('startTime');
   const endTime = document.getElementById('endTime');
   const eventColor = document.getElementById('eventColor');
-  // const duplicateSwitch = document.getElementById('repeat-switch');
-  const duplicateTime = document.getElementById('repeat-select');
-  duplicateTime.value = '0';
+  if(!selectSwitch.checked){
+    repeatSelect.value = '0';
+  }
   if (eventTitleInput.value) {
     eventTitleInput.classList.remove('error');
-
     var eventData = {
       title: eventTitleInput.value,
       passStartTime: startTime.value,
       passEndTime: endTime.value,
-      duplicate: duplicateTime.value,
+      duplicate: repeatSelect.value,
       passEventColor: eventColor.value,
       detail: describeText.value,
-      passUserID: userID
+      passUserID: userID,
+      passScheduleID: editEventID,
     };
-
-    fetch('assets/php/saveEvent.php', {
+    fetch(`assets/php/saveAndEditEvent.php`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -127,6 +129,9 @@ function saveEvent() {
       .then(eventData => {
         console.log(eventData);
         closeModal();
+        load();
+        loadAMonthEvent(userID,showMonth);
+        loadADayEvent(userID, pickDay);
       })
       .catch(error => {
         console.error('Error:', error);
@@ -134,26 +139,45 @@ function saveEvent() {
   } else {
     eventTitleInput.classList.add('error');
   }
-}
-
-
-function deleteEvent() {
-  events = events.filter(e => e.date !== clicked);
-  localStorage.setItem('events', JSON.stringify(events));
-  closeModal();
-}
-
-function openNewEventBox(){
-  const pickDayDiv = document.getElementById("currentDay");
-  const pickDay = pickDayDiv.getAttribute('data-day');
-  const modalBackDrop = document.getElementById('modalBackDrop');
-  newEventModal.style.display = 'grid';
-  const startTimeInput = document.getElementById("startTime");
-  const endTimeInput = document.getElementById("endTime");
-  startTimeInput.value = pickDay + "T00:00";
-  endTimeInput.value = pickDay + "T23:59";
-  backDrop.style.display = 'block';
   
+}
+
+function openNewEventBox(eventJson){
+  if(eventJson.scheduleID){
+    //console.log('edit event');
+    editEventID = eventJson.scheduleID;
+    $("#eventTitleInput").val(eventJson.name);
+    $("#startTime").val(eventJson.startTime);
+    $("#endTime").val(eventJson.endTime);
+    if(eventJson.duplicate != '0'){
+      selectSwitch.checked = true;
+      repeatSelect.style.display = 'block';
+      repeatSelect.value = eventJson.duplicate;
+    }
+    $("#describeText").val(eventJson.detail);
+    $('#deleteButton').css('display', 'block');
+  }else{
+    //console.log('new event');
+    editEventID = 0;
+    const pickDayDiv = document.getElementById("currentDay");
+    const startTimeInput = document.getElementById("startTime");
+    const endTimeInput = document.getElementById("endTime");
+    if(pickDayDiv){
+      const pickDay = pickDayDiv.getAttribute('data-day');
+      startTimeInput.value = pickDay + "T00:00";
+      endTimeInput.value = pickDay + "T23:59";
+    }else{
+      startTimeInput.value = today + "T00:00";
+      endTimeInput.value = today + "T23:59";
+    }
+    repeatSelect.value = '0';
+    $("#describeText").val('');
+    $('#deleteButton').css('display', 'none');
+  }
+
+  newEventModal.style.display = 'grid';
+  backDrop.style.display = 'block';
+  const modalBackDrop = document.getElementById('modalBackDrop');
   modalBackDrop.addEventListener('click', (event) => {
     if (!event.target.classList.contains('event')) {
       closeModal(); // 點擊非事件區域時關閉視窗
@@ -232,7 +256,7 @@ function loadAMonthEvent(userID,m){
           //console.log(json);
           showAMonthCalendar(json, m);
           showAMonthSchedule(json, m);
-          /*addEventClick();*/
+          addMonthEventClick();
       },
       error:function(err){
           console.log(err);
@@ -249,7 +273,7 @@ function loadADayEvent(userID, dateString){
     success:function(json){
         //console.log(json);
         showADayEvent(json, dateString);
-        addEventClick();
+        addDayEventClick();
     },
     error:function(err){
         console.log(err);
@@ -274,7 +298,7 @@ function showAMonthSchedule(allEventJson, m){
 }
 
 function createScheduleDiv(event){
-  var $eventDiv= $('<div>').addClass('event');
+  var $eventDiv= $('<div>').addClass('event monthEvent');
   $eventDiv.attr('data-scheduleID', event.scheduleID);
   var $eventTimeDiv = $('<div>').addClass('eventTime');
 
@@ -291,8 +315,12 @@ function createScheduleDiv(event){
   return $eventDiv
 }
 
-function addEventClick(){
-  $('.event').click(editEvent);
+function addDayEventClick(){
+  $('.dayEvent').click(loadSchedule);
+}
+
+function addMonthEventClick(){
+  $('.monthEvent').click(loadSchedule);
 }
 
 function showADayEvent(allEventJson, d){
@@ -320,7 +348,7 @@ function addPointToCalendar(event){
 }
 
 function createEventDiv(event, day){
-  var $eventDiv= $('<div>').addClass('event');
+  var $eventDiv= $('<div>').addClass('event dayEvent');
   $eventDiv.attr('data-scheduleID', event.scheduleID);
   var $eventTimeDiv = $('<div>').addClass('eventTime');
 
@@ -395,8 +423,40 @@ function showTheSelectBox() {
   });
 }
 
-function editEvent(){
-  console.log("edit event");
+function loadSchedule(){
+  const scheduleid = $(this).attr('data-scheduleid');
+  $.ajax({
+    url:"assets/php/searchScheduleID.php",
+    method:"post",
+    dataType:"json",
+    data:{'scheduleID': scheduleid},
+    success:function(json){
+        //console.log(json);
+        openNewEventBox(json[0]);
+    },
+    error:function(err){
+        console.log(err);
+    }
+  });
+}
+
+function deleteEvent(){
+  $.ajax({
+    url:"assets/php/deleteEvent.php",
+    method:"post",
+    dataType:"json",
+    data:{'scheduleID': editEventID},
+    success:function(json){
+        //console.log(json);
+        closeModal();
+        load();
+        loadAMonthEvent(userID,showMonth);
+        loadADayEvent(userID, pickDay);
+    },
+    error:function(err){
+        console.log(err);
+    }
+});
 }
 
 function initButtons() {
@@ -405,14 +465,13 @@ function initButtons() {
   document.getElementById('backButton').addEventListener('click', backMonth);
   document.getElementById('quickaddEventBtn').addEventListener('click', openNewEventBox);
   //document.getElementById('colorPciker').addEventListener('click', openColorBox);
-  document.getElementById('TodayButton').addEventListener('click', gototoday)
-  // document.getElementById('saveButton').addEventListener('click', saveEvent);
-  // document.getElementById('cancelButton').addEventListener('click', closeModal);
+  document.getElementById('TodayButton').addEventListener('click', gototoday);
+  document.getElementById('saveButton').addEventListener('click', saveAndEditEvent);
   document.getElementById('deleteButton').addEventListener('click', deleteEvent);
-  document.getElementById('closeButton').addEventListener('click', closeModal);
 }
 
 initButtons();
 load();
+doubleClickAddEvent();
 loadAMonthEvent(userID,thisMonth);
 loadADayEvent(userID,today);
