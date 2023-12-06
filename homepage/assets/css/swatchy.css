@@ -2,12 +2,12 @@
     position: fixed;
     top: 40%;
     left: 50%;
-    margin: 10px; /* Increased margin */
+    margin: 0; /* Increased margin */
     padding: 24px; /* Increased padding */
     background: white;
     border-radius: 8px;
     width: 400px; /* Increased width */
-    height: 300px; /* Increased height */
+    height: 380px; /* Increased height */
     max-width: 100%; /* Ensure it doesn't exceed the viewport width */
     max-height: 100%; /* Ensure it doesn't exceed the viewport height */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);

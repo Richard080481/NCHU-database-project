@@ -8,10 +8,9 @@
 	};
 ?>
 <!DOCTYPE html>
-<html class="no-js" lang="zh-TW">
 	<head>
 	<title>CactusPage</title>
-		
+
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +25,7 @@
 
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		
+
 		<!--font-family-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
 		<!-- For favicon png -->
@@ -48,7 +47,7 @@
 						<li class="navbarButton"><a href="https://www.netflix.com">NetFlix</a></li>
 						<li class="navbarButton"><a href="https://www.facebook.com/">facebook</a></li>
 						<li class="navbarButton"><button id="nameButton">Hello! <?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?></button></li>
-						<li class="navbarButton"><a id="logoutBtn" href="assets/php/logout.php"><i 
+						<li class="navbarButton"><a id="logoutBtn" href="assets/php/logout.php"><i
 							class="material-icons">logout</i></a></li>
 					</ul>
 				</div>
@@ -151,7 +150,7 @@
 							</div>
 						</div>
 
-						
+
 
 						<!-- color picker end -->
 						<!-- switch start -->
@@ -227,13 +226,13 @@
 						class="btnicon">CppReference</a></div>
 		</div>
 		<!-- Compiled and minified JavaScript -->
-		
+
 		<script>
 			const userName = "<?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?>";
 			const userID = "<?php echo isset($_SESSION['USERID']) ? $_SESSION['USERID'] : ''; ?>";
 			console.log(userID);
 		</script>
-		
+
 
 		<script src="assets/js/jquery.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

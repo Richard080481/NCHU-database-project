@@ -1,5 +1,11 @@
 # NCHU-database-project
 
+## 2023/12/7
+- 將調色盤調整為可編輯
+- 將編輯過後的TagName儲存到資料庫中
+- 新增color_tag表格(記得匯入)
+- color_tag adding trigger when the userAccount is create
+
 ## 2023/11/29
 - 微調logIn button大小與樣式
 - logIn button旁邊空白可以關閉視窗
