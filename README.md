@@ -4,7 +4,14 @@
 - 將調色盤調整為可編輯
 - 將編輯過後的TagName儲存到資料庫中
 - 新增color_tag表格(記得匯入)
-- color_tag adding trigger when the userAccount is create
+- color_tag adding trigger when the userAccount is created
+
+## 2023/12/06
+- 點擊事件可以修改
+- 刪除事件
+- 未選擇日期時，點新增事件預設為今日
+- 重複週期數字可以回傳至資料庫
+- 雙擊日期可以開啟新增事件(目前應該只有當月)
 
 ## 2023/11/29
 - 微調logIn button大小與樣式

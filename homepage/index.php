@@ -125,8 +125,8 @@
 				<div id="calendar"></div>
 
 				<div id="newEventModal">
-					<h3>New Event</h3>
-					<form action="/addEvent.php" method="post">
+					<h3>Event</h3>
+					<form>
 						<div>
 							<label for="eventTitleInput">Title</label>
 							<input id="eventTitleInput" placeholder="Event Title" /><br>
@@ -163,6 +163,7 @@
 						</div>
 
 						<select id="repeat-select">
+							<option value="0">請選擇重複週期</option>
 							<option value="1">每日</option>
 							<option value="7">每周</option>
 							<option value="30">每月</option>
@@ -176,20 +177,11 @@
 						</div>
 
 					</form>
-
-					<button id="saveButton" onclick="saveEvent()">Save</button>
-
+					<div class="btnBox">
+						<button id="saveButton">Save</button>
+						<button id="deleteButton">Delete</button>
+					</div>
 				</div>
-
-				<div id="deleteEventModal">
-					<h2>Event</h2>
-
-					<p id="eventText"></p>
-
-					<button id="deleteButton">Delete</button>
-					<button id="closeButton">Close</button>
-				</div>
-
 				<div id="modalBackDrop"></div>
 			</div>
 			<!-- mainCalendar end -->
@@ -230,7 +222,7 @@
 		<script>
 			const userName = "<?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?>";
 			const userID = "<?php echo isset($_SESSION['USERID']) ? $_SESSION['USERID'] : ''; ?>";
-			console.log(userID);
+			//console.log(userID);
 		</script>
 
 

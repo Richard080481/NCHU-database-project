@@ -53,24 +53,4 @@
 
         return false;
     }
-
-    function generate_timekey() : string{
-        date_default_timezone_set("Asia/Taipei");
-        $mtime = floor(microtime(true)*1000);
-
-        $fp = fopen("timekey.key","w");
-        if(!$fp){
-            $resArray = [
-                'result'=>"failure",
-                "type"=>"file",
-                "info"=>""
-            ];
-            echo json_encode($resArray);
-            die();
-        }
-        fwrite($fp,$mtime);
-        fclose($fp);
-
-        return $mtime;
-    }
 ?>

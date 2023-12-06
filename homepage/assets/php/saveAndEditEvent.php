@@ -24,12 +24,18 @@ $duplicate = mysqli_real_escape_string($con, $eventData->duplicate);
 $passEventColor = mysqli_real_escape_string($con, $eventData->passEventColor);
 $detail = mysqli_real_escape_string($con, $eventData->detail);
 $userID = mysqli_real_escape_string($con, $eventData->passUserID);
+$scheduleID = mysqli_real_escape_string($con, $eventData->passScheduleID);
 
 // Your SQL query to insert data into the database
-$sql = "INSERT INTO schedules (userID, name, startTime, endTime, duplicate, tag, detail) VALUES ('$userID', '$title', '$passStartTime', '$passEndTime', '$duplicate', '$passEventColor', '$detail')";
+if($scheduleID != '0'){
+    $sql = "UPDATE schedules SET name = '$title', startTime = '$passStartTime', endTime = '$passEndTime', duplicate = '$duplicate', tag = '$passEventColor', detail = '$detail' WHERE scheduleID = '$scheduleID'";
+}else{
+    $sql = "INSERT INTO schedules (userID, name, startTime, endTime, duplicate, tag, detail) VALUES ('$userID', '$title', '$passStartTime', '$passEndTime', '$duplicate', '$passEventColor', '$detail')";
+}
+
 // Perform the query
 if (mysqli_query($con, $sql)) {
-    echo "Event saved successfully!";
+    echo "Event saved or edited successfully!";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($con);
 }
