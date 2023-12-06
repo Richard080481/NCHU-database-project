@@ -146,8 +146,12 @@
 						<div id="classColor">
 							<button class="swatchy-trigger" id="colorPciker" type="button"><i
 							class="material-icons">colorize</i></button>
-							<div class="showColor"><input type="text" class="swatchy-output" id="eventColor" disabled></div>
+							<div class="showColor">
+								<input type="text" class="swatchy-output" id="eventColor" disabled>
+							</div>
 						</div>
+
+						
 
 						<!-- color picker end -->
 						<!-- switch start -->

@@ -1,13 +1,13 @@
 .swatchy-element {
     position: fixed;
-    top: 35%;
+    top: 30%;
     left: 50%;
     margin: 0; /* Increased margin */
     padding: 24px; /* Increased padding */
     background: white;
     border-radius: 8px;
     width: 400px; /* Increased width */
-    height: 300px; /* Increased height */
+    height: 380px; /* Increased height */
     max-width: 100%; /* Ensure it doesn't exceed the viewport width */
     max-height: 100%; /* Ensure it doesn't exceed the viewport height */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,4 +39,11 @@
     max-width: 48px;
     border-radius: 8px;
     border: none;
+}
+
+#colorPicker {
+    position: fixed;
+    bottom: 2%;
+    left: 38%;
+    display: block;
 }

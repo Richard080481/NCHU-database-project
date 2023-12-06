@@ -12,7 +12,7 @@ function Swatchy(
         { color: "#1af50a", tag: "Gre" },   // 綠色
         { color: "#f2a90c", tag: "Ora" },   // 橙色
         { color: "#ed8251", tag: "Pch" },   // 桃色
-        { color: "#5166ed", tag: "Blu" },  // 藍色
+        { color: "#5166ed", tag: "Blu" },   // 藍色
         { color: "#6d6a8f", tag: "Gra" },   // 灰色
         { color: "#40f7b1", tag: "Whi" },   // 白色
         { color: "#000000", tag: "Bla" },   // 黑色
@@ -49,25 +49,62 @@ function Swatchy(
                 colorButton.classList.add('swatchy-color-button');
                 colorButton.addEventListener('click', selectColor);
 
-                // Create a tag element for each swatch
-                let tag = document.createElement('div');
-                tag.classList.add('swatchy-tag');
-                tag.innerText = swatch.tag;
+                let inputTag = document.createElement('input');
+                inputTag.classList.add('swatchy-tag-input');
+                inputTag.value = swatch.tag;
+                inputTag.disabled = true;
 
                 // Append the tag and color button to the swatch container
-                swatchContainer.appendChild(tag);
                 swatchContainer.appendChild(colorButton);
+                swatchContainer.appendChild(inputTag);
             }
 
             let editBut = document.createElement('button');
-            editBut
+            editBut.id = "colorPicker";
+            editBut.onclick = function () {
+                toggleEdit();
+            };
+            editBut.innerHTML = "edit";
+            editBut.type = "button";
+            swatchContainer.appendChild(editBut);
+
+            function toggleEdit() {
+                // Find all input elements inside the container
+                let inputs = swatchContainer.querySelectorAll('.swatchy-tag-input');
+            
+                // Check if the inputs are in edit mode
+                let isEditMode = inputs[0].disabled;
+            
+                // Toggle between edit and display modes for each input
+                inputs.forEach(input => {
+                    input.disabled = !isEditMode;
+                });
+
+                let colorButtons = swatchContainer.querySelectorAll('.swatchy-color-button');
+                colorButtons.forEach(button => {
+                    if (isEditMode) {
+                        button.removeEventListener('click', selectColor);
+                        button.style.pointerEvents = 'none';
+                    } else {
+                        button.addEventListener('click', selectColor);
+                        button.style.pointerEvents = 'auto';
+                    }
+                });
+            
+                // Change the button text accordingly
+                editBut.innerHTML = isEditMode ? "save" : "edit";
+            }
+
 
             function selectColor(e) {
                 let input = document.querySelectorAll('.swatchy-output').item(id);
                 let newColor = e.target.getAttribute('data-swatchy-color');
-                input.setAttribute('value', newColor);
+                let tagText = e.target.nextSibling.value;
+                
+                input.setAttribute('value', tagText);
                 input.setAttribute('data-swatchy-color', newColor);
                 input.setAttribute('style', 'background-color: ' + newColor + '; color: ' + newColor + ';');
+
                 if (autoClose) {
                     togglePopup();
                 }
