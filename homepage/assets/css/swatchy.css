@@ -1,17 +1,26 @@
+#classColor{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .swatchy-element {
     position: fixed;
-    top: 40%;
+    top: 25%;
     left: 50%;
     margin: 0; /* Increased margin */
     padding: 24px; /* Increased padding */
     background: white;
     border-radius: 8px;
-    width: 400px; /* Increased width */
-    height: 380px; /* Increased height */
+    width: 88%; /* Increased width */
+    height: 50%; /* Increased height */
     max-width: 100%; /* Ensure it doesn't exceed the viewport width */
     max-height: 100%; /* Ensure it doesn't exceed the viewport height */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
     transform: translate(-50%, -50%); /* Center the element */
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -19,7 +28,8 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
-    grid-gap: 8px 2px;
+    grid-gap: 5px 2px;
+    margin: 0 !important;
 }
 
 .swatchy-color-button {
@@ -42,12 +52,13 @@
 }
 
 #colorPicker {
-    position: fixed;
-    bottom: 2%;
-    left: 38%;
-    display: block;
+    margin: 2px;
 }
 
 .swatchy-output {
     text-align: center;
+}
+
+#eventColor{
+    width: 100%;
 }

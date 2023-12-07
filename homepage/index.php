@@ -144,7 +144,7 @@
 
 						<div id="classColor">
 							<button class="swatchy-trigger" id="colorPciker" type="button"><i
-							class="material-icons">colorize</i></button>
+							class="material-icons">tag</i></button>
 							<div class="showColor">
 								<input type="text" class="swatchy-output" id="eventColor" disabled>
 							</div>
@@ -160,15 +160,16 @@
 								<input type="checkbox" id="repeat-switch">
 								<span class="lever"></span>
 							</label>
+							<select id="repeat-select">
+								<option value="0">請選擇重複週期</option>
+								<option value="1">每日</option>
+								<option value="7">每周</option>
+								<option value="30">每月</option>
+								<option value="365">每年</option>
+							</select>
 						</div>
 
-						<select id="repeat-select">
-							<option value="0">請選擇重複週期</option>
-							<option value="1">每日</option>
-							<option value="7">每周</option>
-							<option value="30">每月</option>
-							<option value="365">每年</option>
-						</select>
+						
 
 						<div>
 							<label for="describeText">Describe</label>

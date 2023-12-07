@@ -66,7 +66,7 @@ function Swatchy(
             };
             editBut.innerHTML = "edit";
             editBut.type = "button";
-            swatchContainer.appendChild(editBut);
+            container.appendChild(editBut);
 
             function toggleEdit() {
                 // Find all input elements inside the container
@@ -153,7 +153,7 @@ function Swatchy(
 
                 let display = (window.getComputedStyle ? getComputedStyle(el, null) : el.currentStyle).display;
                 if ('none' === display) {
-                    el.style.display = 'block';
+                    el.style.display = 'flex';
                 } else {
                     el.style.display = 'none';
                 }

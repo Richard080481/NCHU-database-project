@@ -171,6 +171,7 @@
 
 #repeat-select{
   background-color: #d6e0e4;
+  width: 60%;
 }
 
 #modalBackDrop {
@@ -282,4 +283,15 @@
 
 .tag-1{
   color: #64CCC5;
+}
+
+.switch{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch label{
+  margin: 15px 0;
 }
