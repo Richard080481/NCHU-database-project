@@ -82,7 +82,8 @@ function load() {
   const monthIndex = dt.getMonth();
   pickMonthDisplay.innerText = months[monthIndex];
 
-  showMonth = `${year}-${month + 1}-`;
+  showMonth = `${year}-${(month + 1).toString().padStart(2, '0')}-`;
+  console.log(showMonth);
 }
 
 function doubleClickAddEvent(){
@@ -113,7 +114,7 @@ function saveAndEditEvent() {
       passStartTime: startTime.value,
       passEndTime: endTime.value,
       duplicate: repeatSelect.value,
-      passEventColor: eventColor.value,
+      passEventColor: eventColor.getAttribute('data-swatchy-color'),
       detail: describeText.value,
       passUserID: userID,
       passScheduleID: editEventID,
@@ -184,22 +185,6 @@ function openNewEventBox(eventJson){
     }
   });
 }
-
-// function openColorBox(){
-//   const modalBackDrop = document.getElementById('modalBackDrop');
-//   newEventModal.style.display = 'grid';
-//   const startTimeInput = document.getElementById("startTime");
-//   const endTimeInput = document.getElementById("endTime");
-//   startTimeInput.value = pickDay + "T00:00";
-//   endTimeInput.value = pickDay + "T23:59";
-//   backDrop.style.display = 'block';
-  
-//   modalBackDrop.addEventListener('click', (event) => {
-//     if (!event.target.classList.contains('event')) {
-//       closeModal(); // 點擊非事件區域時關閉視窗
-//     }
-//   });
-// }
 
 function checkTheDay(dayDIV){
 
@@ -335,16 +320,19 @@ function addPointToCalendar(event){
   const startTimeDate = new Date(event.startTime);
   const endTimeDate = new Date(event.endTime);
 
+  while (startTimeDate < endTimeDate) {
+    const Y = startTimeDate.getFullYear();
+    const M = startTimeDate.getMonth();
+    const D = startTimeDate.getDate();
 
-  const startYear = startTimeDate.getFullYear();
-  const startMonth = startTimeDate.getMonth();
-  const startDay = startTimeDate.getDate();
-  const eventDate = `${startYear}-${(startMonth+1).toString().padStart(2, '0')}-${(startDay).toString().padStart(2, '0')}`;
-  const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
-  const eventPointDiv = dayDiv.querySelector('.eventPointDiv');
-  const pointDiv = document.createElement("div");
-  pointDiv.classList.add("point" , "tag-1");
-  eventPointDiv.appendChild(pointDiv);
+    const eventDate = `${Y}-${(M+1).toString().padStart(2, '0')}-${(D).toString().padStart(2, '0')}`;
+    const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
+    const eventPointDiv = dayDiv.querySelector('.eventPointDiv');
+    const pointDiv = document.createElement("div");
+    pointDiv.classList.add("point" , "tag-1");
+    eventPointDiv.appendChild(pointDiv);
+    startTimeDate.setDate(startTimeDate.getDate() + 1);
+  }
 }
 
 function createEventDiv(event, day){
