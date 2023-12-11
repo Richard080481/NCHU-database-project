@@ -83,7 +83,6 @@ function load() {
   pickMonthDisplay.innerText = months[monthIndex];
 
   showMonth = `${year}-${(month + 1).toString().padStart(2, '0')}-`;
-  console.log(showMonth);
 }
 
 function doubleClickAddEvent(){
@@ -108,13 +107,63 @@ function saveAndEditEvent() {
     repeatSelect.value = '0';
   }
   if (eventTitleInput.value) {
+  let tagNum;
+    switch (eventColor.getAttribute('data-swatchy-color')) {
+      case "#64CCC5":
+        tagNum = "color1";
+        break;
+      case "#009788":
+        tagNum = "color2";
+        break;
+      case "#039be6":
+        tagNum = "color3";
+        break;
+      case "#f5511e":
+        tagNum = "color4";
+        break;
+      case "#ef6c00":
+        tagNum = "color5";
+        break;
+      case "#ef9300":
+        tagNum = "color6";
+        break;
+      case "#ad1457":
+        tagNum = "color7";
+        break;
+      case "#d81a60":
+        tagNum = "color8";
+        break;
+      case "#d60000":
+        tagNum = "color9";
+        break;
+      case "#7986cc":
+        tagNum = "color10";
+        break;
+      case "#b39ddb":
+        tagNum = "color11";
+        break;
+      case "#9e69af":
+        tagNum = "color12";
+        break;
+      case "#795547":
+        tagNum = "color13";
+        break;
+      case "#616161":
+        tagNum = "color14";
+        break;
+      case "#a79b8d":
+        tagNum = "color15";
+        break;
+      default:
+        tagNum = "color1";
+    }
     eventTitleInput.classList.remove('error');
     var eventData = {
       title: eventTitleInput.value,
       passStartTime: startTime.value,
       passEndTime: endTime.value,
       duplicate: repeatSelect.value,
-      passEventColor: eventColor.getAttribute('data-swatchy-color'),
+      passEventColor: tagNum,
       detail: describeText.value,
       passUserID: userID,
       passScheduleID: editEventID,

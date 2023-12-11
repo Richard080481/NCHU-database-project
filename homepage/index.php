@@ -163,7 +163,6 @@
 						</div>
 
 						<select id="repeat-select">
-							<option value="0">請選擇重複週期</option>
 							<option value="1">每日</option>
 							<option value="7">每周</option>
 							<option value="30">每月</option>
