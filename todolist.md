@@ -1,7 +1,7 @@
 ## Home
 - ~~多天事件bug~~
 - ~~task點擊事件~~
-- saveEvent 視窗調整
+- ~~saveEvent 視窗調整~~
 - 編輯event時顯示原本tag顏色
 - 設定點點顏色
 - 夜間模式

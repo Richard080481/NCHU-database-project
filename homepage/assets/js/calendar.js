@@ -496,6 +496,21 @@ function deleteEvent(){
 });
 }
 
+function toggleDarkMode() {
+  var darkModeIcon = document.getElementById('darkMode');
+  var currentIcon = darkModeIcon.innerText;
+
+  // Toggle between icons
+  if (currentIcon === 'dark_mode') {
+      darkModeIcon.innerText = 'light_mode';
+  } else {
+      darkModeIcon.innerText = 'dark_mode';
+  }
+
+  // You can add additional logic for toggling dark mode styles or other actions here
+}
+
+
 function initButtons() {
   showTheSelectBox();
   document.getElementById('nextButton').addEventListener('click',nextMonth);
@@ -505,6 +520,7 @@ function initButtons() {
   document.getElementById('TodayButton').addEventListener('click', gototoday);
   document.getElementById('saveButton').addEventListener('click', saveAndEditEvent);
   document.getElementById('deleteButton').addEventListener('click', deleteEvent);
+  document.getElementById('darkMode').addEventListener('click', toggleDarkMode);
 }
 
 initButtons();

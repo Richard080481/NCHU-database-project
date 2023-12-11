@@ -39,6 +39,7 @@
 				<div class="nav-wrapper">
 					<a id="homeTitle" class="brand-logo" href="index.php">&nbsp;&nbsp;Cactus</a> <!--Catus is so cute, Don't you think so?-->
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="navbarButton"><a href="#"><i  id="darkMode" class="material-icons">dark_mode</i></a></li>
 						<li class="navbarButton"><a href="https://idp.nchu.edu.tw/nidp/idff/sso?id=20&sid=5&option=credential&sid=5&target=https%3A%2F%2Fportal.nchu.edu.tw%2Fportal">NCHUSSO</a></li>
 						<li class="navbarButton"><a href="https://lms2020.nchu.edu.tw/">iLearning 3.0</a></li>
 						<li class="navbarButton"><a href="https://chat.openai.com/">ChatGPT</a></li>
@@ -47,8 +48,7 @@
 						<li class="navbarButton"><a href="https://www.netflix.com">NetFlix</a></li>
 						<li class="navbarButton"><a href="https://www.facebook.com/">facebook</a></li>
 						<li class="navbarButton"><button id="nameButton">Hello! <?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?></button></li>
-						<li class="navbarButton"><a id="logoutBtn" href="assets/php/logout.php"><i
-							class="material-icons">logout</i></a></li>
+						<li class="navbarButton"><a id="logoutBtn" href="assets/php/logout.php"><i class="material-icons">logout</i></a></li>
 					</ul>
 				</div>
 			</nav>
