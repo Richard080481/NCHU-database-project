@@ -3,7 +3,7 @@ let hasSwatchyRun = false;
 function Swatchy(
     autoClose = true,
     swatches = [
-        { color: "#64CCC5", tag: "" },
+        { color: "#64CCC5", tag: "預設" },
         { color: "#009788", tag: "" },
         { color: "#039be6", tag: "" },
         { color: "#f5511e", tag: "" },
