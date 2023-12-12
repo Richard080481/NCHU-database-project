@@ -15,13 +15,13 @@
             $password2 = addslashes($_POST['repeatpassword']);
 
             if($password != $password2){
-                echo 'passwords do not match!';
+                echo "<script>alert('passwords do not match!');</script>";
             }else{
                 $query = "SELECT * FROM users where email='$email' limit 1";
                 $row = query($query);
     
                 if($row != NULL){
-                    echo "The email already exists!";
+                    echo "<script>alert('The email already exists!');</script>";
                 }else{
                     //加密
                     $key = file_get_contents("key.key");
@@ -66,10 +66,10 @@
                     header("Location: ../../index.php");
                     die;
                 }else{
-                    echo "Wrong password!";
+                    echo "<script>alert('Wrong password!');</script>";
                 }
             }else{
-                echo "Unkonwn email!";
+                echo "<script>alert('Unknown email!');</script>";
             }
         }
 
@@ -95,7 +95,12 @@
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
 		<!-- For favicon png -->
 		<link rel="shortcut icon" type="image/icon" href="../logo/cactus.png">
-	</head>
+        <script>
+            function showAlert(message) {
+                alert(message);
+            }
+        </script>
+    </head>
 	<body>
         <div id="logInBox">
             <div class="form">
