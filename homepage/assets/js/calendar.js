@@ -342,52 +342,52 @@ function createScheduleDiv(allEventJson, event) {
   var $eventStartDiv = $('<div>').addClass('eventStart');
   switch (event.tag) {
     case "color1":
-      colorText = document.getElementById('inputColor1').value || '';
+      colorText = ' ' + document.getElementById('inputColor1').value || '';
       break;
     case "color2":
-      colorText = document.getElementById('inputColor2').value || '';
+      colorText = ' ' + document.getElementById('inputColor2').value || '';
       break;
     case "color3":
-      colorText = document.getElementById('inputColor3').value || '';
+      colorText = ' ' + document.getElementById('inputColor3').value || '';
       break;
     case "color4":
-      colorText = document.getElementById('inputColor4').value || '';
+      colorText = ' ' + document.getElementById('inputColor4').value || '';
       break;
     case "color5":
-      colorText = document.getElementById('inputColor5').value || '';
+      colorText = ' ' + document.getElementById('inputColor5').value || '';
       break;
     case "color6":
-      colorText = document.getElementById('inputColor6').value || '';
+      colorText = ' ' + document.getElementById('inputColor6').value || '';
       break;
     case "color7":
-      colorText = document.getElementById('inputColor7').value || '';
+      colorText = ' ' + document.getElementById('inputColor7').value || '';
       break;
     case "color8":
-      colorText = document.getElementById('inputColor8').value || '';
+      colorText = ' ' + document.getElementById('inputColor8').value || '';
       break;
     case "color9":
-      colorText = document.getElementById('inputColor9').value || '';
+      colorText = ' ' + document.getElementById('inputColor9').value || '';
       break;
     case "color10":
-      colorText = document.getElementById('inputColor10').value || '';
+      colorText = ' ' + document.getElementById('inputColor10').value || '';
       break;
     case "color11":
-      colorText = document.getElementById('inputColor11').value || '';
+      colorText = ' ' + document.getElementById('inputColor11').value || '';
       break;
     case "color12":
-      colorText = document.getElementById('inputColor12').value || '';
+      colorText = ' ' + document.getElementById('inputColor12').value || '';
       break;
     case "color13":
-      colorText = document.getElementById('inputColor13').value || '';
+      colorText = ' ' + document.getElementById('inputColor13').value || '';
       break;
     case "color14":
-      colorText = document.getElementById('inputColor14').value || '';
+      colorText = ' ' + document.getElementById('inputColor14').value || '';
       break;
     case "color15":
-      colorText = document.getElementById('inputColor15').value || '';
+      colorText = ' ' + document.getElementById('inputColor15').value || '';
       break;
     default:
-      colorText = document.getElementById('inputColor1').value || '';
+      colorText = ' ' + document.getElementById('inputColor1').value || '';
   }
   $eventStartDiv.text(formattedStartTime + colorText);
 
