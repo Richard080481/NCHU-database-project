@@ -327,11 +327,11 @@ function showAMonthCalendar(allEventJson, m){
 function showAMonthSchedule(allEventJson, m){
   $('#scheduleBox').empty();
   allEventJson.forEach(function(event){
-    $('#scheduleBox').append(createScheduleDiv(event));
+    $('#scheduleBox').append(createScheduleDiv(allEventJson, event));
   })
 }
 
-function createScheduleDiv(event){
+function createScheduleDiv(allEventJson, event){
   var $eventDiv= $('<div>').addClass('event monthEvent');
   $eventDiv.attr('data-scheduleID', event.scheduleID);
   var $eventTimeDiv = $('<div>').addClass('eventTime');
@@ -343,7 +343,7 @@ function createScheduleDiv(event){
   $eventStartDiv.text(formattedStartTime);
 
   $eventTimeDiv.append($eventStartDiv);
-  var $eventTagColorDiv = $('<div>').addClass('eventTagColor');
+  var $eventTagColorDiv = $('<div>').addClass('eventTagColor').addClass(event.tag);
   var $eventNameP = $('<p>').addClass('eventName').text(event.name);
   $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
   return $eventDiv

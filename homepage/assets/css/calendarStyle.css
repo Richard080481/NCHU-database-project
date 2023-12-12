@@ -250,7 +250,8 @@
 }
 
 .eventTagColor{
-  border: 2px solid #64CCC5;
+  width: 5px;
+  background-color: #64CCC5;
   border-radius: 4px;
   height: 90%;
   margin: 0 5px;
@@ -289,6 +290,7 @@
 
 .color3 {
   background-color: #039be6;
+  
 }
 
 .color4 {
