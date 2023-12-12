@@ -275,10 +275,66 @@
   width: 10px;
   height: 10px;
   border-radius: 20px;
-  background-color: #64CCC5;
   margin: 0 2px;
 }
 
-.tag-1{
-  color: #64CCC5;
+/*tag color*/
+.color1 {
+  background-color: #64CCC5;
+}
+
+.color2 {
+  background-color: #009788;
+}
+
+.color3 {
+  background-color: #039be6;
+}
+
+.color4 {
+  background-color: #f5511e;
+}
+
+.color5 {
+  background-color: #ef6c00;
+}
+
+.color6 {
+  background-color: #ef9300;
+}
+
+.color7 {
+  background-color: #ad1457;
+}
+
+.color8 {
+  background-color: #d81a60;
+}
+
+.color9 {
+  background-color: #d60000;
+}
+
+.color10 {
+  background-color: #7986cc;
+}
+
+.color11 {
+  background-color: #b39ddb;
+}
+
+.color12 {
+  background-color: #9e69af;
+}
+
+.color13 {
+  background-color: #795547;
+}
+
+.color14 {
+  background-color: #616161;
+}
+
+.color15 {
+  background-color: #a79b8d;
 }

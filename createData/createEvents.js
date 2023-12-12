@@ -36,6 +36,7 @@ const generateFakeEvent = () => {
         startTime: randomStartTime,
         endTime: randomEndTime,
         duplicate: faker.random.arrayElement([0, 1, 7, 30, 365]),
+        tag: `color${Math.floor(Math.random() * 15) + 1}`
     };
 };
 
@@ -53,12 +54,13 @@ const createFakeEvents = async (userId, numEvents) => {
             const startTimeISO = fakeEvent.startTime.toISOString();
             const endTimeISO = fakeEvent.endTime.toISOString();
 
-            await connection.execute('INSERT INTO schedules (userID, name, startTime, endTime, duplicate) VALUES (?, ?, ?, ?, ?)', [
+            await connection.execute('INSERT INTO schedules (userID, name, startTime, endTime, duplicate, tag) VALUES (?, ?, ?, ?, ?, ?)', [
                 userId,
                 fakeEvent.name,
                 startTimeISO,
                 endTimeISO,
                 fakeEvent.duplicate,
+                fakeEvent.tag
             ]);
         }
     } finally {

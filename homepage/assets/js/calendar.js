@@ -378,7 +378,7 @@ function addPointToCalendar(event){
     const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
     const eventPointDiv = dayDiv.querySelector('.eventPointDiv');
     const pointDiv = document.createElement("div");
-    pointDiv.classList.add("point" , "tag-1");
+    pointDiv.classList.add("point" , event.tag);
     eventPointDiv.appendChild(pointDiv);
     startTimeDate.setDate(startTimeDate.getDate() + 1);
   }
