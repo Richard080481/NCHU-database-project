@@ -42,6 +42,7 @@ function Swatchy(
             swatchContainer.classList.add('swatchy-swatches');
             container.appendChild(swatchContainer);
 
+            let i = 1;
             for (const swatch of swatches) {
                 let colorButton = document.createElement('div');
                 colorButton.setAttribute('data-swatchy-color', swatch.color);
@@ -51,6 +52,8 @@ function Swatchy(
 
                 let inputTag = document.createElement('input');
                 inputTag.classList.add('swatchy-tag-input');
+                inputTag.setAttribute('id', 'inputColor' + i);
+                i++;
                 inputTag.value = swatch.tag;
                 inputTag.disabled = true;
 
