@@ -108,55 +108,26 @@ function saveAndEditEvent() {
   }
   if (eventTitleInput.value) {
     let tagNum;
-    switch (eventColor.getAttribute('data-swatchy-color')) {
-      case "#64CCC5":
-        tagNum = "color1";
-        break;
-      case "#009788":
-        tagNum = "color2";
-        break;
-      case "#039be6":
-        tagNum = "color3";
-        break;
-      case "#f5511e":
-        tagNum = "color4";
-        break;
-      case "#ef6c00":
-        tagNum = "color5";
-        break;
-      case "#ef9300":
-        tagNum = "color6";
-        break;
-      case "#ad1457":
-        tagNum = "color7";
-        break;
-      case "#d81a60":
-        tagNum = "color8";
-        break;
-      case "#d60000":
-        tagNum = "color9";
-        break;
-      case "#7986cc":
-        tagNum = "color10";
-        break;
-      case "#b39ddb":
-        tagNum = "color11";
-        break;
-      case "#9e69af":
-        tagNum = "color12";
-        break;
-      case "#795547":
-        tagNum = "color13";
-        break;
-      case "#616161":
-        tagNum = "color14";
-        break;
-      case "#a79b8d":
-        tagNum = "color15";
-        break;
-      default:
-        tagNum = "color1";
-    }
+    const colorMappings = {
+      "#64CCC5": "color1",
+      "#009788": "color2",
+      "#039be6": "color3",
+      "#f5511e": "color4",
+      "#ef6c00": "color5",
+      "#ef9300": "color6",
+      "#ad1457": "color7",
+      "#d81a60": "color8",
+      "#d60000": "color9",
+      "#7986cc": "color10",
+      "#b39ddb": "color11",
+      "#9e69af": "color12",
+      "#795547": "color13",
+      "#616161": "color14",
+      "#a79b8d": "color15",
+    };
+    
+    const colorValue = eventColor.getAttribute('data-swatchy-color');
+    tagNum = colorMappings[colorValue] || "color1";    
     eventTitleInput.classList.remove('error');
     var eventData = {
       title: eventTitleInput.value,
@@ -204,6 +175,7 @@ function openNewEventBox(eventJson) {
       repeatSelect.style.display = 'block';
       repeatSelect.value = eventJson.duplicate;
     }
+    $("#")
     $("#describeText").val(eventJson.detail);
     $('#deleteButton').css('display', 'block');
   } else {
@@ -340,55 +312,27 @@ function createScheduleDiv(allEventJson, event) {
   const startD = startTimeDate.getDate();
   const formattedStartTime = `${startD.toString().padStart(2, '0')}`;
   var $eventStartDiv = $('<div>').addClass('eventStart');
-  switch (event.tag) {
-    case "color1":
-      colorText = ' ' + document.getElementById('inputColor1').value || '';
-      break;
-    case "color2":
-      colorText = ' ' + document.getElementById('inputColor2').value || '';
-      break;
-    case "color3":
-      colorText = ' ' + document.getElementById('inputColor3').value || '';
-      break;
-    case "color4":
-      colorText = ' ' + document.getElementById('inputColor4').value || '';
-      break;
-    case "color5":
-      colorText = ' ' + document.getElementById('inputColor5').value || '';
-      break;
-    case "color6":
-      colorText = ' ' + document.getElementById('inputColor6').value || '';
-      break;
-    case "color7":
-      colorText = ' ' + document.getElementById('inputColor7').value || '';
-      break;
-    case "color8":
-      colorText = ' ' + document.getElementById('inputColor8').value || '';
-      break;
-    case "color9":
-      colorText = ' ' + document.getElementById('inputColor9').value || '';
-      break;
-    case "color10":
-      colorText = ' ' + document.getElementById('inputColor10').value || '';
-      break;
-    case "color11":
-      colorText = ' ' + document.getElementById('inputColor11').value || '';
-      break;
-    case "color12":
-      colorText = ' ' + document.getElementById('inputColor12').value || '';
-      break;
-    case "color13":
-      colorText = ' ' + document.getElementById('inputColor13').value || '';
-      break;
-    case "color14":
-      colorText = ' ' + document.getElementById('inputColor14').value || '';
-      break;
-    case "color15":
-      colorText = ' ' + document.getElementById('inputColor15').value || '';
-      break;
-    default:
-      colorText = ' ' + document.getElementById('inputColor1').value || '';
-  }
+// Assuming event.tag is the tag value
+  var colorInputIds = {
+    "color1": "inputColor1",
+    "color2": "inputColor2",
+    "color3": "inputColor3",
+    "color4": "inputColor4",
+    "color5": "inputColor5",
+    "color6": "inputColor6",
+    "color7": "inputColor7",
+    "color8": "inputColor8",
+    "color9": "inputColor9",
+    "color10": "inputColor10",
+    "color11": "inputColor11",
+    "color12": "inputColor12",
+    "color13": "inputColor13",
+    "color14": "inputColor14",
+    "color15": "inputColor15"
+  };
+
+  colorText = ' ' + (document.getElementById(colorInputIds[event.tag])?.value || '');
+
   $eventStartDiv.text(formattedStartTime + colorText);
 
   $eventTimeDiv.append($eventStartDiv);
