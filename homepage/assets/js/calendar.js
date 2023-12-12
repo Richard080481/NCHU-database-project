@@ -16,6 +16,24 @@ const repeatSelect = document.getElementById('repeat-select');
 
 selectSwitch.checked = false;
 
+const tagToColor = {
+  "color1" : "#64CCC5",
+  "color2" : "#009788",
+  "color3" : "#039be6",
+  "color4" : "#f5511e",
+  "color5" : "#ef6c00",
+  "color6" : "#ef9300",
+  "color7" : "#ad1457",
+  "color8" : "#d81a60",
+  "color9" : "#d60000",
+  "color10" : "#7986cc",
+  "color11" : "#b39ddb",
+  "color12" : "#9e69af",
+  "color13" : "#795547",
+  "color14" : "#616161",
+  "color15" : "#a79b8d",
+};
+
 function load() {
   const dt = new Date();
 
@@ -175,7 +193,8 @@ function openNewEventBox(eventJson) {
       repeatSelect.style.display = 'block';
       repeatSelect.value = eventJson.duplicate;
     }
-    $("#")
+    const eventColor = document.getElementById('eventColor');
+    eventColor.style.backgroundColor = tagToColor[eventJson.tag];
     $("#describeText").val(eventJson.detail);
     $('#deleteButton').css('display', 'block');
   } else {
@@ -184,6 +203,8 @@ function openNewEventBox(eventJson) {
     const pickDayDiv = document.getElementById("currentDay");
     const startTimeInput = document.getElementById("startTime");
     const endTimeInput = document.getElementById("endTime");
+    const eventColor = document.getElementById('eventColor');
+    eventColor.style.backgroundColor = '';
     if (pickDayDiv) {
       const pickDay = pickDayDiv.getAttribute('data-day');
       startTimeInput.value = pickDay + "T00:00";

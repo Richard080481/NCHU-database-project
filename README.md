@@ -1,4 +1,11 @@
 # NCHU-database-project
+
+## 2023/12/12
+- 修改EventDiv color
+- 顯示Event tag name to EventDiv
+- 顯示event點點顏色
+- 夜間模式實現
+
 ## 2023/12/10
 - 修正Tag傳入值
 - 新增夜間模式按鈕及切換icon
