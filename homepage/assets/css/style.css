@@ -55,6 +55,7 @@ body{
         
 /*button bar--------------*/
 #buttonBar{
+    z-index: 0;
     display: flex;
     flex-wrap: wrap;
     background-color: #252423;
