@@ -34,6 +34,24 @@ const tagToColor = {
   "color15" : "#a79b8d",
 };
 
+const tagToInput = {
+  "color1" : "inputColor1",
+  "color2" : "inputColor2",
+  "color3" : "inputColor3",
+  "color4" : "inputColor4",
+  "color5" : "inputColor5",
+  "color6" : "inputColor6",
+  "color7" : "inputColor7",
+  "color8" : "inputColor8",
+  "color9" : "inputColor9",
+  "color10" : "inputColor10",
+  "color11" : "inputColor11",
+  "color12" : "inputColor12",
+  "color13" : "inputColor13",
+  "color14" : "inputColor14",
+  "color15" : "inputColor15",
+};
+
 function load() {
   const dt = new Date();
 
@@ -196,6 +214,7 @@ function openNewEventBox(eventJson) {
     }
     const eventColor = document.getElementById('eventColor');
     eventColor.style.backgroundColor = tagToColor[eventJson.tag];
+    eventColor.innerText = document.getElementById(tagToInput[eventJson.tag]).value;
     $("#describeText").val(eventJson.detail);
     $('#deleteButton').css('display', 'block');
   } else {
