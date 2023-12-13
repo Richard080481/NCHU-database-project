@@ -1,5 +1,9 @@
 # NCHU-database-project
 
+## 2023/12/13
+- 完成夜間模式
+- 顯示tag預設值與設定值
+
 ## 2023/12/12
 - 修改EventDiv color
 - 顯示Event tag name to EventDiv
