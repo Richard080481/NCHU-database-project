@@ -34,6 +34,7 @@ const tagToColor = {
   "color15" : "#a79b8d",
 };
 
+
 const tagToInput = {
   "color1" : "inputColor1",
   "color2" : "inputColor2",
@@ -87,9 +88,9 @@ function load() {
     const daySquare = document.createElement('div');
     daySquare.classList.add('day');
     const dayString = `${year}-${(month + 1).toString().padStart(2, '0')}-${(i - paddingDays).toString().padStart(2, '0')}`;
-    daySquare.setAttribute('data-day', dayString)
-
+    
     if (i > paddingDays) {
+      daySquare.setAttribute('data-day', dayString)
       const dayNumP = document.createElement("p");
       dayNumP.innerText = i - paddingDays;
       dayNumP.classList.add("dayNumP");
@@ -134,6 +135,7 @@ function closeModal() {
   backDrop.style.display = 'none';
   eventTitleInput.value = '';
   clicked = null;
+  document.querySelector('.swatchy-element').style.display = 'none';
 }
 
 function saveAndEditEvent() {
@@ -214,7 +216,8 @@ function openNewEventBox(eventJson) {
     }
     const eventColor = document.getElementById('eventColor');
     eventColor.style.backgroundColor = tagToColor[eventJson.tag];
-    eventColor.innerText = document.getElementById(tagToInput[eventJson.tag]).value;
+    const inputColor = document.getElementById(tagToInput[eventJson.tag]);
+    eventColor.value = inputColor.value;
     $("#describeText").val(eventJson.detail);
     $('#deleteButton').css('display', 'block');
   } else {
@@ -225,6 +228,7 @@ function openNewEventBox(eventJson) {
     const endTimeInput = document.getElementById("endTime");
     const eventColor = document.getElementById('eventColor');
     eventColor.style.backgroundColor = '';
+    eventColor.value = '';
     if (pickDayDiv) {
       const pickDay = pickDayDiv.getAttribute('data-day');
       startTimeInput.value = pickDay + "T00:00";
@@ -260,36 +264,162 @@ function checkTheDay(dayDIV) {
   const date = new Date(dateString);
   const day = date.getDate();
   pickDayDisplay.innerText = `${day} ${date.toLocaleDateString('en-us', { month: 'short' })} `;
-  loadADayEvent(userID, dateString);
+  resetTask(dateString)
 }
 
-function checkTheMonth() {
-  const dateString = pickMonthDisplay.getAttribute('data-day');
-  showMonth = dateString;
-  pickDayDisplay.innerText = `${day} ${date.toLocaleDateString('en-us', { month: 'short' })} `;
-  loadAMonthEvent(userID, dateString);
+function resetTask(dateString){
+  $('#EventBox').empty();
+  loadADayEvent(userID, dateString);
+  loadRepeatEvent(userID, 'task');
+  
 }
 
 function gototoday() {
   nav = 0;
   pickDay = today;
   load();
-  loadAMonthEvent(userID, thisMonth);
-  loadADayEvent(userID, today);
+  loadCalendar(userID, thisMonth, today);
 }
 
 function nextMonth() {
   nav++;
   load();
-  loadAMonthEvent(userID, showMonth);
-  loadADayEvent(userID, pickDay);
+  loadCalendar(userID, showMonth, pickDay);
 }
 
 function backMonth() {
   nav--;
   load();
-  loadAMonthEvent(userID, showMonth);
-  loadADayEvent(userID, pickDay);
+  loadCalendar(userID, showMonth, pickDay);
+}
+
+
+function loadRepeatEvent(userID, place){
+  $.ajax({
+    url: "assets/php/searchRepeatEvent.php",
+    method: "post",
+    dataType: "json",
+    data: { 'userID': userID},
+    success: function (json) {
+      //console.log(json);
+      if(place == 'calendar'){
+        showRepeatEventforCalendar(json);
+      }else if(place == 'task'){
+        showRepeatEventforTask(json);
+        addDayEventClick();
+      }else if(place == 'schedule'){
+        showRepeatEventforSchedule(json);
+        addMonthEventClick();
+      }
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
+
+function showRepeatEventforSchedule(allEventJson){
+  allEventJson.forEach(function(event){
+    const SY = showMonth.substring(0, 4);
+    const SM = showMonth.substring(5, 7);
+    const startTimeDate = new Date (event.startTime);
+    const Y = startTimeDate.getFullYear();
+    const M = startTimeDate.getMonth() + 1;
+    const D = startTimeDate.getDate();
+
+    if(event.duplicate == 7){
+      if(SY > Y || (SY == Y && SM > M)){
+        $('#scheduleBox').append(createScheduleDiv(event));
+      }
+    }else if(event.duplicate == 30){
+      if(SY > Y || (SY == Y && SM > M)){
+        $('#scheduleBox').append(createScheduleDiv(event));
+      }
+    }else if(event.duplicate == 365){
+      if((SY > Y && SM == M)){
+        $('#scheduleBox').append(createScheduleDiv(event));
+      }
+    }
+
+  })
+}
+
+function showRepeatEventforTask(allEventJson){
+  allEventJson.forEach(function(event){
+    const PY = pickDay.substring(0, 4);
+    const PM = pickDay.substring(5, 7);
+    const PD = pickDay.substring(8, 10);
+    const pickDate = new Date(pickDay);
+    const startTimeDate = new Date (event.startTime);
+    const Y = startTimeDate.getFullYear();
+    const M = startTimeDate.getMonth() + 1;
+    const D = startTimeDate.getDate();
+
+    if(event.duplicate == 7){
+      if(PY > Y || (PY == Y && PM > M) || (PY == Y && PM == M && PD > D)){
+        if(pickDate.getDay() == startTimeDate.getDay()){
+          $('#EventBox').append(createEventDiv(event, pickDay));
+        }
+      }
+    }else if(event.duplicate == 30){
+      if((PY > Y || (PY == Y && PM > M)) && PD == D){
+        $('#EventBox').append(createEventDiv(event, pickDay));
+      }
+    }else if(event.duplicate == 365){
+      if((PY > Y && PM == M  && PD == D)){
+        $('#EventBox').append(createEventDiv(event, pickDay));
+      }
+    }
+  });
+}
+
+function showRepeatEventforCalendar(allEventJson){
+  allEventJson.forEach(function(event){
+    const SY = showMonth.substring(0, 4);
+    const SM = showMonth.substring(5, 7);
+    const startTimeDate = new Date (event.startTime);
+    const Y = startTimeDate.getFullYear();
+    const M = startTimeDate.getMonth() + 1;
+    const D = startTimeDate.getDate();
+
+    if(event.duplicate == 7){
+      const dayOfWeek = startTimeDate.getDay();
+      if(SY > Y || (SY == Y && SM > M)){
+        const calendar = document.getElementById('calendar');
+        const dayOfCalendar = calendar.querySelectorAll('.day');
+        for(let i=dayOfWeek; i<dayOfCalendar.length; i+=7){
+          if(!dayOfCalendar[i].classList.contains('padding')){
+            const dayDiv = dayOfCalendar[i];
+            createAPoint(dayDiv, event);
+          }
+        }
+      }else if(SY == Y && SM == M){
+        let i = D+7;
+        while(i<=31){
+          const eventDate = `${SY}-${(SM).toString().padStart(2, '0')}-${(i).toString().padStart(2, '0')}`;
+          const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
+          if(dayDiv){
+            createAPoint(dayDiv, event);
+          }
+          i+=7;
+        }
+      }
+    }else if(event.duplicate == 30){
+      if(SY > Y || (SY == Y && SM > M)){
+        const eventDate = `${SY}-${(SM).toString().padStart(2, '0')}-${(D).toString().padStart(2, '0')}`;
+        const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
+        if(dayDiv){
+          createAPoint(dayDiv, event);
+        }
+      }
+    }else if(event.duplicate == 365){
+      if((SY > Y && SM == M)){
+        const eventDate = `${SY}-${(M).toString().padStart(2, '0')}-${(D).toString().padStart(2, '0')}`;
+        const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
+        createAPoint(dayDiv, event);
+      }
+    }
+  })
 }
 
 
@@ -300,10 +430,9 @@ function loadAMonthEvent(userID, m) {
     dataType: "json",
     data: { 'userID': userID, 'month': m },
     success: function (json) {
-      //console.log(json);
       showAMonthCalendar(json, m);
       showAMonthSchedule(json, m);
-      addMonthEventClick();
+      loadRepeatEvent(userID, 'schedule');
     },
     error: function (err) {
       console.log(err);
@@ -320,7 +449,6 @@ function loadADayEvent(userID, dateString) {
     success: function (json) {
       //console.log(json);
       showADayEvent(json, dateString);
-      addDayEventClick();
     },
     error: function (err) {
       console.log(err);
@@ -340,11 +468,11 @@ function showAMonthCalendar(allEventJson, m) {
 function showAMonthSchedule(allEventJson, m) {
   $('#scheduleBox').empty();
   allEventJson.forEach(function (event) {
-    $('#scheduleBox').append(createScheduleDiv(allEventJson, event));
+    $('#scheduleBox').append(createScheduleDiv(event));
   })
 }
 
-function createScheduleDiv(allEventJson, event) {
+function createScheduleDiv(event) {
   var $eventDiv = $('<div>').addClass('event monthEvent');
   $eventDiv.attr('data-scheduleID', event.scheduleID);
   var $eventTimeDiv = $('<div>').addClass('eventTime');
@@ -353,32 +481,33 @@ function createScheduleDiv(allEventJson, event) {
   const startD = startTimeDate.getDate();
   const formattedStartTime = `${startD.toString().padStart(2, '0')}`;
   var $eventStartDiv = $('<div>').addClass('eventStart');
-// Assuming event.tag is the tag value
-  var colorInputIds = {
-    "color1": "inputColor1",
-    "color2": "inputColor2",
-    "color3": "inputColor3",
-    "color4": "inputColor4",
-    "color5": "inputColor5",
-    "color6": "inputColor6",
-    "color7": "inputColor7",
-    "color8": "inputColor8",
-    "color9": "inputColor9",
-    "color10": "inputColor10",
-    "color11": "inputColor11",
-    "color12": "inputColor12",
-    "color13": "inputColor13",
-    "color14": "inputColor14",
-    "color15": "inputColor15"
-  };
+  var $eventEndDiv = $('<div>').addClass('eventEnd');
+  colorText = document.getElementById(tagToInput[event.tag]).value || '';
+  if(event.duplicate == 0){
+    $eventStartDiv.text(formattedStartTime);
+    $eventEndDiv.text(colorText);
+  }else if(event.duplicate == 7){
+    const W = startTimeDate.getDay();
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    $eventStartDiv.text(`每周`);
+    $eventEndDiv.text(`${weekdays[W]}`);
+  }else if(event.duplicate == 30){
+    const D = startTimeDate.getDate();
+    $eventStartDiv.text('每月');
+    $eventEndDiv.text(`${(D).toString().padStart(2, '0')}`);
+  }else if(event.duplicate == 365){
+    const M = startTimeDate.getMonth()+1;
+    const D = startTimeDate.getDate();
+    $eventStartDiv.text('每年');
+    $eventEndDiv.text(`${(M).toString().padStart(2, '0')}/${(D).toString().padStart(2, '0')}`)
+  }
 
-  colorText = ' ' + (document.getElementById(colorInputIds[event.tag])?.value || '');
-
-  $eventStartDiv.text(formattedStartTime + colorText);
-
-  $eventTimeDiv.append($eventStartDiv);
+  $eventTimeDiv.append($eventStartDiv, $eventEndDiv);
   var $eventTagColorDiv = $('<div>').addClass('eventTagColor darkmode-ignore').addClass(event.tag);
   var $eventNameP = $('<p>').addClass('eventName').text(event.name);
+  if(event.duplicate!=0){
+    $eventNameP = $('<p>').addClass('eventName').text(event.name + '　♾️');
+  }
   $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
   return $eventDiv
 }
@@ -392,13 +521,11 @@ function addMonthEventClick() {
 }
 
 function showADayEvent(allEventJson, d) {
-  $('#EventBox').empty();
   allEventJson.forEach(function (event) {
     $('#EventBox').append(createEventDiv(event, d));
   })
 }
 
-// TODO: 修改，多天事件發生時
 function addPointToCalendar(event) {
   const startTimeDate = new Date(event.startTime);
   const endTimeDate = new Date(event.endTime);
@@ -410,12 +537,16 @@ function addPointToCalendar(event) {
 
     const eventDate = `${Y}-${(M + 1).toString().padStart(2, '0')}-${(D).toString().padStart(2, '0')}`;
     const dayDiv = document.querySelector(`[data-day="${eventDate}"]`);
-    const eventPointDiv = dayDiv.querySelector('.eventPointDiv');
-    const pointDiv = document.createElement("div");
-    pointDiv.classList.add("point", event.tag);
-    eventPointDiv.appendChild(pointDiv);
+    createAPoint(dayDiv, event)
     startTimeDate.setDate(startTimeDate.getDate() + 1);
   }
+}
+
+function createAPoint(dayDiv, event){
+  const eventPointDiv = dayDiv.querySelector('.eventPointDiv');
+  const pointDiv = document.createElement("div");
+  pointDiv.classList.add("point", event.tag);
+  eventPointDiv.appendChild(pointDiv);
 }
 
 function createEventDiv(event, day) {
@@ -459,10 +590,18 @@ function createEventDiv(event, day) {
     if (sD === DD) {
       $eventStartDiv.text(formattedStartTime);
       $eventEndDiv.text('23:59');
+      if(formattedStartTime == '00:00'){
+        $eventStartDiv.text('All');
+        $eventEndDiv.text('day');
+      }
       // 為多天的最後一天
     } else if (eD === DD) {
       $eventStartDiv.text('00:00');
       $eventEndDiv.text(formattedEndTime);
+      if(formattedEndTime == '23:59'){
+        $eventStartDiv.text('All');
+        $eventEndDiv.text('day');
+      }
       // 為區間內
     } else {
       $eventStartDiv.text('All');
@@ -472,7 +611,7 @@ function createEventDiv(event, day) {
   }
 
   $eventTimeDiv.append($eventStartDiv, $eventEndDiv);
-  var $eventTagColorDiv = $('<div>').addClass('eventTagColor');
+  var $eventTagColorDiv = $('<div>').addClass('eventTagColor').addClass(event.tag);
   var $eventNameP = $('<p>').addClass('eventName').text(event.name);
   $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
   return $eventDiv
@@ -574,15 +713,19 @@ function initButtons() {
   document.getElementById('nextButton').addEventListener('click', nextMonth);
   document.getElementById('backButton').addEventListener('click', backMonth);
   document.getElementById('quickaddEventBtn').addEventListener('click', openNewEventBox);
-  //document.getElementById('colorPciker').addEventListener('click', openColorBox);
   document.getElementById('TodayButton').addEventListener('click', gototoday);
   document.getElementById('saveButton').addEventListener('click', saveAndEditEvent);
   document.getElementById('deleteButton').addEventListener('click', deleteEvent);
   document.getElementById('darkMode').addEventListener('click', toggleDarkMode);
 }
 
+function loadCalendar(userID, month, day){
+  doubleClickAddEvent();
+  loadAMonthEvent(userID, month);
+  resetTask(day);
+  loadRepeatEvent(userID, 'calendar');
+}
+
 initButtons();
 load();
-doubleClickAddEvent();
-loadAMonthEvent(userID, thisMonth);
-loadADayEvent(userID, today);
+loadCalendar(userID, thisMonth, today);

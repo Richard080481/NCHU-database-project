@@ -2,27 +2,28 @@ const faker = require('faker');
 const mysql = require('mysql2/promise');
 
 const eventNames = [
-    "Team Retreat",
-    "Product Launch",
-    "Review Meeting",
-    "Customer Appreciation",
-    "Innovation Summit",
-    "Leadership Workshop",
-    "Company Picnic",
-    "Project Kickoff",
-    "Financial Review",
-    "Networking Breakfast",
-    "Recognition Ceremony",
-    "Business Expo",
-    "Innovation Hackathon",
-    "Client Showcase",
-    "Charity Drive",
-    "Roundtable Discussion",
-    "Collaboration Workshop",
-    "Sales Seminar",
-    "Volunteer Day",
-    "Planning Retreat",
-];
+    "就業講座",
+    "社團博覽",
+    "學術論壇",
+    "專業實習",
+    "創業比賽",
+    "導師計畫",
+    "學科競賽",
+    "職涯工作",
+    "留學講座",
+    "交換計畫",
+    "文化展演",
+    "語言交流",
+    "實習博覽",
+    "專業培訓",
+    "學生會議",
+    "科技競賽",
+    "藝術展覽",
+    "校園音樂",
+    "志願服務",
+    "學術講座"
+  ];
+
 
 const generateFakeEvent = () => {
     const startDateTime = new Date('2023-12-01T00:00:00'); // Start of December 2023
@@ -35,7 +36,7 @@ const generateFakeEvent = () => {
         name: eventNames[Math.floor(Math.random() * eventNames.length)],
         startTime: randomStartTime,
         endTime: randomEndTime,
-        duplicate: faker.random.arrayElement([0, 1, 7, 30, 365]),
+        duplicate: faker.random.arrayElement([0, 7, 30, 365]),
         tag: `color${Math.floor(Math.random() * 15) + 1}`
     };
 };
@@ -85,6 +86,19 @@ const getAllUsers = async () => {
     }
 };
 
+const createEventsForAUser = async () => {
+    try {
+        await createFakeEvents(1, 100);
+        console.log('Events created successfully for user 1');
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
+createEventsForAUser();
+
+/*
+
 getAllUsers()
     .then(users => {
         // Process each user sequentially
@@ -98,4 +112,4 @@ getAllUsers()
         console.error('Error:', error);
     });
 
-
+*/

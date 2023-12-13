@@ -21,8 +21,7 @@
 
     // POST
     $userid = $_POST['userID'];
-    $month = $_POST['month'];
-    $sql = "SELECT name,startTime,endTime,tag,scheduleID,duplicate FROM users, schedules where schedules.userID=users.userID and users.userID='$userid' and schedules.startTime LIKE '%$month%'";
+    $sql = "SELECT name,startTime,endTime,tag,scheduleID,duplicate FROM users, schedules where schedules.userID=users.userID and users.userID='$userid' and schedules.duplicate!=0";
     $sql .= " ORDER BY schedules.startTime ASC";   
     $result = $conn->query($sql);
 

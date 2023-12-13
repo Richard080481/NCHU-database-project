@@ -143,8 +143,7 @@
 						<!-- color picker -->
 
 						<div id="classColor">
-							<button class="swatchy-trigger" id="colorPciker" type="button"><i
-							class="material-icons">colorize</i></button>
+							<button class="swatchy-trigger" id="colorPciker" type="button"><i class="material-icons">colorize</i></button>
 							<div class="showColor">
 								<input type="text" class="swatchy-output" id="eventColor" disabled>
 							</div>
@@ -163,7 +162,6 @@
 						</div>
 
 						<select id="repeat-select">
-							<option value="1">每日</option>
 							<option value="7">每周</option>
 							<option value="30">每月</option>
 							<option value="365">每年</option>
@@ -229,8 +227,8 @@
 		<script src="assets/js/materialize.js"></script>
 		<script src="assets/js/globalVariable.js"></script>
 		<script src = "assets/js/search.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 		<script src="assets/js/swatchy.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 		<script src="assets/js/calendar.js"></script>
 	</body>
 </html>

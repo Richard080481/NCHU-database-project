@@ -22,7 +22,7 @@
     // POST
     $userid = $_POST['userID'];
     $day = $_POST['day'];
-    $sql = "SELECT name,startTime,endTime,tag,scheduleID FROM users, schedules where schedules.userID=users.userID and users.userID='$userid'";
+    $sql = "SELECT name,startTime,endTime,tag,scheduleID,duplicate FROM users, schedules where schedules.userID=users.userID and users.userID='$userid'";
     $sql .= " and (schedules.startTime <= '$day 23:59:59' AND schedules.endTime >= '$day 00:00:00')";
     $sql .= " ORDER BY schedules.startTime ASC";  
     $result = $conn->query($sql);

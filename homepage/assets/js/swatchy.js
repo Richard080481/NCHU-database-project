@@ -1,24 +1,48 @@
-let hasSwatchyRun = false;
+let swatches = [
+    { color: "#64CCC5", tag: "預設" },
+    { color: "#009788", tag: "" },
+    { color: "#039be6", tag: "" },
+    { color: "#f5511e", tag: "" },
+    { color: "#ef6c00", tag: "" },
+    { color: "#ef9300", tag: "" },
+    { color: "#ad1457", tag: "" },
+    { color: "#d81a60", tag: "" },
+    { color: "#d60000", tag: "" },
+    { color: "#7986cc", tag: "" },
+    { color: "#b39ddb", tag: "" },
+    { color: "#9e69af", tag: "" },
+    { color: "#795547", tag: "" },
+    { color: "#616161", tag: "" },
+    { color: "#a79b8d", tag: "" },
+]
 
+function loadUserTagName(userID){
+    $.ajax({
+        url: "assets/php/searchColorTag.php",
+        method: "post",
+        dataType: "json",
+        data: { 'userID': userID},
+        success: function (json) {
+            //console.log(json);
+            showTagName(json[0]);
+            Swatchy();
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+function showTagName(json){
+    const arrayOfValue = Object.values(json);
+    for(let i=1; i<arrayOfValue.length; i++){
+        swatches[i-1].tag = arrayOfValue[i];
+    }
+}
+
+let hasSwatchyRun = false;
 function Swatchy(
     autoClose = true,
-    swatches = [
-        { color: "#64CCC5", tag: "預設" },
-        { color: "#009788", tag: "" },
-        { color: "#039be6", tag: "" },
-        { color: "#f5511e", tag: "" },
-        { color: "#ef6c00", tag: "" },
-        { color: "#ef9300", tag: "" },
-        { color: "#ad1457", tag: "" },
-        { color: "#d81a60", tag: "" },
-        { color: "#d60000", tag: "" },
-        { color: "#7986cc", tag: "" },
-        { color: "#b39ddb", tag: "" },
-        { color: "#9e69af", tag: "" },
-        { color: "#795547", tag: "" },
-        { color: "#616161", tag: "" },
-        { color: "#a79b8d", tag: "" },
-    ]
 ) {
     if (!hasSwatchyRun) {
         hasSwatchyRun = true;
@@ -63,7 +87,7 @@ function Swatchy(
             }
 
             let editBut = document.createElement('button');
-            editBut.id = "colorPicker";
+            editBut.id = "editcolorPicker";
             editBut.onclick = function () {
                 toggleEdit();
             };
@@ -111,14 +135,14 @@ function Swatchy(
 
                 inputs.forEach(input => {
                     tags.push(input.value);
-                    console.log(input.value);
+                    //console.log(input.value);
                 });
 
                 let passData = {
                     passUserID: passUserID,
                     tags: tags,
                 };
-                console.log(passData)
+                //console.log(passData)
 
                 // Send the data to colorTag.php using fetch
                 fetch('assets/php/colorTag.php', {
@@ -141,8 +165,7 @@ function Swatchy(
                 let input = document.querySelectorAll('.swatchy-output').item(id);
                 let newColor = e.target.getAttribute('data-swatchy-color');
                 let tagText = e.target.nextSibling.value;
-
-                input.setAttribute('value', tagText);
+                input.value = tagText;
                 input.setAttribute('data-swatchy-color', newColor);
                 input.setAttribute('style', 'background-color: ' + newColor + '; color: #ffffff;');
 
@@ -167,4 +190,5 @@ function Swatchy(
     }
 }
 
-Swatchy();
+loadUserTagName(userID);
+
