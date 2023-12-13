@@ -164,9 +164,9 @@ function saveAndEditEvent() {
       "#616161": "color14",
       "#a79b8d": "color15",
     };
-    
+
     const colorValue = eventColor.getAttribute('data-swatchy-color');
-    tagNum = colorMappings[colorValue] || "color1";    
+    tagNum = colorMappings[colorValue] || "color1";
     eventTitleInput.classList.remove('error');
     var eventData = {
       title: eventTitleInput.value,
@@ -506,7 +506,10 @@ function createScheduleDiv(event) {
   var $eventTagColorDiv = $('<div>').addClass('eventTagColor darkmode-ignore').addClass(event.tag);
   var $eventNameP = $('<p>').addClass('eventName').text(event.name);
   if(event.duplicate!=0){
-    $eventNameP = $('<p>').addClass('eventName').text(event.name + '　♾️');
+  var $eventNameP = $('<p>').addClass('eventName').text(event.name);
+  var $icon = $('<i>').addClass('material-icons').text('all_inclusive');
+  $eventNameP = $eventNameP.add($icon);
+
   }
   $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
   return $eventDiv
