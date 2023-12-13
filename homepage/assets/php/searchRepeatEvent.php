@@ -22,17 +22,17 @@
     // POST
     $userid = $_POST['userID'];
     $sql = "SELECT name,startTime,endTime,tag,scheduleID,duplicate FROM users, schedules where schedules.userID=users.userID and users.userID='$userid' and schedules.duplicate!=0";
-    $sql .= " ORDER BY schedules.startTime ASC";   
+    $sql .= " ORDER BY schedules.startTime ASC";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        
+
         while($row = $result->fetch_assoc()){
             array_push($resArray,$row);
         }
     }
-    
-    $conn->close();
 
     echo json_encode($resArray);
+    $conn->close();
+
 ?>

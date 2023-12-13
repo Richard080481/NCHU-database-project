@@ -68,15 +68,15 @@ body{
 
 #buttonBar div{
     width: 25%;
-    -webkit-transition:background 0.5s linear; 
-    -moz-transition:background 0.5s linear; 
-    -ms-transition:background 0.5s linear; 
-    -o-transition:background 0.5s linear; 
+    -webkit-transition:background 0.5s linear;
+    -moz-transition:background 0.5s linear;
+    -ms-transition:background 0.5s linear;
+    -o-transition:background 0.5s linear;
     transition:background 0.5s linear;
-    -webkit-transition:color 0.5s ease; 
-    -moz-transition:color 0.5s ease; 
-    -ms-transition:color 0.5s ease; 
-    -o-transition:color 0.5s ease; 
+    -webkit-transition:color 0.5s ease;
+    -moz-transition:color 0.5s ease;
+    -ms-transition:color 0.5s ease;
+    -o-transition:color 0.5s ease;
     transition:color 0.5s ease;
 }
 
@@ -151,10 +151,10 @@ body{
 }
 
 .sideBarIcon :hover{
-    -webkit-transition:background 0.2s linear; 
-    -moz-transition:background 0.2s linear; 
-    -ms-transition:background 0.2s linear; 
-    -o-transition:background 0.2s linear; 
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+    -ms-transition:background 0.2s linear;
+    -o-transition:background 0.2s linear;
     transition:background 0.2s linear;
     background-color: #8BBF9F;
 }
@@ -221,19 +221,19 @@ body{
 ::-webkit-scrollbar {
     width: 15px;
   }
-  
+
   /* 網頁捲軸【背景】顏色 */
   ::-webkit-scrollbar-track {
     background: #201f1d;
   }
-  
+
   /* 網頁捲軸【把手】顏色 */
   ::-webkit-scrollbar-thumb {
     background: #ffffff;
   }
-  
+
   /* 網頁捲軸【滑過時】把手的顏色 */
   ::-webkit-scrollbar-thumb:hover {
     background: #676a81;
-    
+
   }

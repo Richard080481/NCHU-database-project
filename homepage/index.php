@@ -30,7 +30,12 @@
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
 		<!-- For favicon png -->
 		<link rel="shortcut icon" type="image/icon" href="assets/logo/cactus.png">
-	</head>
+    <script>
+			const userName = "<?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?>";
+			const userID = "<?php echo isset($_SESSION['USERID']) ? $_SESSION['USERID'] : ''; ?>";
+			console.log(userID);
+		</script>
+  </head>
 	<body>
 		<div class="wrapper">
 		<!---header start--->
@@ -216,18 +221,12 @@
 		</div>
 		<!-- Compiled and minified JavaScript -->
 
-		<script>
-			const userName = "<?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?>";
-			const userID = "<?php echo isset($_SESSION['USERID']) ? $_SESSION['USERID'] : ''; ?>";
-			//console.log(userID);
-		</script>
-
-    <script src="assets/js/jquery.js"></script>
-		<script src="assets/js/materialize.js"></script>
-		<script src="assets/js/globalVariable.js"></script>
-		<script src = "assets/js/search.js"></script>
+    <script src="assets/js/jquery.js" async></script>
+		<script src="assets/js/materialize.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-		<script src="assets/js/swatchy.js"></script>
+		<script src="assets/js/globalVariable.js"></script>
+		<script src ="assets/js/search.js"></script>
+		<script src="assets/js/swatchy.js" ></script>
 		<script src="assets/js/calendar.js"></script>
 	</body>
 </html>

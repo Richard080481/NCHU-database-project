@@ -53,6 +53,23 @@ const tagToInput = {
   "color15" : "inputColor15",
 };
 
+function loadSchedule() {
+  const scheduleid = $(this).attr('data-scheduleid');
+  $.ajax({
+    url: "assets/php/searchScheduleID.php",
+    method: "post",
+    dataType: "json",
+    data: { 'scheduleID': scheduleid },
+    success: function (json) {
+      //console.log(json);
+      openNewEventBox(json[0]);
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
+
 function load() {
   const dt = new Date();
 
@@ -271,7 +288,6 @@ function resetTask(dateString){
   $('#EventBox').empty();
   loadADayEvent(userID, dateString);
   loadRepeatEvent(userID, 'task');
-  
 }
 
 function gototoday() {
@@ -636,23 +652,6 @@ function showTheSelectBox() {
   });
 }
 
-function loadSchedule() {
-  const scheduleid = $(this).attr('data-scheduleid');
-  $.ajax({
-    url: "assets/php/searchScheduleID.php",
-    method: "post",
-    dataType: "json",
-    data: { 'scheduleID': scheduleid },
-    success: function (json) {
-      //console.log(json);
-      openNewEventBox(json[0]);
-    },
-    error: function (err) {
-      console.log(err);
-    }
-  });
-}
-
 function deleteEvent() {
   $.ajax({
     url: "assets/php/deleteEvent.php",
@@ -729,6 +728,9 @@ function loadCalendar(userID, month, day){
   loadRepeatEvent(userID, 'calendar');
 }
 
-initButtons();
-load();
-loadCalendar(userID, thisMonth, today);
+window.onload = function () {
+  initButtons();
+  load();
+  loadCalendar(userID, thisMonth, today);
+};
+
