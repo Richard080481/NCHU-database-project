@@ -16,7 +16,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- Compiled and minified CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link rel="stylesheet" href="assets/css/materialize.css">
 		<link rel="stylesheet" href="assets/css/indexgrid.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="stylesheet" href="assets/css/calendarStyle.css">
@@ -226,10 +226,11 @@
 
 
 		<script src="assets/js/jquery.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="assets/js/materialize.js"></script>
 		<script src="assets/js/globalVariable.js"></script>
 		<script src = "assets/js/search.js"></script>
 		<script src="assets/js/swatchy.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 		<script src="assets/js/calendar.js"></script>
 	</body>
 </html>

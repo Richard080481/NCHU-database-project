@@ -43,7 +43,7 @@ body{
 }
 
 .nav-wrapper li:hover{
-    background-color: #6a1b9a;
+    background-color: #8BBF9F;
 }
 
 #header button{
@@ -91,7 +91,7 @@ body{
 }
 
 #buttonBar div:hover{
-    background-color: #6a1b9a ;
+    background-color: #8BBF9F ;
     color: #ffffff;
 }
 
@@ -151,7 +151,7 @@ body{
     -ms-transition:background 0.2s linear; 
     -o-transition:background 0.2s linear; 
     transition:background 0.2s linear;
-    background-color: #6a1b9a;
+    background-color: #8BBF9F;
 }
 
 
