@@ -79,6 +79,7 @@ function load() {
 
       const eventPointDiv = document.createElement("div");
       eventPointDiv.classList.add("eventPointDiv");
+      eventPointDiv.classList.add("darkmode-ignore");
       daySquare.appendChild(eventPointDiv);
 
       if (i - paddingDays === day && nav === 0) {
@@ -357,7 +358,7 @@ function createScheduleDiv(allEventJson, event) {
   $eventStartDiv.text(formattedStartTime + colorText);
 
   $eventTimeDiv.append($eventStartDiv);
-  var $eventTagColorDiv = $('<div>').addClass('eventTagColor').addClass(event.tag);
+  var $eventTagColorDiv = $('<div>').addClass('eventTagColor darkmode-ignore').addClass(event.tag);
   var $eventNameP = $('<p>').addClass('eventName').text(event.name);
   $eventDiv.append($eventTimeDiv, $eventTagColorDiv, $eventNameP);
   return $eventDiv
