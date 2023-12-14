@@ -22,6 +22,15 @@
 		<link rel="stylesheet" href="assets/css/calendarStyle.css">
 		<link rel="stylesheet" href="assets/css/swatchy.css">
 
+		<!-- Compiled and minified JavaScript -->
+		<script src="assets/js/jquery.js" async></script>
+		<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+		<script src="assets/js/globalVariable.js"></script>
+		<script src="assets/js/search.js"></script>
+		<script src="assets/js/materialize.js" ></script>
+		<script src="assets/js/swatchy.js" ></script>
+		<script src="assets/js/calendar.js"></script>
+
 
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,7 +39,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
 		<!-- For favicon png -->
 		<link rel="shortcut icon" type="image/icon" href="assets/logo/cactus.png">
-    <script>
+    	<script>
 			const userName = "<?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME'] : ''; ?>";
 			const userID = "<?php echo isset($_SESSION['USERID']) ? $_SESSION['USERID'] : ''; ?>";
 			console.log(userID);
@@ -219,14 +228,6 @@
 			<div class="buttonbar"><a href="https://en.cppreference.com/w/"><img src="assets/images/cpp.svg"
 						class="btnicon">CppReference</a></div>
 		</div>
-		<!-- Compiled and minified JavaScript -->
-
-    <script src="assets/js/jquery.js" async></script>
-		<script src="assets/js/materialize.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-		<script src="assets/js/globalVariable.js"></script>
-		<script src ="assets/js/search.js"></script>
-		<script src="assets/js/swatchy.js" ></script>
-		<script src="assets/js/calendar.js"></script>
+		
 	</body>
 </html>

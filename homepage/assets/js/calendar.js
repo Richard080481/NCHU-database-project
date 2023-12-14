@@ -2,19 +2,8 @@ let nav = 0;
 let clicked = null;
 let showMonth = thisMonth;
 let pickDay = today;
-
-const pickMonthDisplay = document.getElementById('pickMonthDisplay');
-const pickDayDisplay = document.getElementById('pickDayDisplay');
-const calendar = document.getElementById('calendar');
-const newEventModal = document.getElementById('newEventModal');
-const deleteEventModal = document.getElementById('deleteEventModal');
-const backDrop = document.getElementById('modalBackDrop');
-const eventTitleInput = document.getElementById('eventTitleInput');
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const selectSwitch = document.getElementById('repeat-switch');
-const repeatSelect = document.getElementById('repeat-select');
-
-selectSwitch.checked = false;
+var pickMonthDisplay, pickDayDisplay, calendar, newEventModal, deleteEventModal, backDrop, eventTitleInput, weekdays, selectSwitch, repeatSelect;
+var darkModeIcon, darkmode;
 
 const tagToColor = {
   "color1" : "#64CCC5",
@@ -498,7 +487,8 @@ function createScheduleDiv(event) {
   const formattedStartTime = `${startD.toString().padStart(2, '0')}`;
   var $eventStartDiv = $('<div>').addClass('eventStart');
   var $eventEndDiv = $('<div>').addClass('eventEnd');
-  colorText = document.getElementById(tagToInput[event.tag]).value || '';
+  const inputColor = document.getElementById(tagToInput[event.tag]);
+  colorText = inputColor.value || '';
   if(event.duplicate == 0){
     $eventStartDiv.text(formattedStartTime);
     $eventEndDiv.text(colorText);
@@ -685,16 +675,6 @@ const options = {
   autoMatchOsTheme: true // default: true
 }
 
-const darkmode =  new Darkmode(options);
-
-
-var darkModeIcon = document.getElementById('darkMode');
-
-if(darkmode.isActivated()){
-  darkModeIcon.innerText = 'light_mode';
-}else{
-  darkModeIcon.innerText = 'dark_mode';
-}
 
 function toggleDarkMode() {
   var currentIcon = darkModeIcon.innerText;
@@ -729,8 +709,28 @@ function loadCalendar(userID, month, day){
 }
 
 window.onload = function () {
-  initButtons();
-  load();
-  loadCalendar(userID, thisMonth, today);
+  darkModeIcon = document.getElementById('darkMode');
+  darkmode =  new Darkmode(options);
+  if(darkmode.isActivated()){
+    darkModeIcon.innerText = 'light_mode';
+  }else{
+    darkModeIcon.innerText = 'dark_mode';
+  }
+  pickMonthDisplay = document.getElementById('pickMonthDisplay');
+  pickDayDisplay = document.getElementById('pickDayDisplay');
+  calendar = document.getElementById('calendar');
+  newEventModal = document.getElementById('newEventModal');
+  deleteEventModal = document.getElementById('deleteEventModal');
+  backDrop = document.getElementById('modalBackDrop');
+  eventTitleInput = document.getElementById('eventTitleInput');
+  weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  selectSwitch = document.getElementById('repeat-switch');
+  repeatSelect = document.getElementById('repeat-select');
+  selectSwitch.checked = false;
+  loadUserTagName(userID, function() {
+    initButtons();
+    load();
+    loadCalendar(userID, thisMonth, today);
+  });
 };
 

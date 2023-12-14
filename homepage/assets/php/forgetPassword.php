@@ -106,25 +106,14 @@
         <div id="logInBox">
             <div class="form">
 
-                <form class="signupFrom" method="post">
-                    <input type="hidden" name="signupform" value="1">
-                    <label for="signupName">User name</label>
-                    <input type="text" name="username" id="signupName"  placeholder="username" required/>
-
-                    <label for="signupEmail">Email</label>
-                    <input type="email" name="email" id="signupEmail"  placeholder="email" title="Please enter a valid email." required/>
-
-                    <label for="signupPasswd">Password</label>
-                    <input type="password" name="password"id="signupPasswd"  placeholder="password" required/>
-
-                    <label for="repeatPasswd">Repeat password</label>
-                    <input type="password" name="repeatpassword" id="repeatPasswd" placeholder="repeat password" required/>
-
-                    <button id="signupBtn">create</button>
-                    <p class="message">Already registered? <a href="#/signup">Log In</a></p>
+                <form class="forgetPWFrom" method="post">
+                    <input type="hidden" name="forgetPWFrom" value="1">
+                    <label for="checkEmail">Email</label>
+                    <input type="email" name="email" id="checkEmail" placeholder="email" title="Please enter a valid email." required/>
+                    <button id="continueBtn">continue</button>
                 </form>
 
-                <form class="loginFrom" method="post" autocomplete="on">
+                <form class="loginFrom" method="post">
                     <input type="hidden" name="loginform" value="1">
                     <label for="loginEmail">Email</label>
                     <input type="email" name="email" id="loginEmail" placeholder="email" title="Please enter a valid email." required/>
@@ -140,7 +129,7 @@
                     <button id="loginBtn">login</button>
                     <p class="message">Not registered? <a href="#/login">Create an account</a></p>
                 </form>
-
+                
             </div>
         </div>
         <script src="../js/jquery.js"></script>

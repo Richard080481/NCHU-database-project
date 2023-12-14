@@ -16,7 +16,7 @@ let swatches = [
     { color: "#a79b8d", tag: "" },
 ]
 
-function loadUserTagName(userID){
+function loadUserTagName(userID, callback){
     $.ajax({
         url: "assets/php/searchColorTag.php",
         method: "post",
@@ -26,6 +26,7 @@ function loadUserTagName(userID){
             //console.log(json);
             showTagName(json[0]);
             Swatchy();
+            callback();
         },
         error: function (err) {
             console.log(err);
@@ -76,7 +77,7 @@ function Swatchy(
 
                 let inputTag = document.createElement('input');
                 inputTag.classList.add('swatchy-tag-input');
-                inputTag.setAttribute('id', 'inputColor' + i);
+                inputTag.id = `inputColor${i}`;
                 i++;
                 inputTag.value = swatch.tag;
                 inputTag.disabled = true;
@@ -190,5 +191,8 @@ function Swatchy(
     }
 }
 
-loadUserTagName(userID);
+
+//loadUserTagName(userID);
+
+
 
