@@ -103,8 +103,8 @@ function load() {
       daySquare.appendChild(dayNumP);
 
       const eventPointDiv = document.createElement("div");
-      eventPointDiv.classList.add("eventPointDiv");
       eventPointDiv.classList.add("darkmode-ignore");
+      eventPointDiv.classList.add("eventPointDiv");
       daySquare.appendChild(eventPointDiv);
 
       if (i - paddingDays === day && nav === 0) {
@@ -509,10 +509,10 @@ function createScheduleDiv(event) {
   }
 
   $eventTimeDiv.append($eventStartDiv, $eventEndDiv);
-  var $eventTagColorDiv = $('<div>').addClass('eventTagColor darkmode-ignore').addClass(event.tag);
+  var $eventTagColorDiv = $('<div>').addClass('eventTagColor').addClass(event.tag);
   var $eventNameP = $('<p>').addClass('eventName').text(event.name);
   if(event.duplicate!=0){
-  var $eventNameP = $('<p>').addClass('eventName').text(event.name);
+  var $eventNameP = $('<p>').addClass('eventName').addClass('darkmode-ignore').text(event.name);
   var $icon = $('<i>').addClass('material-icons').text('all_inclusive');
   $eventNameP = $eventNameP.add($icon);
 
@@ -698,7 +698,6 @@ function initButtons() {
   document.getElementById('TodayButton').addEventListener('click', gototoday);
   document.getElementById('saveButton').addEventListener('click', saveAndEditEvent);
   document.getElementById('deleteButton').addEventListener('click', deleteEvent);
-  document.getElementById('darkMode').addEventListener('click', toggleDarkMode);
 }
 
 function loadCalendar(userID, month, day){
