@@ -37,11 +37,11 @@ function checkLanguage() {
     translateBar.value = '';
 }
 
-window.onload = function(){
+function serchfucntion(){
     const searchInput = document.getElementById('searchBar');
     searchInput.addEventListener("keydown", function(event) {
         // Check if the pressed key is "Enter" (key code 13)
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13 || event.key === "Enter") {
             // Execute your search function or any other action here
             searchGoogle();
         }
@@ -50,7 +50,7 @@ window.onload = function(){
     const youtubeInput = document.getElementById('youtubeBar');
     youtubeInput.addEventListener("keydown", function(event) {
         // Check if the pressed key is "Enter" (key code 13)
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13 || event.key === "Enter") {
             // Execute your search function or any other action here
             searchYoutube();
         }
@@ -60,7 +60,7 @@ window.onload = function(){
     // Add an event listener for the "keydown" event
     translateBar.addEventListener('keydown', function(event) {
         // Check if the pressed key is "Enter" (key code 13)
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13 || event.key === "Enter") {
             // Call the function to check if the entered text is English
             checkLanguage();
         }

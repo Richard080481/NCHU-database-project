@@ -708,6 +708,7 @@ function loadCalendar(userID, month, day){
 }
 
 window.onload = function () {
+  serchfucntion();
   darkModeIcon = document.getElementById('darkMode');
   darkmode =  new Darkmode(options);
   if(darkmode.isActivated()){
