@@ -94,7 +94,7 @@
 
 #newEventModal {
   display: none;
-  z-index: 20;
+  z-index: 600;
   padding: 25px;
   background-color: #e8f4fa;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
