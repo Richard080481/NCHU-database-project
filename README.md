@@ -3,6 +3,7 @@
 ## 2023/12/18
 - 修復search bar功能
 - 修改darkmode button size
+- 修改darkmode-ignore的z-index
 
 ## 2023/12/14
 - 調整JS載入順序

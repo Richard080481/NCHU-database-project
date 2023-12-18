@@ -24,10 +24,10 @@
 
 		<!-- Compiled and minified JavaScript -->
 		<script src="assets/js/jquery.js" async></script>
-		<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 		<script src="assets/js/globalVariable.js"></script>
 		<script src="assets/js/search.js"></script>
 		<script src="assets/js/materialize.js" ></script>
+		<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 		<script src="assets/js/swatchy.js" ></script>
 		<script src="assets/js/calendar.js"></script>
 

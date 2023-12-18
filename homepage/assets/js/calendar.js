@@ -509,10 +509,10 @@ function createScheduleDiv(event) {
   }
 
   $eventTimeDiv.append($eventStartDiv, $eventEndDiv);
-  var $eventTagColorDiv = $('<div>').addClass('eventTagColor').addClass(event.tag);
+  var $eventTagColorDiv = $('<div>').addClass('eventTagColor').addClass(event.tag).addClass('darkmode-ignore');
   var $eventNameP = $('<p>').addClass('eventName').text(event.name);
   if(event.duplicate!=0){
-  var $eventNameP = $('<p>').addClass('eventName').addClass('darkmode-ignore').text(event.name);
+  var $eventNameP = $('<p>').addClass('eventName').text(event.name);
   var $icon = $('<i>').addClass('material-icons').text('all_inclusive');
   $eventNameP = $eventNameP.add($icon);
 

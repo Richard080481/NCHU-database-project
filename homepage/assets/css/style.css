@@ -14,6 +14,10 @@ body{
     z-index: 500;
   }
 
+.darkmode-ignore{
+    z-index: 501;
+}
+
 /*-header-------------------*/
 #header{
     position: fixed;
